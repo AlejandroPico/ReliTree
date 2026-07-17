@@ -9,7 +9,7 @@
   {#each regions as region}
     <button
       type="button"
-      style={`left:${camera.x + regionX(region) * camera.scale}px;width:${REGION_WIDTH * camera.scale}px;--region:${region.color}`}
+      style={`left:calc(${camera.x + regionX(region) * camera.scale}px - var(--axis-width));width:${REGION_WIDTH * camera.scale}px;--region:${region.color}`}
       onclick={() => onfocus(region.id)}
       aria-label={`Centrar ${region.name}`}
     >

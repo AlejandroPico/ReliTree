@@ -149,7 +149,7 @@ for (const entry of verifier.entries) insertVerifier.run([entry.name, entry.sect
 insertVerifier.free();
 
 db.run('PRAGMA optimize;');
-const output = resolve(root, 'public/data/reli3.sqlite');
+const output = resolve(root, 'public/data/relitree.sqlite');
 await mkdir(dirname(output), { recursive: true });
 await writeFile(output, db.export());
 db.close();

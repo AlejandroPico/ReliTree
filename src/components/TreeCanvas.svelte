@@ -43,7 +43,7 @@
   const labelScale = $derived(Math.min(70, Math.max(22, 12 / camera.scale)));
   const nodeRadius = $derived(Math.min(30, Math.max(8, 4.5 / camera.scale)));
 
-  const shownTraditions = $derived(positioned.filter((entry) => visibleIds.has(entry.id) && entry.importance <= detailLevel));
+  const shownTraditions = $derived(positioned.filter((entry) => visibleIds.has(entry.id) && entry.importance <= detailLevel && !entry.visual?.hidden));
   const shownSet = $derived(new Set(shownTraditions.map((entry) => entry.id)));
   const labelPositions = $derived.by(() => {
     const result = new Map<string, number>();
@@ -193,7 +193,7 @@
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'RELI3-atlas-vectorial.svg';
+    link.download = 'ReliTree-atlas-vectorial.svg';
     link.click();
     window.setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
@@ -252,9 +252,9 @@
           {@const maxOrder = Math.max(...affected.map((region) => region.order))}
           {@const x1 = WORLD_LEFT + minOrder * REGION_WIDTH + 20}
           {@const x2 = WORLD_LEFT + (maxOrder + 1) * REGION_WIDTH - 20}
-          <g class="event-marker">
-            <line class="event-line" x1={x1} x2={x2} y1={y} y2={y}/>
-            {#if showEventLabels}<text class="event-text" x={x1 + 10} y={y - 9}>{event.title} · {formatYear(event.year, true)}</text>{/if}
+          <g class="event-marker" opacity={event.visual?.opacity ?? 1}>
+            <line class="event-line" x1={x1} x2={x2} y1={y} y2={y} stroke={event.visual?.color} style={`stroke-width:${event.visual?.lineWidth ?? 1.2};stroke-dasharray:${event.visual?.lineDash ?? '7 7'}`}/>
+            {#if showEventLabels}<text class="event-text" x={x1 + 10} y={y - 9} fill={event.visual?.color}>{event.title} · {formatYear(event.year, true)}</text>{/if}
           </g>
         {/each}
       {/if}
@@ -263,9 +263,9 @@
         {#each shownTraditions as entry}
           {@const parent = entry.parentId ? byId.get(entry.parentId) : null}
           {#if parent && shownSet.has(parent.id)}
-            <path class={`parent-link relation-${entry.relationToParent}`} d={parentPath(entry, parent)} stroke={entry.region.color}/>
+            <path class={`parent-link relation-${entry.relationToParent}`} d={parentPath(entry, parent)} stroke={entry.visual?.parentLineColor ?? entry.region.color} style={`stroke-width:${entry.visual?.parentLineWidth ?? 2};${entry.visual?.parentLineDash ? `stroke-dasharray:${entry.visual.parentLineDash}` : ''}`}/>
           {/if}
-          <line class="branch" x1={entry.x} x2={entry.x} y1={entry.startY} y2={entry.endY} stroke={entry.region.color}/>
+          <line class="branch" x1={entry.x} x2={entry.x} y1={entry.startY} y2={entry.endY} stroke={entry.visual?.color ?? entry.region.color} style={`stroke-width:${entry.visual?.lineWidth ?? 3.5};stroke-dasharray:${entry.visual?.lineDash ?? ''}`} opacity={entry.visual?.opacity ?? .84}/>
         {/each}
       </g>
 
@@ -275,7 +275,7 @@
             {@const source = byId.get(relation.sourceId)}
             {@const target = byId.get(relation.targetId)}
             {#if source && target && shownSet.has(source.id) && shownSet.has(target.id)}
-              <path class={`cross-link relation-${relation.kind}`} d={relationPath(source, target)} stroke={source.region.color}/>
+              <path class={`cross-link relation-${relation.kind}`} d={relationPath(source, target)} stroke={relation.visual?.color ?? source.region.color} style={`stroke-width:${relation.visual?.lineWidth ?? 1.5};stroke-dasharray:${relation.visual?.lineDash ?? '7 7'}`} opacity={relation.visual?.opacity ?? .55}/>
             {/if}
           {/each}
         </g>
@@ -284,7 +284,9 @@
       <g class="tradition-nodes">
         {#each shownTraditions as entry (entry.id)}
           {@const lines = wrapLabel(entry.name)}
-          {@const labelOffset = (labelPositions.get(entry.id) ?? entry.startY) - entry.startY}
+          {@const labelOffset = (labelPositions.get(entry.id) ?? entry.startY) - entry.startY + (entry.visual?.labelOffsetY ?? 0) / camera.scale}
+          {@const labelX = (entry.visual?.labelOffsetX ?? 0) / camera.scale}
+          {@const entryRadius = entry.visual?.nodeRadius ? entry.visual.nodeRadius / camera.scale : nodeRadius}
           <g
             data-node
             class:selected={entry.id === selectedId}
@@ -296,14 +298,14 @@
             onclick={(event) => { event.stopPropagation(); onselect(entry); }}
             onkeydown={(event) => { if (event.key === 'Enter' || event.key === ' ') onselect(entry); }}
           >
-            <circle class="node-halo" r={nodeRadius * 1.9} fill={entry.region.color}/>
-            <circle class="node-dot" r={nodeRadius} fill={entry.status === 'historical' ? '#11151d' : entry.region.color}/>
-            {#if labelOffset > 1}<path class="label-leader" d={`M ${nodeRadius} 0 L ${nodeRadius} ${labelOffset}`} stroke={entry.region.color}/>{/if}
-            <text class="node-label" x={nodeRadius + 8 / camera.scale} y={labelOffset - ((lines.length - 1) * labelScale * .56)} style={`font-size:${labelScale}px`}>
-              {#each lines as line, index}<tspan x={nodeRadius + 8 / camera.scale} dy={index === 0 ? 0 : labelScale * 1.05}>{line}</tspan>{/each}
+            <circle class="node-halo" r={entryRadius * 1.9} fill={entry.visual?.color ?? entry.region.color}/>
+            <circle class="node-dot" r={entryRadius} fill={entry.status === 'historical' ? '#11151d' : (entry.visual?.color ?? entry.region.color)}/>
+            {#if labelOffset > 1}<path class="label-leader" d={`M ${entryRadius} 0 L ${entryRadius + labelX} ${labelOffset}`} stroke={entry.visual?.color ?? entry.region.color}/>{/if}
+            <text class="node-label" x={entryRadius + labelX + 8 / camera.scale} y={labelOffset - ((lines.length - 1) * labelScale * .56)} style={`font-size:${labelScale}px`}>
+              {#each lines as line, index}<tspan x={entryRadius + labelX + 8 / camera.scale} dy={index === 0 ? 0 : labelScale * 1.05}>{line}</tspan>{/each}
             </text>
             {#if detailLevel >= 2}
-              <text class="node-date" x={nodeRadius + 8 / camera.scale} y={labelOffset + (lines.length * labelScale * 1.05) + 5 / camera.scale} style={`font-size:${labelScale * .76}px`}>{formatYear(entry.startYear, true)}</text>
+              <text class="node-date" x={entryRadius + labelX + 8 / camera.scale} y={labelOffset + (lines.length * labelScale * 1.05) + 5 / camera.scale} style={`font-size:${labelScale * .76}px`}>{formatYear(entry.startYear, true)}</text>
             {/if}
           </g>
         {/each}

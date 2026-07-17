@@ -1,18 +1,19 @@
 {
-  "name": "reli3",
+  "name": "relitree",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Atlas cronológico y vectorial de religiones y tradiciones espirituales.",
+  "description": "ReliTree: atlas cronológico, vectorial y editable de religiones y tradiciones espirituales.",
   "engines": {
     "node": ">=24"
   },
   "scripts": {
     "data": "node scripts/generate-data.mjs",
     "database": "node scripts/build-database.mjs",
-    "predev": "npm run data && npm run database",
+    "editor": "node scripts/build-editor.mjs",
+    "predev": "npm run data && npm run editor && npm run database",
     "dev": "vite --host 0.0.0.0",
-    "prebuild": "npm run data && npm run database",
+    "prebuild": "npm run data && npm run editor && npm run database",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
     "check": "svelte-check --tsconfig ./tsconfig.json",

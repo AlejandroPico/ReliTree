@@ -1,9 +1,11 @@
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const output = resolve(root, 'src/data/atlas.json');
+const projectInput = resolve(root, 'data/reli-tree-project.json');
+const publicProjectOutput = resolve(root, 'public/data/reli-tree-project.json');
 const PRESENT = 2026;
 
 const regions = [
@@ -342,7 +344,7 @@ for (const relation of relations) {
   if (!ids.has(relation.sourceId) || !ids.has(relation.targetId)) throw new Error(`Relación inválida ${relation.id}`);
 }
 
-const atlas = {
+const defaultAtlas = {
   metadata: {
     generatedAt: '2026-07-17T00:00:00.000Z',
     version: '0.1.0',
@@ -355,6 +357,48 @@ const atlas = {
   relations
 };
 
+function validateAtlas(candidate) {
+  if (!candidate || !Array.isArray(candidate.regions) || !Array.isArray(candidate.traditions) || !Array.isArray(candidate.events) || !Array.isArray(candidate.relations)) {
+    throw new Error('El proyecto no contiene un atlas ReliTree válido.');
+  }
+  const candidateRegions = new Set(candidate.regions.map((entry) => entry.id));
+  const candidateIds = new Set(candidate.traditions.map((entry) => entry.id));
+  if (candidateIds.size !== candidate.traditions.length) throw new Error('Hay identificadores de tradiciones duplicados en el proyecto.');
+  for (const entry of candidate.traditions) {
+    if (!entry.id || !entry.name || !candidateRegions.has(entry.regionId)) throw new Error(`Tradición inválida: ${entry.id ?? '(sin id)'}`);
+    if (entry.parentId && !candidateIds.has(entry.parentId)) throw new Error(`Padre inexistente ${entry.parentId} en ${entry.id}`);
+  }
+  for (const relation of candidate.relations) {
+    if (!candidateIds.has(relation.sourceId) || !candidateIds.has(relation.targetId)) throw new Error(`Relación inválida ${relation.id}`);
+  }
+}
+
+let atlas = defaultAtlas;
+let project;
+try {
+  project = JSON.parse(await readFile(projectInput, 'utf8'));
+  atlas = project.atlas ?? project;
+  validateAtlas(atlas);
+  console.log(`Proyecto editorial cargado: ${projectInput}`);
+} catch (error) {
+  if (error?.code !== 'ENOENT') throw error;
+  project = {
+    schemaVersion: 1,
+    application: 'ReliTree Editor',
+    savedAt: '2026-07-17T00:00:00.000Z',
+    atlas,
+    editor: {
+      canvas: { zoom: 0.17, offsetX: 90, offsetY: 10, snap: true, gridSize: 10 },
+      reference: { opacity: 0.28, x: 140, y: 150, scale: 1, embeddedDataUrl: null }
+    }
+  };
+  await mkdir(dirname(projectInput), { recursive: true });
+  await writeFile(projectInput, `${JSON.stringify(project, null, 2)}\n`, 'utf8');
+  console.log(`Proyecto editorial inicial creado: ${projectInput}`);
+}
+
 await mkdir(dirname(output), { recursive: true });
 await writeFile(output, `${JSON.stringify(atlas, null, 2)}\n`, 'utf8');
-console.log(`Atlas generado: ${traditions.length} tradiciones, ${relations.length} relaciones transversales y ${events.length} acontecimientos.`);
+await mkdir(dirname(publicProjectOutput), { recursive: true });
+await writeFile(publicProjectOutput, `${JSON.stringify(project, null, 2)}\n`, 'utf8');
+console.log(`Atlas generado: ${atlas.traditions.length} tradiciones, ${atlas.relations.length} relaciones transversales y ${atlas.events.length} acontecimientos.`);

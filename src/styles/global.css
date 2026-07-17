@@ -95,12 +95,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 .region-axis button span { overflow: hidden; padding: 0 4px; font-size: 8px; font-weight: 750; letter-spacing: .04em; text-overflow: ellipsis; white-space: nowrap; }
 .region-axis button:hover { background: color-mix(in srgb, var(--region), transparent 84%); }
 
-/* Marca y HUD */
-.brand-mark { position: absolute; z-index: 7; top: 13px; left: calc(var(--axis-width) + 12px); display: flex; align-items: center; gap: 9px; pointer-events: none; }
-.brand-mark > span { display: grid; width: 35px; height: 35px; place-items: center; border: 1px solid color-mix(in srgb, var(--accent), transparent 38%); border-radius: 8px; background: color-mix(in srgb, var(--bg), transparent 10%); color: var(--accent); font: 800 12px Manrope, sans-serif; letter-spacing: -.03em; }
-.brand-mark div { display: grid; gap: 1px; }
-.brand-mark b { font: 800 11px Manrope, sans-serif; letter-spacing: .14em; }
-.brand-mark small { color: var(--muted); font-size: 8px; }
+/* HUD */
 .hud-toolbar { position: absolute; z-index: 20; top: 13px; right: 13px; display: flex; align-items: center; min-height: 39px; padding: 3px; border: 1px solid var(--line); border-radius: 9px; background: color-mix(in srgb, var(--panel-solid), transparent 4%); box-shadow: 0 8px 28px rgba(0, 0, 0, .2); backdrop-filter: blur(16px); }
 .hud-toolbar > button, .hud-search-inline > button { position: relative; display: grid; width: 34px; height: 32px; place-items: center; border: 0; border-radius: 6px; background: transparent; color: var(--muted); cursor: pointer; }
 .hud-toolbar > button:hover, .hud-search-inline > button:hover, .hud-toolbar > button.active, .hud-search-inline > button.active { background: var(--panel-soft); color: var(--text); }
@@ -198,7 +193,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 .database-download:hover { background: var(--panel-soft); }
 
 /* Ficha lateral */
-.detail-panel { position: absolute; z-index: 16; top: 0; right: 0; display: grid; grid-template-rows: auto auto 1fr; width: min(470px, 100vw); height: 100%; border-left: 1px solid var(--line); background: var(--panel-solid); box-shadow: -24px 0 70px rgba(0,0,0,.35); }
+.detail-panel { position: absolute; z-index: 16; top: 60px; right: 13px; bottom: 13px; display: grid; grid-template-rows: auto auto 1fr; width: min(470px, calc(100vw - 26px)); overflow: hidden; border: 1px solid var(--line); border-radius: 11px; background: var(--panel-solid); box-shadow: -24px 0 70px rgba(0,0,0,.35); }
 .detail-panel::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--accent); }
 .detail-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; padding: 21px 19px 16px 22px; border-bottom: 1px solid var(--line); }
 .detail-heading > div { min-width: 0; }
@@ -247,17 +242,32 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 .about-body footer a { display: inline-flex; align-items: center; gap: 6px; margin: 8px 14px 0 0; color: var(--text); font-size: 9px; text-decoration: none; }
 .about-body footer a:hover { color: var(--accent); }
 
+/* Descarga oculta del editor */
+.modal-scrim { position: absolute; z-index: 60; inset: 0; display: grid; place-items: center; padding: 18px; background: rgba(2, 4, 7, .72); backdrop-filter: blur(10px); }
+.editor-download-panel { position: static; width: min(480px, 100%); margin: 0; padding: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 13px; background: var(--panel-solid); color: var(--text); box-shadow: 0 35px 100px rgba(0, 0, 0, .62); }
+.editor-download-panel > header { display: flex; align-items: flex-start; justify-content: space-between; gap: 15px; padding: 16px 17px 14px; border-bottom: 1px solid var(--line); }
+.editor-download-panel > header div { display: grid; gap: 3px; }
+.editor-download-panel > header span { color: var(--accent); font-size: 8px; font-weight: 800; letter-spacing: .14em; }
+.editor-download-panel > header h2 { margin: 0; font: 750 18px Manrope, sans-serif; }
+.editor-download-body { display: grid; gap: 13px; padding: 22px; }
+.editor-download-icon { display: grid; width: 58px; height: 58px; place-items: center; border: 1px solid color-mix(in srgb, var(--accent), transparent 55%); border-radius: 14px; background: color-mix(in srgb, var(--accent), transparent 91%); color: var(--accent); }
+.editor-download-body p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.65; }
+.editor-download-body ul { display: grid; gap: 6px; margin: 0; padding-left: 18px; color: var(--muted); font-size: 9px; line-height: 1.45; }
+.primary-download, .secondary-download { display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 38px; border: 1px solid var(--line); border-radius: 7px; color: var(--text); font-size: 10px; font-weight: 700; text-decoration: none; }
+.primary-download { border-color: color-mix(in srgb, var(--accent), transparent 35%); background: var(--accent); color: #16130c; }
+.secondary-download:hover { background: var(--panel-soft); }
+.editor-download-body > small { color: var(--faint); font-size: 8px; line-height: 1.55; }
+.editor-download-body > small b { color: var(--muted); }
+
 @media (max-width: 900px) {
   :root { --axis-width: 74px; }
-  .brand-mark { top: 8px; left: calc(var(--axis-width) + 8px); }
-  .brand-mark div { display: none; }
   .hud-toolbar { top: 8px; right: 8px; max-width: calc(100vw - var(--axis-width) - 58px); overflow-x: auto; }
   .hud-toolbar > button, .hud-search-inline > button { flex: 0 0 32px; width: 32px; }
   .hud-search-inline label { width: min(220px, calc(100vw - 140px)); }
   .hud-toolbar button[data-tooltip]::after { display: none; }
   .hud-panel { top: 55px; right: 8px; max-height: calc(100vh - 63px); }
   .database-stats { grid-template-columns: repeat(2, 1fr); }
-  .detail-panel { width: min(430px, 94vw); }
+  .detail-panel { top: 55px; right: 8px; bottom: 8px; width: min(430px, calc(100vw - 16px)); }
   .canvas-help { display: none; }
   .region-filter-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -269,7 +279,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   .hud-search-inline.open > button { display: none; }
   .hud-search-inline label { width: calc(100vw - 16px); }
   .search-results { top: 40px; }
-  .detail-panel { width: 100vw; }
+  .detail-panel { left: 0; right: 0; bottom: 0; width: 100vw; border-inline: 0; border-bottom: 0; border-radius: 0; }
   .detail-heading { padding-top: 16px; }
   .detail-body { padding: 16px 17px 28px; }
   .plain-facts div { grid-template-columns: 105px 1fr; }

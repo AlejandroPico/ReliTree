@@ -20,7 +20,7 @@ export const timelineStops: TimelineStop[] = [
   { year: 600, y: 2_370, major: true },
   { year: 400, y: 2_670, major: false },
   { year: 200, y: 2_970, major: false },
-  { year: 1, y: 3_270, major: true },
+  { year: 0, y: 3_270, major: true },
   { year: -200, y: 3_570, major: false },
   { year: -400, y: 3_870, major: true },
   { year: -600, y: 4_170, major: false },
@@ -81,11 +81,8 @@ export function yToYear(y: number): number {
 }
 
 export function formatYear(year: number, compact = false): string {
-  if (year === 1 || year === 0) return 'cambio de era';
-  if (year > 0) return `${year.toLocaleString('es-ES')} e. c.`;
-  const absolute = Math.abs(year);
-  if (compact && absolute >= 10_000) return `${Math.round(absolute / 1000)} ka`;
-  return `${absolute.toLocaleString('es-ES')} a. e. c.`;
+  void compact;
+  return year.toLocaleString('es-ES');
 }
 
 export function dateRange(startYear: number, endYear: number | null): string {

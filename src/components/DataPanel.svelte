@@ -51,7 +51,7 @@ LIMIT 20;`);
   onMount(loadStats);
 </script>
 
-<aside class="hud-panel data-panel" aria-label="Base de datos RELI3">
+<aside class="hud-panel data-panel" aria-label="Base de datos ReliTree">
   <header><div><span>SQLITE · WEBASSEMBLY</span><h2>Datos</h2></div><button class="icon-button" type="button" aria-label="Cerrar" onclick={onclose}><X size={17}/></button></header>
   {#if loading}<p class="loading-state"><Database size={18}/>Abriendo la base SQLite…</p>{:else if error && !Object.keys(stats).length}<p class="error-state">{error}</p>{:else}
     <section class="database-stats"><div><b>{stats.traditions ?? 0}</b><span>ramas cartografiadas</span></div><div><b>{stats.verifier ?? 0}</b><span>nombres en el verificador</span></div><div><b>{stats.events ?? 0}</b><span>acontecimientos</span></div><div><b>{stats.relations ?? 0}</b><span>vínculos transversales</span></div></section>
@@ -63,6 +63,6 @@ LIMIT 20;`);
         <div class="sql-results"><table><thead><tr>{#each columns as column}<th>{column}</th>{/each}</tr></thead><tbody>{#each rows as row}<tr>{#each row as value}<td>{value ?? '—'}</td>{/each}</tr>{/each}</tbody></table></div>
       {/if}
     </section>
-    <a class="database-download" href={`${import.meta.env.BASE_URL}data/reli3.sqlite`} download><Download size={15}/>Descargar reli3.sqlite</a>
+    <a class="database-download" href={`${import.meta.env.BASE_URL}data/relitree.sqlite`} download><Download size={15}/>Descargar relitree.sqlite</a>
   {/if}
 </aside>

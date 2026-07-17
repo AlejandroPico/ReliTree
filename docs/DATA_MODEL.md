@@ -1,8 +1,8 @@
-# Modelo de datos de RELI3
+# Modelo de datos de ReliTree
 
 ## Principio
 
-RELI3 separa cuatro conceptos que una infografía plana suele mezclar:
+ReliTree separa cuatro conceptos que una infografía plana suele mezclar:
 
 1. **Tradición:** entidad visible en el lienzo.
 2. **Relación parental:** conexión principal que coloca una rama.
@@ -29,7 +29,7 @@ El eje no es lineal. Reserva mucho espacio a los últimos cuatro milenios, donde
 
 ## Fuente canónica y generación
 
-`scripts/generate-data.mjs` contiene la semilla editorial legible. Genera `src/data/atlas.json`, que consume la aplicación. `scripts/build-database.mjs` transforma el atlas y el catálogo verificador en `public/data/reli3.sqlite`. El build vuelve a generar ambos artefactos para impedir divergencias.
+`data/reli-tree-project.json` es la fuente editorial intercambiable con el editor autónomo. `scripts/generate-data.mjs` la valida y genera `src/data/atlas.json`, que consume la aplicación. `scripts/build-database.mjs` transforma el atlas y el catálogo verificador en `public/data/relitree.sqlite`. El build vuelve a generar los artefactos para impedir divergencias.
 
 ## Próximas ampliaciones previstas
 

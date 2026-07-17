@@ -15,6 +15,7 @@
   import LegendPanel from './components/LegendPanel.svelte';
   import DataPanel from './components/DataPanel.svelte';
   import AboutPanel from './components/AboutPanel.svelte';
+  import EditorDownloadPanel from './components/EditorDownloadPanel.svelte';
 
   const data = atlasJson as AtlasData;
   const verifier = verifierJson as { metadata: { count: number }; entries: VerifierEntry[] };
@@ -23,6 +24,7 @@
   let selected = $state<Tradition | null>(null);
   let panel = $state<'search' | 'filter' | 'legend' | 'data' | null>(null);
   let showAbout = $state(false);
+  let showEditorDownload = $state(false);
   let query = $state('');
   let selectedRegions = $state<RegionId[]>([]);
   let kind = $state<TraditionKind | 'all'>('all');
@@ -68,7 +70,7 @@
 
   function cycleTheme(): void {
     themeMode = themeMode === 'auto' ? 'light' : themeMode === 'light' ? 'dark' : 'auto';
-    localStorage.setItem('reli3-theme', themeMode);
+    localStorage.setItem('relitree-theme', themeMode);
     applyTheme();
   }
 
@@ -103,6 +105,17 @@
     if (animated) axisTimer = window.setTimeout(() => axisAnimated = false, 460);
   }
 
+  function handleExport(event: MouseEvent): void {
+    if (event.altKey) {
+      event.preventDefault();
+      panel = null;
+      selected = null;
+      showEditorDownload = true;
+      return;
+    }
+    tree?.exportSvg?.();
+  }
+
   function handleKeydown(event: KeyboardEvent): void {
     if (event.key === '/' && !(event.target instanceof HTMLInputElement) && !(event.target instanceof HTMLTextAreaElement)) {
       event.preventDefault();
@@ -111,13 +124,14 @@
       return;
     }
     if (event.key !== 'Escape') return;
-    if (showAbout) showAbout = false;
+    if (showEditorDownload) showEditorDownload = false;
+    else if (showAbout) showAbout = false;
     else if (panel) panel = null;
     else if (selected) selected = null;
   }
 
   onMount(() => {
-    const saved = localStorage.getItem('reli3-theme');
+    const saved = localStorage.getItem('relitree-theme') ?? localStorage.getItem('reli3-theme');
     if (saved === 'auto' || saved === 'light' || saved === 'dark') themeMode = saved;
     applyTheme();
     themeTimer = window.setInterval(() => { if (themeMode === 'auto') applyTheme(); }, 60_000);
@@ -129,7 +143,7 @@
 </script>
 
 <svelte:window onkeydown={handleKeydown}/>
-<svelte:head><title>RELI3 · Atlas de las religiones</title></svelte:head>
+<svelte:head><title>ReliTree · Atlas de las religiones</title></svelte:head>
 
 <main class:detail-open={Boolean(selected)} class="app-shell">
   <TreeCanvas
@@ -146,8 +160,6 @@
   <TimeAxis {camera} animated={axisAnimated}/>
   <RegionAxis regions={data.regions} {camera} onfocus={(id) => tree?.focusRegion?.(id)}/>
 
-  <div class="brand-mark" aria-label="RELI3"><span>R3</span><div><b>RELI3</b><small>{data.traditions.length} ramas · {data.regions.length} áreas</small></div></div>
-
   {#if filtering}
     <div class="results-badge"><Search size={13}/><b>{visibleTraditions.length}</b> de {data.traditions.length}<button type="button" aria-label="Quitar filtros" onclick={resetFilters}><X size={13}/></button></div>
   {/if}
@@ -156,7 +168,7 @@
     <div class:open={panel === 'search'} class="hud-search-inline">
       <button class:active={panel === 'search'} type="button" data-tooltip="Buscar" aria-label="Buscar" onclick={toggleSearch}><Search size={17}/></button>
       {#if panel === 'search'}
-        <label><input bind:this={searchInput} value={query} oninput={(event) => query = event.currentTarget.value} placeholder="Religión, familia, territorio…" aria-label="Buscar en RELI3"/>{#if query}<button type="button" aria-label="Limpiar" onclick={() => query = ''}><X size={14}/></button>{/if}</label>
+        <label><input bind:this={searchInput} value={query} oninput={(event) => query = event.currentTarget.value} placeholder="Religión, familia, territorio…" aria-label="Buscar en ReliTree"/>{#if query}<button type="button" aria-label="Limpiar" onclick={() => query = ''}><X size={14}/></button>{/if}</label>
         {#if query}
           <div class="search-results">
             <header><span>{directResults.length} ramas cartografiadas</span><small>{verifierResults.length} coincidencias aún no cartografiadas</small></header>
@@ -177,7 +189,7 @@
     <button class:active={panel === 'data'} type="button" data-tooltip="SQLite y datos" aria-label="Abrir datos" onclick={() => panel = panel === 'data' ? null : 'data'}><Database size={17}/></button>
     <button type="button" data-tooltip="Vista completa" aria-label="Encajar todas las épocas" onclick={() => tree?.fitAll?.()}><Globe2 size={17}/></button>
     <button type="button" data-tooltip="Periodo histórico" aria-label="Volver al periodo histórico" onclick={() => tree?.fitModern?.()}><Maximize2 size={17}/></button>
-    <button type="button" data-tooltip="Exportar SVG vectorial" aria-label="Exportar SVG" onclick={() => tree?.exportSvg?.()}><Download size={17}/></button>
+    <button type="button" data-tooltip="Exportar SVG vectorial" aria-label="Exportar SVG" onclick={handleExport}><Download size={17}/></button>
     <button class:active={themeMode === 'auto'} type="button" data-tooltip={themeMode === 'auto' ? 'Tema automático · ciclo solar de Barcelona' : `Tema ${themeMode}`} aria-label="Cambiar tema" onclick={cycleTheme}>{#if themeMode === 'auto'}<SunMoon size={17}/>{:else if themeMode === 'dark'}<Moon size={17}/>{:else}<Sun size={17}/>{/if}</button>
     <button class="zoom-readout" type="button" data-tooltip="Restablecer periodo histórico" aria-label={`Zoom ${zoomPercent}%`} onclick={() => tree?.fitModern?.()}><b>{zoomPercent}%</b></button>
   </nav>
@@ -211,4 +223,5 @@
   {/if}
 
   {#if showAbout}<AboutPanel onclose={() => showAbout = false}/>{/if}
+  {#if showEditorDownload}<EditorDownloadPanel onclose={() => showEditorDownload = false}/>{/if}
 </main>

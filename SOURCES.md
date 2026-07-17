@@ -6,7 +6,7 @@
 2. **Simon E. Davies, *The Great Tree of Religion 3.0 (Beta Version)*.** Infografía anterior aportada como PNG. Ayuda a resolver la estructura de algunas ramas grandes.
 3. **Wikipedia, *List of religions and spiritual traditions*.** Copia PDF aportada el 17 de julio de 2026. Se procesa como catálogo nominal de control, no como fuente cronológica definitiva.
 
-La obra de Simon E. Davies no se incluye en el repositorio ni se presenta como contenido propio. RELI3 acredita la referencia y construye una interfaz, un modelo de datos y una visualización originales. Sitio del autor: <https://www.treeofreligion.com/>.
+La obra de Simon E. Davies no se incluye en el repositorio ni se presenta como contenido propio. ReliTree acredita la referencia y construye una interfaz, un modelo de datos y una visualización originales. Sitio del autor: <https://www.treeofreligion.com/>.
 
 ## Regla de incorporación
 

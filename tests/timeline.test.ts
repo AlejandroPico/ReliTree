@@ -13,8 +13,9 @@ describe('escala temporal', () => {
     }
   });
 
-  it('formatea las eras en español', () => {
-    expect(formatYear(622)).toContain('e. c.');
-    expect(formatYear(-2500)).toContain('a. e. c.');
+  it('formatea los años con signo y reserva el cero', () => {
+    expect(formatYear(622)).toBe('622');
+    expect(formatYear(0)).toBe('0');
+    expect(formatYear(-2500)).toBe('-2500');
   });
 });

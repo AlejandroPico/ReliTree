@@ -27,6 +27,20 @@ export type RelationKind = 'descent' | 'reform' | 'influence' | 'syncretism' | '
 export type Confidence = 'high' | 'medium' | 'low' | 'hypothesis';
 export type SourceId = 'poster-3' | 'poster-beta' | 'wikipedia-list' | 'academic-synthesis';
 
+export interface ElementVisualStyle {
+  color?: string;
+  lineWidth?: number;
+  lineDash?: string;
+  opacity?: number;
+  nodeRadius?: number;
+  labelOffsetX?: number;
+  labelOffsetY?: number;
+  parentLineColor?: string;
+  parentLineWidth?: number;
+  parentLineDash?: string;
+  hidden?: boolean;
+}
+
 export interface Region {
   id: RegionId;
   name: string;
@@ -56,6 +70,7 @@ export interface Tradition {
   posterVerified: boolean;
   verifierMatched: boolean;
   importance: 1 | 2 | 3;
+  visual?: ElementVisualStyle;
 }
 
 export interface HistoricalEvent {
@@ -66,6 +81,7 @@ export interface HistoricalEvent {
   kind: 'migration' | 'contact' | 'state' | 'text' | 'conflict' | 'exchange' | 'archaeology';
   summary: string;
   confidence: Confidence;
+  visual?: ElementVisualStyle;
 }
 
 export interface CrossRelation {
@@ -75,6 +91,7 @@ export interface CrossRelation {
   kind: RelationKind;
   confidence: Confidence;
   note: string;
+  visual?: ElementVisualStyle;
 }
 
 export interface VerifierEntry {
