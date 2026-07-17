@@ -39,11 +39,34 @@
   const byId = $derived(new Map(positioned.map((entry) => [entry.id, entry])));
   const selected = $derived(selectedId ? byId.get(selectedId) ?? null : null);
   const detailLevel = $derived(camera.scale < .2 ? 1 : camera.scale < .42 ? 2 : 3);
+  const showEventLabels = $derived(camera.scale >= .18);
   const labelScale = $derived(Math.min(70, Math.max(22, 12 / camera.scale)));
   const nodeRadius = $derived(Math.min(30, Math.max(8, 4.5 / camera.scale)));
 
   const shownTraditions = $derived(positioned.filter((entry) => visibleIds.has(entry.id) && entry.importance <= detailLevel));
   const shownSet = $derived(new Set(shownTraditions.map((entry) => entry.id)));
+  const labelPositions = $derived.by(() => {
+    const result = new Map<string, number>();
+    const groups = new Map<string, PositionedTradition[]>();
+    for (const entry of shownTraditions) {
+      const bucket = Math.round(entry.lane * 5);
+      const key = `${entry.regionId}:${bucket}`;
+      groups.set(key, [...(groups.get(key) ?? []), entry]);
+    }
+    const minimumGap = 18 / camera.scale;
+    const maximumShift = 68 / camera.scale;
+    for (const entries of groups.values()) {
+      entries.sort((a, b) => a.startY - b.startY);
+      let cursor = -Infinity;
+      for (const entry of entries) {
+        const candidate = Math.max(entry.startY, cursor + minimumGap);
+        const y = Math.min(candidate, entry.startY + maximumShift);
+        result.set(entry.id, y);
+        cursor = y;
+      }
+    }
+    return result;
+  });
 
   function clamp(value: number, min: number, max: number): number {
     return Math.max(min, Math.min(max, value));
@@ -231,7 +254,7 @@
           {@const x2 = WORLD_LEFT + (maxOrder + 1) * REGION_WIDTH - 20}
           <g class="event-marker">
             <line class="event-line" x1={x1} x2={x2} y1={y} y2={y}/>
-            <text class="event-text" x={x1 + 10} y={y - 9}>{event.title} · {formatYear(event.year, true)}</text>
+            {#if showEventLabels}<text class="event-text" x={x1 + 10} y={y - 9}>{event.title} · {formatYear(event.year, true)}</text>{/if}
           </g>
         {/each}
       {/if}
@@ -261,6 +284,7 @@
       <g class="tradition-nodes">
         {#each shownTraditions as entry (entry.id)}
           {@const lines = wrapLabel(entry.name)}
+          {@const labelOffset = (labelPositions.get(entry.id) ?? entry.startY) - entry.startY}
           <g
             data-node
             class:selected={entry.id === selectedId}
@@ -274,11 +298,12 @@
           >
             <circle class="node-halo" r={nodeRadius * 1.9} fill={entry.region.color}/>
             <circle class="node-dot" r={nodeRadius} fill={entry.status === 'historical' ? '#11151d' : entry.region.color}/>
-            <text class="node-label" x={nodeRadius + 8 / camera.scale} y={-((lines.length - 1) * labelScale * .56)} style={`font-size:${labelScale}px`}>
+            {#if labelOffset > 1}<path class="label-leader" d={`M ${nodeRadius} 0 L ${nodeRadius} ${labelOffset}`} stroke={entry.region.color}/>{/if}
+            <text class="node-label" x={nodeRadius + 8 / camera.scale} y={labelOffset - ((lines.length - 1) * labelScale * .56)} style={`font-size:${labelScale}px`}>
               {#each lines as line, index}<tspan x={nodeRadius + 8 / camera.scale} dy={index === 0 ? 0 : labelScale * 1.05}>{line}</tspan>{/each}
             </text>
             {#if detailLevel >= 2}
-              <text class="node-date" x={nodeRadius + 8 / camera.scale} y={(lines.length * labelScale * 1.05) + 5 / camera.scale} style={`font-size:${labelScale * .76}px`}>{formatYear(entry.startYear, true)}</text>
+              <text class="node-date" x={nodeRadius + 8 / camera.scale} y={labelOffset + (lines.length * labelScale * 1.05) + 5 / camera.scale} style={`font-size:${labelScale * .76}px`}>{formatYear(entry.startYear, true)}</text>
             {/if}
           </g>
         {/each}
