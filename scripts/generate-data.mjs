@@ -350,6 +350,7 @@ const defaultAtlas = {
     generatedAt: '2026-07-17T00:00:00.000Z',
     version: '0.1.0',
     presentYear: PRESENT,
+    board: { title: 'ReliTree', layout: 'columns', axisMode: 'timeline', backgroundColor: '#090c12', backgroundOpacity: 1, gridVisible: true, gridColor: '#ffffff', gridOpacity: .08, headersVisible: true },
     referenceNotice: 'Cronología inicial contrastada con las dos infografías aportadas y con el listado verificador de Wikipedia. Las relaciones de tipo influencia o contexto no equivalen a descendencia.'
   },
   regions,
@@ -385,15 +386,17 @@ function slugify(value) {
 }
 
 function migrateProject(value) {
-  const wrapped = value?.atlas ? value : { schemaVersion: 1, application: 'ReliTree Editor', savedAt: new Date().toISOString(), atlas: value, editor: {} };
-  wrapped.schemaVersion = 3;
-  wrapped.application = 'ReliTree Editor';
-  wrapped.atlas.metadata.version = '0.3.0';
+  const wrapped = value?.atlas ? value : { schemaVersion: 1, application: 'Atlas Studio', savedAt: new Date().toISOString(), atlas: value, editor: {} };
+  wrapped.schemaVersion = 4;
+  wrapped.application = 'Atlas Studio';
+  wrapped.atlas.metadata.version = '0.4.0';
   wrapped.atlas.metadata.presentYear ??= PRESENT;
   wrapped.atlas.metadata.timelineStops ??= [];
+  wrapped.atlas.metadata.board = { title: 'ReliTree', layout: 'columns', axisMode: 'timeline', backgroundColor: '#090c12', backgroundOpacity: 1, gridVisible: true, gridColor: '#ffffff', gridOpacity: .08, headersVisible: true, ...(wrapped.atlas.metadata.board ?? {}) };
   wrapped.atlas.regions.forEach((region) => {
     region.width = Math.max(180, Math.min(3000, Number(region.width) || 760));
     region.minLaneGap ??= 76;
+    region.appearance = { shape: 'column', fillColor: region.color, fillOpacity: .055, borderColor: '#ffffff', borderOpacity: .12, borderWidth: 1, headerVisible: true, headerColor: region.color, headerOpacity: 1, ...(region.appearance ?? {}) };
   });
   wrapped.atlas.traditions.forEach((entity) => {
     entity.subtitle ??= entity.family || '';
@@ -434,7 +437,10 @@ function migrateProject(value) {
   });
   wrapped.editor ??= {};
   wrapped.editor.canvas = { zoom: .17, offsetX: 90, offsetY: 10, snap: true, gridSize: 10, autoLayout: true, ...(wrapped.editor.canvas ?? {}) };
-  wrapped.editor.reference = { opacity: .28, x: 140, y: 150, scale: 1, embeddedDataUrl: null, ...(wrapped.editor.reference ?? {}) };
+  const oldReference = wrapped.editor.reference ?? {};
+  const oldScale = Number(oldReference.scale ?? 1);
+  wrapped.editor.reference = { opacity: .28, x: 140, y: 150, width: 2048 * oldScale, height: 1447 * oldScale, rotation: 0, lockAspect: true, visible: true, aspectRatio: 2048 / 1447, embeddedDataUrl: null, ...oldReference, scale: 1 };
+  wrapped.editor.reference.aspectRatio = Number(wrapped.editor.reference.aspectRatio) || Number(wrapped.editor.reference.width) / Number(wrapped.editor.reference.height);
   wrapped.editor.timeline = { customStops: wrapped.atlas.metadata.timelineStops };
   return wrapped;
 }
@@ -461,13 +467,13 @@ try {
 } catch (error) {
   if (error?.code !== 'ENOENT') throw error;
   project = {
-    schemaVersion: 3,
-    application: 'ReliTree Editor',
+    schemaVersion: 4,
+    application: 'Atlas Studio',
     savedAt: '2026-07-17T00:00:00.000Z',
     atlas,
     editor: {
       canvas: { zoom: 0.17, offsetX: 90, offsetY: 10, snap: true, gridSize: 10 },
-      reference: { opacity: 0.28, x: 140, y: 150, scale: 1, embeddedDataUrl: null }
+      reference: { opacity: 0.28, x: 140, y: 150, width: 2048, height: 1447, rotation: 0, lockAspect: true, visible: true, aspectRatio: 2048 / 1447, embeddedDataUrl: null }
     }
   };
   await mkdir(dirname(projectInput), { recursive: true });

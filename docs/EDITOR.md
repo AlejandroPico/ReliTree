@@ -1,13 +1,14 @@
-# Editor autónomo de ReliTree
+# Atlas Studio · editor autónomo de proyectos
 
 ## Ejecución en Windows
 
-El editor se distribuye como `ReliTree-Editor.html`. No requiere instalación, Python, Java ni un servidor local: basta con abrirlo mediante Microsoft Edge, Chrome o Firefox. Toda la edición ocurre en el equipo del usuario.
+El editor se distribuye como `Atlas-Studio.html` y mantiene `ReliTree-Editor.html` como ruta compatible. No requiere instalación, Python, Java ni un servidor local: basta con abrirlo mediante Microsoft Edge, Chrome o Firefox.
 
 ## Herramientas
 
 - **Seleccionar (V):** abre el inspector. Un nodo puede arrastrarse horizontalmente entre áreas y carriles, y verticalmente para modificar su año.
-- **Selección múltiple (M):** acumula entidades, relaciones y acontecimientos para aplicar estilos o eliminarlos en grupo.
+- **Selección múltiple (M):** arrastra un recuadro sobre el tablero, como en Windows, para capturar entidades, relaciones y acontecimientos. `Mayús` añade el resultado a la selección existente.
+- **Transformar referencia (R):** mueve la imagen de referencia y modifica su tamaño con cuatro tiradores. `Mayús` conserva la proporción y `Alt` redimensiona desde el centro.
 - **Desplazar (H):** recorre el lienzo sin modificar elementos.
 - **Añadir nodo (N):** crea una entidad en el punto temporal y geográfico pulsado.
 - **Crear unión (L):** selecciona primero la entidad de origen y después la de destino. No hay límite de entradas o salidas.
@@ -17,7 +18,7 @@ La rueda controla el zoom. `Supr` solicita confirmación antes de eliminar; `Ctr
 
 ## Inspector
 
-El botón **Proyecto** abre una ventana central de configuración: nombre, abreviatura, anchura, separación, color, descripción, orden y eliminación segura de áreas; marcas temporales; presente editorial; cuadrícula; y referencia.
+El botón **Tablero** abre una ventana central de configuración. El lienzo global controla color y opacidad; el eje y la cuadrícula pueden ocultarse; y cada área dispone de forma —columna, redondeada, cápsula, elipse, contorno o invisible—, relleno, opacidad, borde y cabecera independientes. Los preajustes crean columnas suaves, carriles, zonas sólidas o un lienzo libre sin alterar los datos.
 
 El inspector de entidad permite editar:
 
@@ -43,7 +44,7 @@ Los SVG del repositorio se guardan en `public/icons/`. El build intenta asociarl
 
 ## Imagen de referencia
 
-El botón **Referencia** carga localmente una imagen y la sitúa detrás de la estructura vectorial. Su posición, escala y opacidad se ajustan en el inspector del proyecto.
+El botón **Referencia** carga localmente una imagen y la sitúa detrás de la estructura vectorial. Anchura, altura, posición, giro, visibilidad y opacidad admiten valores exactos. También puede transformarse directamente mediante tiradores, encajarse al ancho del tablero o eliminarse con confirmación.
 
 La referencia no se guarda por defecto. Activar **Incrustar referencia al guardar** añade la imagen como `data:` URL y puede aumentar mucho el tamaño del JSON; no debe activarse para publicar material de referencia con restricciones de redistribución.
 

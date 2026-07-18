@@ -196,8 +196,8 @@
     clone.querySelector<SVGGElement>('.world-layer')?.setAttribute('transform', 'translate(0 0) scale(1)');
     const style = document.createElementNS('http://www.w3.org/2000/svg', 'style');
     style.textContent = `
-      svg{background:#080a0f;font-family:Inter,Arial,sans-serif}.region-band{fill:#0b0e15}.region-shade{opacity:.055}
-      .grid-line{stroke:#fff;stroke-opacity:.08}.region-divider{stroke:#fff;stroke-opacity:.12}.branch{fill:none;stroke-width:4}
+      svg{background:#080a0f;font-family:Inter,Arial,sans-serif}.region-band{fill:#0b0e15}
+      .grid-line{stroke:#fff}.region-divider{stroke:#fff}.branch{fill:none;stroke-width:4}
       .parent-link,.cross-link{fill:none;stroke-width:2}.node-dot{stroke:#080a0f;stroke-width:2}.node-label{fill:#f4f0e8;font-weight:650}
       .node-date{fill:#aaa69c}.region-name{fill:#f4f0e8;font-weight:800;letter-spacing:2px}.event-line{stroke:#d9b45a;stroke-dasharray:8 7}
       .event-text{fill:#d9b45a;font-weight:700}.relation-influence,.relation-context{stroke-dasharray:7 7}`;
@@ -241,7 +241,7 @@
 >
   <svg bind:this={svg} class="tree-svg" style={`--inv-scale:${1 / camera.scale}`} aria-label="Árbol cronológico vectorial">
     <g class="world-layer" transform={`translate(${camera.x} ${camera.y}) scale(${camera.scale})`}>
-      <rect class="world-background" width={canvasWidth} height={WORLD_HEIGHT}/>
+      <rect class="world-background" width={canvasWidth} height={WORLD_HEIGHT} fill={data.metadata.board?.backgroundColor ?? 'var(--world)'} fill-opacity={data.metadata.board?.backgroundOpacity ?? 1}/>
 
       <defs>
         {#each data.relations as relation}
@@ -262,18 +262,36 @@
       {#each data.regions as region}
         {@const left = regionX(region, data.regions)}
         {@const width = regionWidth(region)}
+        {@const appearance = region.appearance ?? {}}
+        {@const shape = appearance.shape ?? 'column'}
+        {@const fill = appearance.fillColor ?? region.color}
+        {@const fillOpacity = appearance.fillOpacity ?? .055}
+        {@const stroke = appearance.borderColor ?? 'var(--text)'}
+        {@const strokeOpacity = appearance.borderOpacity ?? .12}
+        {@const strokeWidth = appearance.borderWidth ?? 1}
         <g class="region-column">
-          <rect class="region-band" x={left} y="0" width={width} height={WORLD_HEIGHT}/>
-          <rect class="region-shade" x={left} y="0" width={width} height={WORLD_HEIGHT} fill={region.color}/>
-          <line class="region-divider" x1={left} x2={left} y1="0" y2={WORLD_HEIGHT}/>
-          <rect x={left + 12} y="84" width={width - 24} height="8" rx="4" fill={region.color}/>
-          <text class="region-name" x={left + width / 2} y="62" text-anchor="middle">{region.name.toLocaleUpperCase('es')}</text>
+          {#if shape !== 'none'}
+            {#if shape === 'ellipse'}
+              <ellipse class="region-shade" cx={left + width / 2} cy={WORLD_HEIGHT / 2} rx={Math.max(1, width / 2 - 8)} ry={WORLD_HEIGHT / 2 - 8} fill={fill} fill-opacity={fillOpacity} stroke={stroke} stroke-opacity={strokeOpacity} stroke-width={strokeWidth} vector-effect="non-scaling-stroke"/>
+            {:else}
+              {@const inset = shape === 'outline' ? 8 : 0}
+              {@const radius = shape === 'rounded' ? 22 : shape === 'capsule' ? Math.min(width / 2, 180) : 0}
+              <rect class="region-shade" x={left + inset} y={inset} width={width - inset * 2} height={WORLD_HEIGHT - inset * 2} rx={radius} fill={shape === 'outline' ? 'none' : fill} fill-opacity={fillOpacity} stroke={stroke} stroke-opacity={strokeOpacity} stroke-width={strokeWidth} vector-effect="non-scaling-stroke"/>
+            {/if}
+          {/if}
+          {#if strokeWidth > 0}<line class="region-divider" x1={left} x2={left} y1="0" y2={WORLD_HEIGHT} stroke={stroke} stroke-opacity={strokeOpacity} stroke-width={strokeWidth}/>{/if}
+          {#if data.metadata.board?.headersVisible !== false && appearance.headerVisible !== false}
+            <rect x={left + 12} y="84" width={width - 24} height="8" rx="4" fill={appearance.headerColor ?? region.color} fill-opacity={appearance.headerOpacity ?? 1}/>
+            <text class="region-name" x={left + width / 2} y="62" text-anchor="middle">{region.name.toLocaleUpperCase('es')}</text>
+          {/if}
         </g>
       {/each}
 
-      {#each gridStops as stop}
-        <line class:major={stop.major} class="grid-line" x1={WORLD_LEFT} x2={canvasWidth - 40} y1={stop.y} y2={stop.y}/>
-      {/each}
+      {#if data.metadata.board?.gridVisible !== false && data.metadata.board?.axisMode !== 'none'}
+        {#each gridStops as stop}
+          <line class:major={stop.major} class="grid-line" x1={WORLD_LEFT} x2={canvasWidth - 40} y1={stop.y} y2={stop.y} stroke={data.metadata.board?.gridColor ?? 'var(--text)'} stroke-opacity={(data.metadata.board?.gridOpacity ?? .055) * (stop.major ? 2 : 1)}/>
+        {/each}
+      {/if}
 
       {#if showEvents}
         {#each data.events as event}

@@ -1,14 +1,25 @@
 {
-  "schemaVersion": 3,
-  "application": "ReliTree Editor",
+  "schemaVersion": 4,
+  "application": "Atlas Studio",
   "savedAt": "2026-07-17T00:00:00.000Z",
   "atlas": {
     "metadata": {
       "generatedAt": "2026-07-17T00:00:00.000Z",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "presentYear": 2026,
       "referenceNotice": "Cronología inicial contrastada con las dos infografías aportadas y con el listado verificador de Wikipedia. Las relaciones de tipo influencia o contexto no equivalen a descendencia.",
-      "timelineStops": []
+      "timelineStops": [],
+      "board": {
+        "title": "ReliTree",
+        "layout": "columns",
+        "axisMode": "timeline",
+        "backgroundColor": "#090c12",
+        "backgroundOpacity": 1,
+        "gridVisible": true,
+        "gridColor": "#ffffff",
+        "gridOpacity": 0.08,
+        "headersVisible": true
+      }
     },
     "regions": [
       {
@@ -19,7 +30,18 @@
         "scope": "África continental y diásporas africanas",
         "order": 0,
         "width": 760,
-        "minLaneGap": 76
+        "minLaneGap": 76,
+        "appearance": {
+          "shape": "column",
+          "fillColor": "#c79a42",
+          "fillOpacity": 0.055,
+          "borderColor": "#ffffff",
+          "borderOpacity": 0.12,
+          "borderWidth": 1,
+          "headerVisible": true,
+          "headerColor": "#c79a42",
+          "headerOpacity": 1
+        }
       },
       {
         "id": "europe",
@@ -29,7 +51,18 @@
         "scope": "Europa, Mediterráneo septentrional y tradiciones indoeuropeas europeas",
         "order": 1,
         "width": 760,
-        "minLaneGap": 76
+        "minLaneGap": 76,
+        "appearance": {
+          "shape": "column",
+          "fillColor": "#4fb26f",
+          "fillOpacity": 0.055,
+          "borderColor": "#ffffff",
+          "borderOpacity": 0.12,
+          "borderWidth": 1,
+          "headerVisible": true,
+          "headerColor": "#4fb26f",
+          "headerOpacity": 1
+        }
       },
       {
         "id": "middle-east",
@@ -39,7 +72,18 @@
         "scope": "Levante, Mesopotamia, Arabia, Anatolia e Irán",
         "order": 2,
         "width": 760,
-        "minLaneGap": 76
+        "minLaneGap": 76,
+        "appearance": {
+          "shape": "column",
+          "fillColor": "#d7c63f",
+          "fillOpacity": 0.055,
+          "borderColor": "#ffffff",
+          "borderOpacity": 0.12,
+          "borderWidth": 1,
+          "headerVisible": true,
+          "headerColor": "#d7c63f",
+          "headerOpacity": 1
+        }
       },
       {
         "id": "north-eurasia",
@@ -49,7 +93,18 @@
         "scope": "Estepas, Siberia, regiones urálicas y Asia interior",
         "order": 3,
         "width": 760,
-        "minLaneGap": 76
+        "minLaneGap": 76,
+        "appearance": {
+          "shape": "column",
+          "fillColor": "#d39a2f",
+          "fillOpacity": 0.055,
+          "borderColor": "#ffffff",
+          "borderOpacity": 0.12,
+          "borderWidth": 1,
+          "headerVisible": true,
+          "headerColor": "#d39a2f",
+          "headerOpacity": 1
+        }
       },
       {
         "id": "south-asia",
@@ -59,7 +114,18 @@
         "scope": "Subcontinente indio y Sri Lanka",
         "order": 4,
         "width": 760,
-        "minLaneGap": 76
+        "minLaneGap": 76,
+        "appearance": {
+          "shape": "column",
+          "fillColor": "#ef842e",
+          "fillOpacity": 0.055,
+          "borderColor": "#ffffff",
+          "borderOpacity": 0.12,
+          "borderWidth": 1,
+          "headerVisible": true,
+          "headerColor": "#ef842e",
+          "headerOpacity": 1
+        }
       },
       {
         "id": "east-asia",
@@ -69,7 +135,18 @@
         "scope": "China, Corea, Japón, Tíbet y Asia central oriental",
         "order": 5,
         "width": 760,
-        "minLaneGap": 76
+        "minLaneGap": 76,
+        "appearance": {
+          "shape": "column",
+          "fillColor": "#ef4e32",
+          "fillOpacity": 0.055,
+          "borderColor": "#ffffff",
+          "borderOpacity": 0.12,
+          "borderWidth": 1,
+          "headerVisible": true,
+          "headerColor": "#ef4e32",
+          "headerOpacity": 1
+        }
       },
       {
         "id": "southeast-asia",
@@ -79,7 +156,18 @@
         "scope": "Sudeste asiático continental e insular",
         "order": 6,
         "width": 760,
-        "minLaneGap": 76
+        "minLaneGap": 76,
+        "appearance": {
+          "shape": "column",
+          "fillColor": "#e94b88",
+          "fillOpacity": 0.055,
+          "borderColor": "#ffffff",
+          "borderOpacity": 0.12,
+          "borderWidth": 1,
+          "headerVisible": true,
+          "headerColor": "#e94b88",
+          "headerOpacity": 1
+        }
       },
       {
         "id": "oceania",
@@ -89,7 +177,18 @@
         "scope": "Australia, Nueva Guinea y Melanesia",
         "order": 7,
         "width": 760,
-        "minLaneGap": 76
+        "minLaneGap": 76,
+        "appearance": {
+          "shape": "column",
+          "fillColor": "#a965ca",
+          "fillOpacity": 0.055,
+          "borderColor": "#ffffff",
+          "borderOpacity": 0.12,
+          "borderWidth": 1,
+          "headerVisible": true,
+          "headerColor": "#a965ca",
+          "headerOpacity": 1
+        }
       },
       {
         "id": "pacific",
@@ -99,7 +198,18 @@
         "scope": "Micronesia y Polinesia",
         "order": 8,
         "width": 760,
-        "minLaneGap": 76
+        "minLaneGap": 76,
+        "appearance": {
+          "shape": "column",
+          "fillColor": "#7867d8",
+          "fillOpacity": 0.055,
+          "borderColor": "#ffffff",
+          "borderOpacity": 0.12,
+          "borderWidth": 1,
+          "headerVisible": true,
+          "headerColor": "#7867d8",
+          "headerOpacity": 1
+        }
       },
       {
         "id": "north-america",
@@ -109,7 +219,18 @@
         "scope": "Ártico, costa noroccidental, llanuras, bosques y suroeste",
         "order": 9,
         "width": 760,
-        "minLaneGap": 76
+        "minLaneGap": 76,
+        "appearance": {
+          "shape": "column",
+          "fillColor": "#8b68d6",
+          "fillOpacity": 0.055,
+          "borderColor": "#ffffff",
+          "borderOpacity": 0.12,
+          "borderWidth": 1,
+          "headerVisible": true,
+          "headerColor": "#8b68d6",
+          "headerOpacity": 1
+        }
       },
       {
         "id": "mesoamerica",
@@ -119,7 +240,18 @@
         "scope": "México y América Central precolombina",
         "order": 10,
         "width": 760,
-        "minLaneGap": 76
+        "minLaneGap": 76,
+        "appearance": {
+          "shape": "column",
+          "fillColor": "#5687da",
+          "fillOpacity": 0.055,
+          "borderColor": "#ffffff",
+          "borderOpacity": 0.12,
+          "borderWidth": 1,
+          "headerVisible": true,
+          "headerColor": "#5687da",
+          "headerOpacity": 1
+        }
       },
       {
         "id": "south-america",
@@ -129,7 +261,18 @@
         "scope": "Andes, Amazonia, Chaco, Patagonia y Caribe suramericano",
         "order": 11,
         "width": 760,
-        "minLaneGap": 76
+        "minLaneGap": 76,
+        "appearance": {
+          "shape": "column",
+          "fillColor": "#45b97b",
+          "fillOpacity": 0.055,
+          "borderColor": "#ffffff",
+          "borderOpacity": 0.12,
+          "borderWidth": 1,
+          "headerVisible": true,
+          "headerColor": "#45b97b",
+          "headerOpacity": 1
+        }
       }
     ],
     "traditions": [
@@ -10649,8 +10792,14 @@
       "opacity": 0.28,
       "x": 140,
       "y": 150,
-      "scale": 1,
-      "embeddedDataUrl": null
+      "width": 2048,
+      "height": 1447,
+      "rotation": 0,
+      "lockAspect": true,
+      "visible": true,
+      "aspectRatio": 1.4153420870767104,
+      "embeddedDataUrl": null,
+      "scale": 1
     },
     "timeline": {
       "customStops": []

@@ -13,7 +13,7 @@ ReliTree separa cuatro conceptos que una infografía plana suele mezclar:
 
 | Tabla | Función |
 |---|---|
-| `regions` | Bandas geoculturales, orden, color, anchura y separación mínima. |
+| `regions` | Zonas o categorías, orden, color semántico, anchura, separación y apariencia vectorial del fondo. |
 | `traditions` | Entidades, título, subtítulo, fechas, coordenadas, icono, ficha y estilo. |
 | `tradition_regions` | Relación de múltiples áreas con cada entidad. |
 | `aliases` | Grafías y denominaciones alternativas. |
@@ -33,7 +33,9 @@ El eje no es lineal. Reserva mucho espacio a los últimos cuatro milenios, donde
 
 `data/reli-tree-project.json` es la fuente editorial intercambiable con el editor autónomo. `scripts/generate-data.mjs` la valida y genera `src/data/atlas.json`, que consume la aplicación. `scripts/build-database.mjs` transforma el atlas y el catálogo verificador en `public/data/relitree.sqlite`. El build vuelve a generar los artefactos para impedir divergencias.
 
-## Formato editorial 3
+## Formato editorial 4
+
+`metadata.board` define el título, el preajuste, la presencia del eje, el color del lienzo y el estilo de cuadrícula. Cada área incorpora `appearance`, con forma, relleno, opacidad, borde y cabecera; estos valores se guardan también en `regions.appearance_json` de SQLite. Así, el color semántico de una categoría deja de obligar a teñir su fondo.
 
 Cada entidad conserva `regionIds`, `placement`, `icon`, `details` y `visual`; `visual.timelineWidth` controla de forma independiente la anchura de su duración vertical. Las áreas poseen anchura, separación, orden y descripción variables.
 

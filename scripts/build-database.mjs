@@ -28,7 +28,8 @@ db.run(`
     display_order INTEGER NOT NULL,
     scope TEXT NOT NULL,
     width REAL NOT NULL,
-    min_lane_gap REAL NOT NULL
+    min_lane_gap REAL NOT NULL,
+    appearance_json TEXT NOT NULL
   );
   CREATE TABLE traditions (
     id TEXT PRIMARY KEY,
@@ -128,8 +129,8 @@ const insertMetadata = db.prepare('INSERT INTO metadata(key, value) VALUES (?, ?
 for (const [key, value] of Object.entries(atlas.metadata)) insertMetadata.run([key, typeof value === 'object' ? JSON.stringify(value) : String(value)]);
 insertMetadata.free();
 
-const insertRegion = db.prepare('INSERT INTO regions VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
-for (const region of atlas.regions) insertRegion.run([region.id, region.name, region.shortName, region.color, region.order, region.scope, region.width ?? 760, region.minLaneGap ?? 76]);
+const insertRegion = db.prepare('INSERT INTO regions VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
+for (const region of atlas.regions) insertRegion.run([region.id, region.name, region.shortName, region.color, region.order, region.scope, region.width ?? 760, region.minLaneGap ?? 76, JSON.stringify(region.appearance ?? {})]);
 insertRegion.free();
 
 const insertTradition = db.prepare(`INSERT INTO traditions VALUES (

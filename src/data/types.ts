@@ -73,6 +73,32 @@ export interface EntityPlacement {
   autoAvoidOverlap?: boolean;
 }
 
+export type RegionBackgroundShape = 'column' | 'rounded' | 'capsule' | 'ellipse' | 'outline' | 'none';
+
+export interface RegionAppearance {
+  shape?: RegionBackgroundShape;
+  fillColor?: string;
+  fillOpacity?: number;
+  borderColor?: string;
+  borderOpacity?: number;
+  borderWidth?: number;
+  headerVisible?: boolean;
+  headerColor?: string;
+  headerOpacity?: number;
+}
+
+export interface BoardAppearance {
+  title?: string;
+  layout?: 'columns' | 'lanes' | 'solid' | 'freeform';
+  axisMode?: 'timeline' | 'none';
+  backgroundColor?: string;
+  backgroundOpacity?: number;
+  gridVisible?: boolean;
+  gridColor?: string;
+  gridOpacity?: number;
+  headersVisible?: boolean;
+}
+
 export interface EntityIcon {
   path?: string | null;
   embeddedDataUrl?: string | null;
@@ -97,6 +123,7 @@ export interface Region {
   scope: string;
   width?: number;
   minLaneGap?: number;
+  appearance?: RegionAppearance;
 }
 
 export interface Tradition {
@@ -185,6 +212,7 @@ export interface AtlasData {
     presentYear: number;
     referenceNotice: string;
     timelineStops?: Array<{ year: number; major?: boolean; label?: string }>;
+    board?: BoardAppearance;
   };
   regions: Region[];
   traditions: Tradition[];
