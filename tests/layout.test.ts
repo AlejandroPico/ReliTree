@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { AtlasData, Region, Tradition } from '../src/data/types';
-import { positionTraditions, regionWidth, regionX, worldWidth, WORLD_LEFT } from '../src/lib/layout';
+import { positionTraditions, relationPoints, regionWidth, regionX, styledRelationPath, worldWidth, WORLD_LEFT } from '../src/lib/layout';
 
 const regions = [
   { id: 'africa', name: 'África', shortName: 'África', color: '#aa8', order: 0, scope: '', width: 500 },
@@ -35,5 +35,26 @@ describe('layout geográfico variable', () => {
     expect(Math.abs(positioned[0].x - positioned[1].x)).toBeGreaterThanOrEqual(76);
     expect(first.placement?.xPercent).toBe(50);
     expect(second.placement?.xPercent).toBe(50);
+  });
+
+  it('mantiene los extremos unidos y sitúa puntos de paso por territorio y fecha', () => {
+    const source = entity('origen');
+    const target: Tradition = { ...entity('destino'), regionId: 'europe', regionIds: ['europe'], placement: { regionId: 'europe', xPercent: 75, autoAvoidOverlap: false }, startYear: 1500 };
+    const atlas: AtlasData = {
+      regions, traditions: [source, target], events: [], relations: [],
+      metadata: { generatedAt: '', version: 'test', presentYear: 2026, referenceNotice: '' }
+    };
+    const positioned = positionTraditions(atlas);
+    const relation = {
+      id: 'ruta', sourceId: 'origen', targetId: 'destino', kind: 'migration' as const, confidence: 'high' as const, note: '',
+      visual: { route: 'straight' as const, waypoints: [{ regionId: 'europe', year: 1200, xPercent: 25, color: '#123456' }] }
+    };
+    const points = relationPoints(positioned[0], positioned[1], relation, regions);
+    expect(points).toHaveLength(3);
+    expect(points[0].x).toBe(positioned[0].x);
+    expect(points[2].x).toBe(positioned[1].x);
+    expect(points[1].regionId).toBe('europe');
+    expect(points[1].color).toBe('#123456');
+    expect(styledRelationPath(positioned[0], positioned[1], relation, regions)).toContain(`L ${points[1].x} ${points[1].y}`);
   });
 });

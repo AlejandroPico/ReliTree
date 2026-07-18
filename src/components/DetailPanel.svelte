@@ -24,8 +24,10 @@
   const children = $derived(data.traditions.filter((entry) => entry.parentId === tradition.id));
   const relations = $derived(data.relations.filter((entry) => entry.sourceId === tradition.id || entry.targetId === tradition.id));
   const relationLabels: Record<RelationKind, string> = {
-    descent: 'continuidad / descendencia', reform: 'reforma', influence: 'influencia', syncretism: 'sincretismo',
-    context: 'contexto compartido', migration: 'migración / difusión'
+    descent: 'continuidad / descendencia', schism: 'cisma', reform: 'reforma', influence: 'influencia',
+    syncretism: 'sincretismo', fusion: 'fusión', adoption: 'adopción', transmission: 'transmisión',
+    coexistence: 'coexistencia', opposition: 'oposición', migration: 'migración / difusión',
+    revival: 'revitalización', succession: 'sucesión', context: 'contexto compartido'
   };
   const confidenceLabels = { high: 'alta', medium: 'media', low: 'baja', hypothesis: 'hipótesis' } as const;
   const precisionLabels = {

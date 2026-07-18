@@ -11,7 +11,9 @@ Atlas cronológico e interactivo de religiones, tradiciones espirituales y conte
 - Bandas geoculturales de anchura configurable, inspiradas en la organización de *The Great Tree of Religion 3.0*.
 - Tradiciones, vínculos históricos y acontecimientos consultables.
 - Entidades con título, subtítulo, fecha, múltiples áreas, iconos SVG y fichas editoriales extensas.
-- Relaciones múltiples de entrada y salida, fusiones, intensidades, recorridos y gradientes multicolor.
+- Relaciones múltiples de entrada y salida, fusiones, intensidades, recorridos multipunto y gradientes territoriales multicolor.
+- Acontecimientos regionales o anclados a ramas concretas, útiles para concilios, cismas y otros hitos sin crear entidades artificiales.
+- Selección múltiple, confirmación universal de borrado y ayuda contextual detallada en el editor autónomo.
 - Autoubicación por fecha y territorio con separación automática de colisiones y ajuste manual posterior.
 - Buscador, filtros, capas, temas claro/oscuro/automático y fichas documentales.
 - Base `SQLite` generada en cada build y consultable en el navegador mediante WebAssembly.
@@ -59,6 +61,6 @@ Para publicar los cambios del editor:
 2. Sustituir `data/reli-tree-project.json` en el repositorio.
 3. Hacer commit en `main`; GitHub Actions valida el formato y reconstruye el atlas, SQLite y Pages.
 
-El archivo editorial de formato 2 conserva entidades, relaciones, acontecimientos, anchuras geográficas, marcas temporales, coordenadas territoriales, iconos, fichas y estilos. La imagen de referencia sólo se incrusta si se activa expresamente esa opción, para evitar añadir accidentalmente una copia pesada o restringida al repositorio.
+El archivo editorial de formato 3 conserva entidades, relaciones, acontecimientos dirigidos, puntos de paso, anchuras geográficas, marcas temporales, coordenadas territoriales, iconos, fichas y estilos. La imagen de referencia sólo se incrusta si se activa expresamente esa opción, para evitar añadir accidentalmente una copia pesada o restringida al repositorio.
 
 Manual completo: [`docs/EDITOR.md`](docs/EDITOR.md).

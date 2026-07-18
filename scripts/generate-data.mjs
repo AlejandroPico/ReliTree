@@ -372,6 +372,11 @@ function validateAtlas(candidate) {
   }
   for (const relation of candidate.relations) {
     if (!candidateIds.has(relation.sourceId) || !candidateIds.has(relation.targetId)) throw new Error(`Relación inválida ${relation.id}`);
+    for (const waypoint of relation.visual?.waypoints ?? []) if (!candidateRegions.has(waypoint.regionId)) throw new Error(`Punto de paso con área inexistente en ${relation.id}`);
+  }
+  for (const event of candidate.events) {
+    if (!(event.regionIds ?? []).every((id) => candidateRegions.has(id))) throw new Error(`Área de acontecimiento inexistente en ${event.id}`);
+    if (!(event.entityIds ?? []).every((id) => candidateIds.has(id))) throw new Error(`Entidad de acontecimiento inexistente en ${event.id}`);
   }
 }
 
@@ -381,12 +386,13 @@ function slugify(value) {
 
 function migrateProject(value) {
   const wrapped = value?.atlas ? value : { schemaVersion: 1, application: 'ReliTree Editor', savedAt: new Date().toISOString(), atlas: value, editor: {} };
-  wrapped.schemaVersion = 2;
+  wrapped.schemaVersion = 3;
   wrapped.application = 'ReliTree Editor';
-  wrapped.atlas.metadata.version = '0.2.0';
+  wrapped.atlas.metadata.version = '0.3.0';
+  wrapped.atlas.metadata.presentYear ??= PRESENT;
   wrapped.atlas.metadata.timelineStops ??= [];
   wrapped.atlas.regions.forEach((region) => {
-    region.width = Math.max(260, Math.min(2200, Number(region.width) || 760));
+    region.width = Math.max(180, Math.min(3000, Number(region.width) || 760));
     region.minLaneGap ??= 76;
   });
   wrapped.atlas.traditions.forEach((entity) => {
@@ -407,6 +413,8 @@ function migrateProject(value) {
       evidence: entity.details?.evidence ?? '',
       bibliography: entity.details?.bibliography ?? ''
     };
+    entity.visual ??= {};
+    entity.visual.timelineWidth ??= entity.visual.lineWidth ?? 3.5;
   });
   wrapped.atlas.relations.forEach((relation) => {
     relation.role ??= relation.confidence === 'hypothesis' ? 'hypothetical' : relation.kind === 'migration' ? 'migration' : relation.kind === 'descent' || relation.kind === 'reform' ? 'primary' : 'secondary';
@@ -414,6 +422,15 @@ function migrateProject(value) {
     relation.visual ??= {};
     relation.visual.route ??= 'curve';
     relation.visual.gradientColors ??= [];
+    relation.visual.autoRegionGradient ??= false;
+    relation.visual.waypoints ??= [];
+  });
+  wrapped.atlas.events.forEach((event) => {
+    event.regionIds ??= [];
+    event.entityIds ??= [];
+    event.scope ??= event.entityIds.length ? 'entities' : 'regions';
+    event.endYear ??= null;
+    event.visual ??= {};
   });
   wrapped.editor ??= {};
   wrapped.editor.canvas = { zoom: .17, offsetX: 90, offsetY: 10, snap: true, gridSize: 10, autoLayout: true, ...(wrapped.editor.canvas ?? {}) };
@@ -444,7 +461,7 @@ try {
 } catch (error) {
   if (error?.code !== 'ENOENT') throw error;
   project = {
-    schemaVersion: 2,
+    schemaVersion: 3,
     application: 'ReliTree Editor',
     savedAt: '2026-07-17T00:00:00.000Z',
     atlas,

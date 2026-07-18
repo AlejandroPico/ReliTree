@@ -83,7 +83,9 @@ db.run(`
     id TEXT PRIMARY KEY,
     title TEXT NOT NULL,
     year INTEGER NOT NULL,
+    end_year INTEGER,
     kind TEXT NOT NULL,
+    scope TEXT NOT NULL,
     summary TEXT NOT NULL,
     confidence TEXT NOT NULL,
     visual_json TEXT NOT NULL
@@ -92,6 +94,11 @@ db.run(`
     event_id TEXT NOT NULL REFERENCES events(id),
     region_id TEXT NOT NULL REFERENCES regions(id),
     PRIMARY KEY (event_id, region_id)
+  );
+  CREATE TABLE event_entities (
+    event_id TEXT NOT NULL REFERENCES events(id),
+    tradition_id TEXT NOT NULL REFERENCES traditions(id),
+    PRIMARY KEY (event_id, tradition_id)
   );
   CREATE TABLE relations (
     id TEXT PRIMARY KEY,
@@ -163,14 +170,17 @@ insertAlias.free();
 insertSource.free();
 insertTraditionRegion.free();
 
-const insertEvent = db.prepare('INSERT INTO events VALUES (?, ?, ?, ?, ?, ?, ?)');
+const insertEvent = db.prepare('INSERT INTO events VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
 const insertEventRegion = db.prepare('INSERT INTO event_regions VALUES (?, ?)');
+const insertEventEntity = db.prepare('INSERT INTO event_entities VALUES (?, ?)');
 for (const event of atlas.events) {
-  insertEvent.run([event.id, event.title, event.year, event.kind, event.summary, event.confidence, JSON.stringify(event.visual ?? {})]);
-  for (const regionId of event.regionIds) insertEventRegion.run([event.id, regionId]);
+  insertEvent.run([event.id, event.title, event.year, event.endYear ?? null, event.kind, event.scope ?? 'regions', event.summary, event.confidence, JSON.stringify(event.visual ?? {})]);
+  for (const regionId of event.regionIds ?? []) insertEventRegion.run([event.id, regionId]);
+  for (const traditionId of event.entityIds ?? []) insertEventEntity.run([event.id, traditionId]);
 }
 insertEvent.free();
 insertEventRegion.free();
+insertEventEntity.free();
 
 const insertRelation = db.prepare('INSERT INTO relations VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
 for (const relation of atlas.relations) insertRelation.run([relation.id, relation.sourceId, relation.targetId, relation.kind, relation.role ?? 'secondary', relation.strength ?? 60, relation.confidence, relation.note, JSON.stringify(relation.visual ?? {})]);

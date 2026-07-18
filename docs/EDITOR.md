@@ -7,16 +7,17 @@ El editor se distribuye como `ReliTree-Editor.html`. No requiere instalación, P
 ## Herramientas
 
 - **Seleccionar (V):** abre el inspector. Un nodo puede arrastrarse horizontalmente entre áreas y carriles, y verticalmente para modificar su año.
+- **Selección múltiple (M):** acumula entidades, relaciones y acontecimientos para aplicar estilos o eliminarlos en grupo.
 - **Desplazar (H):** recorre el lienzo sin modificar elementos.
 - **Añadir nodo (N):** crea una entidad en el punto temporal y geográfico pulsado.
 - **Crear unión (L):** selecciona primero la entidad de origen y después la de destino. No hay límite de entradas o salidas.
 - **Añadir acontecimiento (E):** crea una línea histórica en el año y área pulsados.
 
-La rueda controla el zoom. `Supr` elimina la selección; `Ctrl+Z` y `Ctrl+Y` deshacen o rehacen; `Ctrl+S` guarda el proyecto; `Ctrl+O` abre otro proyecto.
+La rueda controla el zoom. `Supr` solicita confirmación antes de eliminar; `Ctrl+Z` y `Ctrl+Y` deshacen o rehacen; `Ctrl+S` guarda el proyecto; `Ctrl+O` abre otro proyecto.
 
 ## Inspector
 
-El botón **Proyecto** abre la configuración global: anchura y color de cada área, nuevas zonas geográficas, marcas temporales personalizadas y separación automática de colisiones.
+El botón **Proyecto** abre una ventana central de configuración: nombre, abreviatura, anchura, separación, color, descripción, orden y eliminación segura de áreas; marcas temporales; presente editorial; cuadrícula; y referencia.
 
 El inspector de entidad permite editar:
 
@@ -26,10 +27,13 @@ El inspector de entidad permite editar:
 - icono mediante ruta del repositorio o SVG incrustado;
 - familia, clase, estado, resumen, historia, doctrinas, evidencia y bibliografía;
 - color, radio, opacidad, visibilidad y desplazamiento de las etiquetas;
+- anchura independiente de la línea vertical de duración;
 - relaciones de entrada y salida, incluyendo fusiones con varios orígenes;
 - título, año, áreas afectadas, clase y resumen de acontecimientos.
 
-El inspector de relación controla origen, destino, papel visual, intensidad de 1 a 100, confianza, forma recta/ortogonal/curva, desplazamiento del recorrido, color, gradiente multicolor, grosor y patrón discontinuo.
+El inspector de relación controla origen, destino, papel visual, intensidad de 1 a 100, confianza, forma recta/ortogonal/curva, desplazamiento, color, gradiente multicolor, grosor y patrón discontinuo. Los puntos de paso —editables también arrastrándolos— permiten encaminar una expansión por varias áreas y fechas. El degradado automático adopta los colores del origen, cada escala territorial y el destino.
+
+Los acontecimientos pueden afectar áreas completas, entidades seleccionadas o ambas. Esto permite situar concilios, cismas, decisiones doctrinales, textos, persecuciones y otros hitos sobre una rama sin crear una religión nueva.
 
 Los patrones de trazo usan la sintaxis SVG: `7 7` crea una línea discontinua, `2 3` una línea punteada y un valor vacío una línea continua.
 
@@ -56,3 +60,7 @@ El build comprueba regiones, identificadores, padres y extremos de las relacione
 ## Seguridad de los datos
 
 El editor no transmite el proyecto ni las imágenes a ningún servicio. Las descargas se generan en el navegador. Existe un autoguardado local sin la imagen de referencia como protección adicional, pero el archivo JSON descargado es la copia que debe conservarse y versionarse.
+
+Toda eliminación exige una confirmación explícita, incluidas áreas, entidades, relaciones, acontecimientos, marcas temporales, puntos de paso, iconos y referencias. Las eliminaciones confirmadas siguen siendo recuperables mediante `Ctrl+Z` mientras continúe abierta la sesión.
+
+Todos los controles ofrecen ayuda contextual al mantener el puntero sobre ellos. Las listas de entidades se ordenan alfabéticamente en español.

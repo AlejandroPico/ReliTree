@@ -1,16 +1,6 @@
-export type RegionId =
-  | 'africa'
-  | 'europe'
-  | 'middle-east'
-  | 'north-eurasia'
-  | 'south-asia'
-  | 'east-asia'
-  | 'southeast-asia'
-  | 'oceania'
-  | 'pacific'
-  | 'north-america'
-  | 'mesoamerica'
-  | 'south-america';
+// El editor permite crear y eliminar territorios, por lo que los identificadores
+// geográficos no pueden quedar limitados a la lista inicial del póster.
+export type RegionId = string;
 
 export type TraditionKind =
   | 'substrate'
@@ -23,8 +13,22 @@ export type TraditionKind =
 
 export type TraditionStatus = 'active' | 'historical' | 'reconstructed' | 'disputed';
 export type DatePrecision = 'year' | 'decade' | 'century' | 'millennium' | 'deep-time' | 'disputed';
-export type RelationKind = 'descent' | 'reform' | 'influence' | 'syncretism' | 'context' | 'migration';
-export type RelationRole = 'primary' | 'secondary' | 'hypothetical' | 'fusion' | 'migration';
+export type RelationKind =
+  | 'descent'
+  | 'schism'
+  | 'reform'
+  | 'influence'
+  | 'syncretism'
+  | 'fusion'
+  | 'adoption'
+  | 'transmission'
+  | 'coexistence'
+  | 'opposition'
+  | 'migration'
+  | 'revival'
+  | 'succession'
+  | 'context';
+export type RelationRole = 'primary' | 'secondary' | 'hypothetical' | 'fusion' | 'migration' | 'influence' | 'conflict';
 export type RelationRoute = 'curve' | 'orthogonal' | 'straight';
 export type Confidence = 'high' | 'medium' | 'low' | 'hypothesis';
 export type SourceId = 'poster-3' | 'poster-beta' | 'wikipedia-list' | 'academic-synthesis';
@@ -46,6 +50,19 @@ export interface ElementVisualStyle {
   curve?: number;
   midpointOffsetX?: number;
   midpointOffsetY?: number;
+  timelineWidth?: number;
+  autoRegionGradient?: boolean;
+  waypoints?: RelationWaypoint[];
+}
+
+export interface RelationWaypoint {
+  id?: string;
+  regionId: RegionId;
+  year: number;
+  xPercent?: number;
+  offsetX?: number;
+  offsetY?: number;
+  color?: string;
 }
 
 export interface EntityPlacement {
@@ -115,9 +132,31 @@ export interface HistoricalEvent {
   title: string;
   year: number;
   regionIds: RegionId[];
-  kind: 'migration' | 'contact' | 'state' | 'text' | 'conflict' | 'exchange' | 'archaeology';
+  endYear?: number | null;
+  kind:
+    | 'council'
+    | 'schism'
+    | 'reform'
+    | 'doctrine'
+    | 'mission'
+    | 'migration'
+    | 'contact'
+    | 'state'
+    | 'legal'
+    | 'text'
+    | 'person'
+    | 'institution'
+    | 'conflict'
+    | 'persecution'
+    | 'exchange'
+    | 'revival'
+    | 'merger'
+    | 'dissolution'
+    | 'archaeology';
   summary: string;
   confidence: Confidence;
+  scope?: 'regions' | 'entities' | 'both';
+  entityIds?: string[];
   visual?: ElementVisualStyle;
 }
 

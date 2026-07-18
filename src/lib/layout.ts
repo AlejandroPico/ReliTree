@@ -1,4 +1,4 @@
-import type { AtlasData, PositionedTradition, Region, RegionId, Tradition } from '../data/types';
+import type { AtlasData, CrossRelation, PositionedTradition, Region, RegionId, Tradition } from '../data/types';
 import { PRESENT_YEAR, WORLD_BOTTOM, yearToY } from './timeline';
 
 export const REGION_WIDTH = 760;
@@ -7,7 +7,7 @@ export const WORLD_WIDTH = WORLD_LEFT + REGION_WIDTH * 12 + 120;
 export const WORLD_HEIGHT = WORLD_BOTTOM + 120;
 
 export function regionWidth(region: Region): number {
-  return Math.max(260, Math.min(2200, Number(region.width) || REGION_WIDTH));
+  return Math.max(180, Math.min(3000, Number(region.width) || REGION_WIDTH));
 }
 
 export function orderedRegions(regions: Region[]): Region[] {
@@ -78,17 +78,66 @@ export function relationPath(source: PositionedTradition, target: PositionedTrad
   return `M ${source.x} ${sourceY} C ${source.x} ${middleY}, ${target.x} ${middleY}, ${target.x} ${targetY}`;
 }
 
-export function styledRelationPath(source: PositionedTradition, target: PositionedTradition, relation: AtlasData['relations'][number]): string {
+export interface RelationPoint { x: number; y: number; regionId?: RegionId; color?: string }
+
+export function relationPoints(source: PositionedTradition, target: PositionedTradition, relation: CrossRelation, regions: Region[]): RelationPoint[] {
   const sourceY = Math.min(source.startY, Math.max(source.endY, target.startY));
   const targetY = target.startY;
+  const waypoints = (relation.visual?.waypoints ?? []).map((waypoint) => {
+    const region = regions.find((entry) => entry.id === waypoint.regionId) ?? source.region;
+    const width = regionWidth(region);
+    const percent = Math.max(0, Math.min(100, waypoint.xPercent ?? 50));
+    return {
+      x: regionX(region, regions) + 55 + percent / 100 * (width - 110) + (waypoint.offsetX ?? 0),
+      y: yearToY(waypoint.year) + (waypoint.offsetY ?? 0),
+      regionId: region.id,
+      color: waypoint.color ?? region.color
+    };
+  });
+  return [
+    { x: source.x, y: sourceY, regionId: source.region.id, color: source.visual?.color ?? source.region.color },
+    ...waypoints,
+    { x: target.x, y: targetY, regionId: target.region.id, color: target.visual?.color ?? target.region.color }
+  ];
+}
+
+export function styledRelationPath(source: PositionedTradition, target: PositionedTradition, relation: AtlasData['relations'][number], regions: Region[] = [source.region, target.region]): string {
+  const points = relationPoints(source, target, relation, regions);
+  const first = points[0];
+  const last = points.at(-1)!;
+  if (points.length > 2) {
+    if (relation.visual?.route === 'straight') return `M ${first.x} ${first.y} ${points.slice(1).map((point) => `L ${point.x} ${point.y}`).join(' ')}`;
+    if (relation.visual?.route === 'orthogonal') {
+      let path = `M ${first.x} ${first.y}`;
+      let previous = first;
+      for (const point of points.slice(1)) {
+        const middleY = (previous.y + point.y) / 2;
+        path += ` L ${previous.x} ${middleY} L ${point.x} ${middleY} L ${point.x} ${point.y}`;
+        previous = point;
+      }
+      return path;
+    }
+    let path = `M ${first.x} ${first.y}`;
+    for (let index = 1; index < points.length - 1; index++) {
+      const point = points[index];
+      const next = points[index + 1];
+      const middle = { x: (point.x + next.x) / 2, y: (point.y + next.y) / 2 };
+      path += ` Q ${point.x} ${point.y} ${middle.x} ${middle.y}`;
+    }
+    const penultimate = points.at(-2)!;
+    path += ` Q ${penultimate.x} ${penultimate.y} ${last.x} ${last.y}`;
+    return path;
+  }
+  const sourceY = first.y;
+  const targetY = last.y;
   const mx = (source.x + target.x) / 2 + (relation.visual?.midpointOffsetX ?? 0);
   const my = (sourceY + targetY) / 2 + (relation.visual?.midpointOffsetY ?? 0);
-  if (relation.visual?.route === 'straight') return `M ${source.x} ${sourceY} L ${target.x} ${targetY}`;
-  if (relation.visual?.route === 'orthogonal') return `M ${source.x} ${sourceY} L ${source.x} ${my} L ${target.x} ${my} L ${target.x} ${targetY}`;
+  if (relation.visual?.route === 'straight') return `M ${first.x} ${sourceY} L ${last.x} ${targetY}`;
+  if (relation.visual?.route === 'orthogonal') return `M ${first.x} ${sourceY} L ${first.x} ${my} L ${last.x} ${my} L ${last.x} ${targetY}`;
   const curve = Math.max(0, Math.min(1, relation.visual?.curve ?? .5));
   const c1y = sourceY + (my - sourceY) * curve;
   const c2y = targetY + (my - targetY) * curve;
-  return `M ${source.x} ${sourceY} C ${source.x} ${c1y}, ${mx} ${my}, ${mx} ${my} S ${target.x} ${c2y}, ${target.x} ${targetY}`;
+  return `M ${first.x} ${sourceY} C ${first.x} ${c1y}, ${mx} ${my}, ${mx} ${my} S ${last.x} ${c2y}, ${last.x} ${targetY}`;
 }
 
 export function regionBounds(regionId: RegionId, regions: Region[]): { x: number; width: number } {

@@ -1,10 +1,10 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import type { AtlasData, Camera, PositionedTradition, RegionId, Tradition } from '../data/types';
+  import type { AtlasData, Camera, CrossRelation, PositionedTradition, RegionId, Tradition } from '../data/types';
   import { formatYear, timelineStops, yearToY } from '../lib/timeline';
   import {
     parentPath, positionTraditions, regionBounds, regionWidth,
-    regionX, styledRelationPath, worldWidth, WORLD_HEIGHT, WORLD_LEFT
+    relationPoints, regionX, styledRelationPath, worldWidth, WORLD_HEIGHT, WORLD_LEFT
   } from '../lib/layout';
 
   let {
@@ -177,6 +177,15 @@
     return lines.slice(0, 3);
   }
 
+  function relationColors(relation: CrossRelation): string[] {
+    if ((relation.visual?.gradientColors?.length ?? 0) > 0) return relation.visual!.gradientColors!;
+    if (!relation.visual?.autoRegionGradient) return [];
+    const source = byId.get(relation.sourceId);
+    const target = byId.get(relation.targetId);
+    if (!source || !target) return [];
+    return relationPoints(source, target, relation, data.regions).map((point) => point.color ?? '#888888');
+  }
+
   function exportSvg(): void {
     if (!svg) return;
     const clone = svg.cloneNode(true) as SVGSVGElement;
@@ -236,10 +245,14 @@
 
       <defs>
         {#each data.relations as relation}
-          {#if (relation.visual?.gradientColors?.length ?? 0) > 1}
-            <linearGradient id={`relation-gradient-${relation.id}`} x1="0%" x2="100%">
-              {#each relation.visual!.gradientColors! as color, index}
-                <stop offset={`${index / (relation.visual!.gradientColors!.length - 1) * 100}%`} stop-color={color}/>
+          {@const colors = relationColors(relation)}
+          {@const source = byId.get(relation.sourceId)}
+          {@const target = byId.get(relation.targetId)}
+          {@const points = source && target ? relationPoints(source, target, relation, data.regions) : []}
+          {#if colors.length > 1 && points.length > 1}
+            <linearGradient id={`relation-gradient-${relation.id}`} gradientUnits="userSpaceOnUse" x1={points[0].x} y1={points[0].y} x2={points.at(-1)!.x} y2={points.at(-1)!.y}>
+              {#each colors as color, index}
+                <stop offset={`${index / (colors.length - 1) * 100}%`} stop-color={color}/>
               {/each}
             </linearGradient>
           {/if}
@@ -266,14 +279,23 @@
         {#each data.events as event}
           {@const y = yearToY(event.year)}
           {@const affected = data.regions.filter((region) => event.regionIds.includes(region.id))}
-          {@const minOrder = Math.min(...affected.map((region) => region.order))}
-          {@const maxOrder = Math.max(...affected.map((region) => region.order))}
-          {@const firstRegion = data.regions.find((region) => region.order === minOrder)!}
-          {@const lastRegion = data.regions.find((region) => region.order === maxOrder)!}
-          {@const x1 = regionX(firstRegion, data.regions) + 20}
-          {@const x2 = regionX(lastRegion, data.regions) + regionWidth(lastRegion) - 20}
+          {@const targeted = (event.entityIds ?? []).map((id) => byId.get(id)).filter((entry): entry is PositionedTradition => Boolean(entry))}
+          {@const regionScoped = event.scope !== 'entities' && affected.length > 0}
+          {@const entityScoped = event.scope !== 'regions' && targeted.length > 0}
+          {@const minOrder = regionScoped ? Math.min(...affected.map((region) => region.order)) : 0}
+          {@const maxOrder = regionScoped ? Math.max(...affected.map((region) => region.order)) : 0}
+          {@const firstRegion = regionScoped ? data.regions.find((region) => region.order === minOrder) : null}
+          {@const lastRegion = regionScoped ? data.regions.find((region) => region.order === maxOrder) : null}
+          {@const x1 = firstRegion ? regionX(firstRegion, data.regions) + 20 : (targeted[0]?.x ?? WORLD_LEFT)}
+          {@const x2 = lastRegion ? regionX(lastRegion, data.regions) + regionWidth(lastRegion) - 20 : (targeted.at(-1)?.x ?? x1)}
           <g class="event-marker" opacity={event.visual?.opacity ?? 1}>
-            <line class="event-line" x1={x1} x2={x2} y1={y} y2={y} stroke={event.visual?.color} style={`stroke-width:${event.visual?.lineWidth ?? 1.2};stroke-dasharray:${event.visual?.lineDash ?? '7 7'}`}/>
+            {#if regionScoped}<line class="event-line" x1={x1} x2={x2} y1={y} y2={y} stroke={event.visual?.color} style={`stroke-width:${event.visual?.lineWidth ?? 1.2};stroke-dasharray:${event.visual?.lineDash ?? '7 7'}`}/>{/if}
+            {#if entityScoped}
+              {#each targeted as entity}
+                <line class="event-line" x1={entity.x - 18} x2={entity.x + 18} y1={y} y2={y} stroke={event.visual?.color ?? entity.region.color} style={`stroke-width:${event.visual?.lineWidth ?? 2.4};stroke-dasharray:${event.visual?.lineDash ?? ''}`}/>
+                <circle cx={entity.x} cy={y} r="4" fill={event.visual?.color ?? entity.region.color}/>
+              {/each}
+            {/if}
             {#if showEventLabels}<text class="event-text" x={x1 + 10} y={y - 9} fill={event.visual?.color}>{event.title} · {formatYear(event.year, true)}</text>{/if}
           </g>
         {/each}
@@ -285,7 +307,7 @@
           {#if parent && shownSet.has(parent.id)}
             <path class={`parent-link relation-${entry.relationToParent}`} d={parentPath(entry, parent)} stroke={entry.visual?.parentLineColor ?? entry.region.color} style={`stroke-width:${entry.visual?.parentLineWidth ?? 2};${entry.visual?.parentLineDash ? `stroke-dasharray:${entry.visual.parentLineDash}` : ''}`}/>
           {/if}
-          <line class="branch" x1={entry.x} x2={entry.x} y1={entry.startY} y2={entry.endY} stroke={entry.visual?.color ?? entry.region.color} style={`stroke-width:${entry.visual?.lineWidth ?? 3.5};stroke-dasharray:${entry.visual?.lineDash ?? ''}`} opacity={entry.visual?.opacity ?? .84}/>
+          <line class="branch" x1={entry.x} x2={entry.x} y1={entry.startY} y2={entry.endY} stroke={entry.visual?.color ?? entry.region.color} style={`stroke-width:${entry.visual?.timelineWidth ?? entry.visual?.lineWidth ?? 3.5};stroke-dasharray:${entry.visual?.lineDash ?? ''}`} opacity={entry.visual?.opacity ?? .84}/>
         {/each}
       </g>
 
@@ -295,10 +317,10 @@
             {@const source = byId.get(relation.sourceId)}
             {@const target = byId.get(relation.targetId)}
             {#if source && target && shownSet.has(source.id) && shownSet.has(target.id)}
-              {@const gradient = relation.visual?.gradientColors}
+              {@const gradient = relationColors(relation)}
               {@const roleDash = relation.role === 'hypothetical' ? '3 7' : relation.role === 'secondary' ? '10 6' : relation.role === 'fusion' ? '14 5 3 5' : relation.kind === 'influence' || relation.kind === 'context' ? '7 7' : ''}
               {@const width = relation.visual?.lineWidth ?? .8 + (relation.strength ?? 70) * .08}
-              <path class={`cross-link relation-${relation.kind}`} d={styledRelationPath(source, target, relation)} stroke={(gradient?.length ?? 0) > 1 ? `url(#relation-gradient-${relation.id})` : relation.visual?.color ?? source.region.color} style={`stroke-width:${width};stroke-dasharray:${relation.visual?.lineDash ?? roleDash}`} opacity={relation.visual?.opacity ?? .7}/>
+              <path class={`cross-link relation-${relation.kind}`} d={styledRelationPath(source, target, relation, data.regions)} stroke={gradient.length > 1 ? `url(#relation-gradient-${relation.id})` : relation.visual?.color ?? source.region.color} style={`stroke-width:${width};stroke-dasharray:${relation.visual?.lineDash ?? roleDash}`} opacity={relation.visual?.opacity ?? .7}/>
             {/if}
           {/each}
         </g>
