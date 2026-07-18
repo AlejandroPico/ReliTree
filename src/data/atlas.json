@@ -1,9 +1,10 @@
 {
   "metadata": {
     "generatedAt": "2026-07-17T00:00:00.000Z",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "presentYear": 2026,
-    "referenceNotice": "Cronología inicial contrastada con las dos infografías aportadas y con el listado verificador de Wikipedia. Las relaciones de tipo influencia o contexto no equivalen a descendencia."
+    "referenceNotice": "Cronología inicial contrastada con las dos infografías aportadas y con el listado verificador de Wikipedia. Las relaciones de tipo influencia o contexto no equivalen a descendencia.",
+    "timelineStops": []
   },
   "regions": [
     {
@@ -12,7 +13,9 @@
       "shortName": "África",
       "color": "#c79a42",
       "scope": "África continental y diásporas africanas",
-      "order": 0
+      "order": 0,
+      "width": 760,
+      "minLaneGap": 76
     },
     {
       "id": "europe",
@@ -20,7 +23,9 @@
       "shortName": "Europa",
       "color": "#4fb26f",
       "scope": "Europa, Mediterráneo septentrional y tradiciones indoeuropeas europeas",
-      "order": 1
+      "order": 1,
+      "width": 760,
+      "minLaneGap": 76
     },
     {
       "id": "middle-east",
@@ -28,7 +33,9 @@
       "shortName": "Or. Próximo",
       "color": "#d7c63f",
       "scope": "Levante, Mesopotamia, Arabia, Anatolia e Irán",
-      "order": 2
+      "order": 2,
+      "width": 760,
+      "minLaneGap": 76
     },
     {
       "id": "north-eurasia",
@@ -36,7 +43,9 @@
       "shortName": "N. Eurasia",
       "color": "#d39a2f",
       "scope": "Estepas, Siberia, regiones urálicas y Asia interior",
-      "order": 3
+      "order": 3,
+      "width": 760,
+      "minLaneGap": 76
     },
     {
       "id": "south-asia",
@@ -44,7 +53,9 @@
       "shortName": "Asia S.",
       "color": "#ef842e",
       "scope": "Subcontinente indio y Sri Lanka",
-      "order": 4
+      "order": 4,
+      "width": 760,
+      "minLaneGap": 76
     },
     {
       "id": "east-asia",
@@ -52,7 +63,9 @@
       "shortName": "Asia E.",
       "color": "#ef4e32",
       "scope": "China, Corea, Japón, Tíbet y Asia central oriental",
-      "order": 5
+      "order": 5,
+      "width": 760,
+      "minLaneGap": 76
     },
     {
       "id": "southeast-asia",
@@ -60,7 +73,9 @@
       "shortName": "SE Asia",
       "color": "#e94b88",
       "scope": "Sudeste asiático continental e insular",
-      "order": 6
+      "order": 6,
+      "width": 760,
+      "minLaneGap": 76
     },
     {
       "id": "oceania",
@@ -68,7 +83,9 @@
       "shortName": "Oceanía",
       "color": "#a965ca",
       "scope": "Australia, Nueva Guinea y Melanesia",
-      "order": 7
+      "order": 7,
+      "width": 760,
+      "minLaneGap": 76
     },
     {
       "id": "pacific",
@@ -76,7 +93,9 @@
       "shortName": "Pacífico",
       "color": "#7867d8",
       "scope": "Micronesia y Polinesia",
-      "order": 8
+      "order": 8,
+      "width": 760,
+      "minLaneGap": 76
     },
     {
       "id": "north-america",
@@ -84,7 +103,9 @@
       "shortName": "N. América",
       "color": "#8b68d6",
       "scope": "Ártico, costa noroccidental, llanuras, bosques y suroeste",
-      "order": 9
+      "order": 9,
+      "width": 760,
+      "minLaneGap": 76
     },
     {
       "id": "mesoamerica",
@@ -92,7 +113,9 @@
       "shortName": "Mesoamérica",
       "color": "#5687da",
       "scope": "México y América Central precolombina",
-      "order": 10
+      "order": 10,
+      "width": 760,
+      "minLaneGap": 76
     },
     {
       "id": "south-america",
@@ -100,7 +123,9 @@
       "shortName": "S. América",
       "color": "#45b97b",
       "scope": "Andes, Amazonia, Chaco, Patagonia y Caribe suramericano",
-      "order": 11
+      "order": 11,
+      "width": 760,
+      "minLaneGap": 76
     }
   ],
   "traditions": [
@@ -127,7 +152,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": false,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "prehistoria ritual",
+      "regionIds": [
+        "africa"
+      ],
+      "placement": {
+        "regionId": "africa",
+        "xPercent": 8,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Conjunto arqueológico, no una religión identificable: enterramientos, pigmentos y objetos simbólicos permiten hablar de conducta ritual sin reconstruir doctrinas concretas.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "san-traditions",
@@ -152,7 +200,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "cazadores-recolectores",
+      "regionIds": [
+        "africa"
+      ],
+      "placement": {
+        "regionId": "africa",
+        "xPercent": 15,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradiciones san se representa como una tradición o complejo histórico de la familia cazadores-recolectores. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "khoisan-traditions",
@@ -177,7 +248,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "cazadores-recolectores",
+      "regionIds": [
+        "africa"
+      ],
+      "placement": {
+        "regionId": "africa",
+        "xPercent": 25,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradiciones khoisán se representa como una tradición o complejo histórico de la familia cazadores-recolectores. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "nilotic-traditions",
@@ -202,7 +296,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "religiones africanas",
+      "regionIds": [
+        "africa"
+      ],
+      "placement": {
+        "regionId": "africa",
+        "xPercent": 36,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradiciones nilóticas se representa como una tradición o complejo histórico de la familia religiones africanas. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "bantu-traditions",
@@ -227,7 +344,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "religiones africanas",
+      "regionIds": [
+        "africa"
+      ],
+      "placement": {
+        "regionId": "africa",
+        "xPercent": 46,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradiciones bantúes se representa como una tradición o complejo histórico de la familia religiones africanas. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "yoruba",
@@ -254,7 +394,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "religiones africanas",
+      "regionIds": [
+        "africa"
+      ],
+      "placement": {
+        "regionId": "africa",
+        "xPercent": 55,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión yoruba se representa como una tradición o complejo histórico de la familia religiones africanas. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "akan",
@@ -279,7 +442,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "religiones africanas",
+      "regionIds": [
+        "africa"
+      ],
+      "placement": {
+        "regionId": "africa",
+        "xPercent": 64,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión akan se representa como una tradición o complejo histórico de la familia religiones africanas. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "vodun-west-african",
@@ -304,7 +490,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "religiones africanas",
+      "regionIds": [
+        "africa"
+      ],
+      "placement": {
+        "regionId": "africa",
+        "xPercent": 72,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Vodun de África occidental se representa como una tradición o complejo histórico de la familia religiones africanas. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "serer",
@@ -329,7 +538,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "religiones africanas",
+      "regionIds": [
+        "africa"
+      ],
+      "placement": {
+        "regionId": "africa",
+        "xPercent": 82,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión serer se representa como una tradición o complejo histórico de la familia religiones africanas. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "ancient-egyptian",
@@ -354,7 +586,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "nilo-africana",
+      "regionIds": [
+        "africa"
+      ],
+      "placement": {
+        "regionId": "africa",
+        "xPercent": 92,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradición plural de cultos templarios, funerarios y reales del valle del Nilo, transformada durante más de tres milenios.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "nubian-religion",
@@ -379,7 +634,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "nilo-africana",
+      "regionIds": [
+        "africa"
+      ],
+      "placement": {
+        "regionId": "africa",
+        "xPercent": 84,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religiones nubias y kushitas se representa como una tradición o complejo histórico de la familia nilo-africana. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "carthaginian",
@@ -404,7 +682,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "semítica occidental",
+      "regionIds": [
+        "africa"
+      ],
+      "placement": {
+        "regionId": "africa",
+        "xPercent": 8,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión púnica y cartaginesa se representa como una tradición o complejo histórico de la familia semítica occidental. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "coptic-orthodox",
@@ -429,7 +730,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "cristianismo",
+      "regionIds": [
+        "africa"
+      ],
+      "placement": {
+        "regionId": "africa",
+        "xPercent": 92,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Cristianismo copto se representa como una tradición o complejo histórico de la familia cristianismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "ethiopian-orthodox",
@@ -454,7 +778,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "cristianismo",
+      "regionIds": [
+        "africa"
+      ],
+      "placement": {
+        "regionId": "africa",
+        "xPercent": 83,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Cristianismo ortodoxo etíope se representa como una tradición o complejo histórico de la familia cristianismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "african-islam",
@@ -479,7 +826,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "islam",
+      "regionIds": [
+        "africa"
+      ],
+      "placement": {
+        "regionId": "africa",
+        "xPercent": 74,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Islam africano se representa como una tradición o complejo histórico de la familia islam. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "mouraide",
@@ -506,7 +876,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "islam",
+      "regionIds": [
+        "africa"
+      ],
+      "placement": {
+        "regionId": "africa",
+        "xPercent": 67,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Muridiyya se representa como una tradición o complejo histórico de la familia islam. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "african-diasporic",
@@ -531,7 +924,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "afrodiaspórica",
+      "regionIds": [
+        "africa"
+      ],
+      "placement": {
+        "regionId": "africa",
+        "xPercent": 56,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religiones de la diáspora africana se representa como una tradición o complejo histórico de la familia afrodiaspórica. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "rastafari",
@@ -556,7 +972,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "afrodiaspórica",
+      "regionIds": [
+        "africa"
+      ],
+      "placement": {
+        "regionId": "africa",
+        "xPercent": 45,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Rastafari se representa como una tradición o complejo histórico de la familia afrodiaspórica. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "zion-christian",
@@ -581,7 +1020,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "cristianismo",
+      "regionIds": [
+        "africa"
+      ],
+      "placement": {
+        "regionId": "africa",
+        "xPercent": 36,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Zion Christian Church se representa como una tradición o complejo histórico de la familia cristianismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "kimbanguism",
@@ -606,7 +1068,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "cristianismo",
+      "regionIds": [
+        "africa"
+      ],
+      "placement": {
+        "regionId": "africa",
+        "xPercent": 26,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Kimbanguismo se representa como una tradición o complejo histórico de la familia cristianismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "ritual-symbolism-europe",
@@ -631,7 +1116,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": false,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "prehistoria ritual",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 8,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Ritual paleolítico europeo se representa como una tradición o complejo histórico de la familia prehistoria ritual. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "neolithic-europe",
@@ -656,7 +1164,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "neolítico europeo",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 16,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Complejos rituales neolíticos europeos se representa como una tradición o complejo histórico de la familia neolítico europeo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "proto-indo-european",
@@ -681,7 +1212,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "indoeuropea",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 26,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Reconstrucción comparativa de motivos, vocabulario y estructuras rituales compartidas por varias tradiciones indoeuropeas; no se conserva como institución histórica directa.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "minoan-religion",
@@ -706,7 +1260,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "egea",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 34,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión minoica se representa como una tradición o complejo histórico de la familia egea. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "greek-religion",
@@ -731,7 +1308,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "indoeuropea",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 43,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión griega antigua se representa como una tradición o complejo histórico de la familia indoeuropea. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "hellenistic-religion",
@@ -756,7 +1356,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "helénica",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 48,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión helenística se representa como una tradición o complejo histórico de la familia helénica. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "roman-religion",
@@ -781,7 +1404,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "indoeuropea",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 55,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión romana se representa como una tradición o complejo histórico de la familia indoeuropea. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "mystery-cults",
@@ -806,7 +1452,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "helénica",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 61,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Cultos mistéricos grecorromanos se representa como una tradición o complejo histórico de la familia helénica. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "celtic-religion",
@@ -831,7 +1500,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "indoeuropea",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 68,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religiones celtas se representa como una tradición o complejo histórico de la familia indoeuropea. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "germanic-religion",
@@ -856,7 +1548,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "indoeuropea",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 74,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión germánica se representa como una tradición o complejo histórico de la familia indoeuropea. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "norse-religion",
@@ -881,7 +1596,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "indoeuropea",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 78,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión nórdica se representa como una tradición o complejo histórico de la familia indoeuropea. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "slavic-religion",
@@ -906,7 +1644,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "indoeuropea",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 84,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión eslava se representa como una tradición o complejo histórico de la familia indoeuropea. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "baltic-religion",
@@ -931,7 +1692,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "indoeuropea",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 90,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión báltica se representa como una tradición o complejo histórico de la familia indoeuropea. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "european-christianity",
@@ -956,7 +1740,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "cristianismo",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 22,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Cristianización de Europa se representa como una tradición o complejo histórico de la familia cristianismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "catholicism",
@@ -981,7 +1788,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "cristianismo",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 32,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Iglesia católica latina se representa como una tradición o complejo histórico de la familia cristianismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "eastern-orthodoxy",
@@ -1006,7 +1836,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "cristianismo",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 40,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Cristianismo ortodoxo oriental se representa como una tradición o complejo histórico de la familia cristianismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "protestantism",
@@ -1031,7 +1884,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "cristianismo",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Protestantismo se representa como una tradición o complejo histórico de la familia cristianismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "lutheranism",
@@ -1056,7 +1932,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "cristianismo",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 57,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Luteranismo se representa como una tradición o complejo histórico de la familia cristianismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "reformed-christianity",
@@ -1081,7 +1980,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "cristianismo",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 63,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Cristianismo reformado se representa como una tradición o complejo histórico de la familia cristianismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "anglicanism",
@@ -1106,7 +2028,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "cristianismo",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 70,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Anglicanismo se representa como una tradición o complejo histórico de la familia cristianismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "anabaptism",
@@ -1131,7 +2076,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "cristianismo",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 77,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Anabaptismo se representa como una tradición o complejo histórico de la familia cristianismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "methodism",
@@ -1156,7 +2124,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "cristianismo",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 83,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Metodismo se representa como una tradición o complejo histórico de la familia cristianismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "wicca",
@@ -1181,7 +2172,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "neopaganismo",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 91,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Wicca se representa como una tradición o complejo histórico de la familia neopaganismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "neopaganism",
@@ -1206,7 +2220,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "neopaganismo",
+      "regionIds": [
+        "europe"
+      ],
+      "placement": {
+        "regionId": "europe",
+        "xPercent": 95,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Neopaganismos europeos se representa como una tradición o complejo histórico de la familia neopaganismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "levantine-neolithic",
@@ -1231,7 +2268,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": false,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "neolítico próximo-oriental",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 6,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Complejos rituales del Levante neolítico se representa como una tradición o complejo histórico de la familia neolítico próximo-oriental. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "anatolian-neolithic",
@@ -1256,7 +2316,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": false,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "neolítico próximo-oriental",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 12,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Complejos rituales de Anatolia se representa como una tradición o complejo histórico de la familia neolítico próximo-oriental. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "mesopotamian",
@@ -1281,7 +2364,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "semítica y sumeria",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 20,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Conjunto de religiones sumerias, acadias, babilonias y asirias articuladas en torno a ciudades, templos y panteones relacionados.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "sumerian",
@@ -1306,7 +2412,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "sumeria",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 25,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión sumeria se representa como una tradición o complejo histórico de la familia sumeria. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "akkadian",
@@ -1331,7 +2460,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "semítica oriental",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 30,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión acadia se representa como una tradición o complejo histórico de la familia semítica oriental. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "babylonian",
@@ -1356,7 +2508,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "semítica oriental",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 35,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión babilónica se representa como una tradición o complejo histórico de la familia semítica oriental. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "assyrian",
@@ -1381,7 +2556,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "semítica oriental",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 40,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión asiria se representa como una tradición o complejo histórico de la familia semítica oriental. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "canaanite",
@@ -1406,7 +2604,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "semítica occidental",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 47,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religiones cananeas se representa como una tradición o complejo histórico de la familia semítica occidental. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "ugaritic",
@@ -1431,7 +2652,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "semítica occidental",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 51,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión ugarítica se representa como una tradición o complejo histórico de la familia semítica occidental. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "phoenician",
@@ -1456,7 +2700,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "semítica occidental",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 55,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión fenicia se representa como una tradición o complejo histórico de la familia semítica occidental. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "ancient-israelite",
@@ -1481,7 +2748,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "israelita",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 60,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión israelita antigua se representa como una tradición o complejo histórico de la familia israelita. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "judaism",
@@ -1506,7 +2796,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "abrahámica",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 64,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradición israelita y judía desarrollada a través del culto antiguo, la literatura bíblica, el Segundo Templo y las corrientes rabínicas posteriores.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "second-temple-judaism",
@@ -1531,7 +2844,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "judaísmo",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 68,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Judaísmo del Segundo Templo se representa como una tradición o complejo histórico de la familia judaísmo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "rabbinic-judaism",
@@ -1556,7 +2892,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "judaísmo",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 72,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Judaísmo rabínico se representa como una tradición o complejo histórico de la familia judaísmo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "christianity",
@@ -1581,7 +2940,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "abrahámica",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 76,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Movimiento surgido en el judaísmo del siglo I en torno a Jesús de Nazaret, diversificado después en numerosas iglesias y tradiciones.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "gnostic-movements",
@@ -1606,7 +2988,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "religiones tardoantiguas",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 80,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Movimientos gnósticos se representa como una tradición o complejo histórico de la familia religiones tardoantiguas. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "mandeaism",
@@ -1631,7 +3036,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "gnóstica",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 84,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Mandeísmo se representa como una tradición o complejo histórico de la familia gnóstica. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "islam",
@@ -1656,7 +3084,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "abrahámica",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 88,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradición monoteísta surgida en Arabia en el siglo VII en torno al Corán y a la predicación de Mahoma; comprende ramas jurídicas, teológicas y místicas diversas.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "sunni-islam",
@@ -1681,7 +3132,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "islam",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 92,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Islam suní se representa como una tradición o complejo histórico de la familia islam. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "shia-islam",
@@ -1706,7 +3180,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "islam",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 96,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Islam chií se representa como una tradición o complejo histórico de la familia islam. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "ibadism",
@@ -1731,7 +3228,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "islam",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 98,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Ibadismo se representa como una tradición o complejo histórico de la familia islam. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "sufism",
@@ -1756,7 +3276,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "islam",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 82,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Sufismo se representa como una tradición o complejo histórico de la familia islam. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "druze",
@@ -1781,7 +3324,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "abrahámica",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 75,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Fe drusa se representa como una tradición o complejo histórico de la familia abrahámica. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "babism",
@@ -1806,7 +3372,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "abrahámica",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 70,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Bábismo se representa como una tradición o complejo histórico de la familia abrahámica. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "bahai",
@@ -1831,7 +3420,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "abrahámica",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 66,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Fe baháʼí se representa como una tradición o complejo histórico de la familia abrahámica. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "zoroastrianism",
@@ -1856,7 +3468,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "irania",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 8,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradición irania asociada a Zaratustra y a la veneración de Ahura Mazda; su cronología inicial continúa siendo debatida.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "zurvanism",
@@ -1881,7 +3516,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "irania",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 12,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Zurvanismo se representa como una tradición o complejo histórico de la familia irania. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "manichaeism",
@@ -1906,7 +3564,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "irania y sincrética",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 16,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Maniqueísmo se representa como una tradición o complejo histórico de la familia irania y sincrética. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "yazidism",
@@ -1931,7 +3612,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "iranio-mesopotámica",
+      "regionIds": [
+        "middle-east"
+      ],
+      "placement": {
+        "regionId": "middle-east",
+        "xPercent": 22,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Yazidismo se representa como una tradición o complejo histórico de la familia iranio-mesopotámica. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "siberian-ritual",
@@ -1956,7 +3660,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "paleosiberiana",
+      "regionIds": [
+        "north-eurasia"
+      ],
+      "placement": {
+        "regionId": "north-eurasia",
+        "xPercent": 8,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradiciones paleosiberianas se representa como una tradición o complejo histórico de la familia paleosiberiana. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "uralic-religions",
@@ -1981,7 +3708,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "urálica",
+      "regionIds": [
+        "north-eurasia"
+      ],
+      "placement": {
+        "regionId": "north-eurasia",
+        "xPercent": 18,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religiones urálicas se representa como una tradición o complejo histórico de la familia urálica. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "sami-religion",
@@ -2006,7 +3756,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "urálica",
+      "regionIds": [
+        "north-eurasia"
+      ],
+      "placement": {
+        "regionId": "north-eurasia",
+        "xPercent": 28,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión sami se representa como una tradición o complejo histórico de la familia urálica. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "finnic-religion",
@@ -2031,7 +3804,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "urálica",
+      "regionIds": [
+        "north-eurasia"
+      ],
+      "placement": {
+        "regionId": "north-eurasia",
+        "xPercent": 36,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión finesa se representa como una tradición o complejo histórico de la familia urálica. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "mari-religion",
@@ -2056,7 +3852,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "urálica",
+      "regionIds": [
+        "north-eurasia"
+      ],
+      "placement": {
+        "regionId": "north-eurasia",
+        "xPercent": 44,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión tradicional mari se representa como una tradición o complejo histórico de la familia urálica. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "mordvin-religion",
@@ -2081,7 +3900,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "urálica",
+      "regionIds": [
+        "north-eurasia"
+      ],
+      "placement": {
+        "regionId": "north-eurasia",
+        "xPercent": 51,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión tradicional mordvina se representa como una tradición o complejo histórico de la familia urálica. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "tengrism",
@@ -2106,7 +3948,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "altaica y esteparia",
+      "regionIds": [
+        "north-eurasia"
+      ],
+      "placement": {
+        "regionId": "north-eurasia",
+        "xPercent": 60,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Etiqueta moderna para tradiciones de la estepa y Asia interior relacionadas con Tengri, los antepasados, el paisaje y especialistas rituales.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "turkic-religion",
@@ -2131,7 +3996,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "altaica y esteparia",
+      "regionIds": [
+        "north-eurasia"
+      ],
+      "placement": {
+        "regionId": "north-eurasia",
+        "xPercent": 66,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religiones túrquicas antiguas se representa como una tradición o complejo histórico de la familia altaica y esteparia. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "mongolian-religion",
@@ -2156,7 +4044,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "altaica y esteparia",
+      "regionIds": [
+        "north-eurasia"
+      ],
+      "placement": {
+        "regionId": "north-eurasia",
+        "xPercent": 73,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión tradicional mongola se representa como una tradición o complejo histórico de la familia altaica y esteparia. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "burkhanism",
@@ -2181,7 +4092,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "altaica y esteparia",
+      "regionIds": [
+        "north-eurasia"
+      ],
+      "placement": {
+        "regionId": "north-eurasia",
+        "xPercent": 80,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Burjanismo se representa como una tradición o complejo histórico de la familia altaica y esteparia. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "yellow-shamanism",
@@ -2206,7 +4140,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "sincretismo mongol-budista",
+      "regionIds": [
+        "north-eurasia"
+      ],
+      "placement": {
+        "regionId": "north-eurasia",
+        "xPercent": 87,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Chamanismo amarillo se representa como una tradición o complejo histórico de la familia sincretismo mongol-budista. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "siberian-buddhism",
@@ -2231,7 +4188,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "budismo",
+      "regionIds": [
+        "north-eurasia"
+      ],
+      "placement": {
+        "regionId": "north-eurasia",
+        "xPercent": 94,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Budismo de Siberia y Mongolia se representa como una tradición o complejo histórico de la familia budismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "south-asian-prehistory",
@@ -2256,7 +4236,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": false,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "prehistoria ritual",
+      "regionIds": [
+        "south-asia"
+      ],
+      "placement": {
+        "regionId": "south-asia",
+        "xPercent": 5,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Complejos rituales del sur de Asia se representa como una tradición o complejo histórico de la familia prehistoria ritual. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "indus-religion",
@@ -2281,7 +4284,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": false,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "surasiática antigua",
+      "regionIds": [
+        "south-asia"
+      ],
+      "placement": {
+        "regionId": "south-asia",
+        "xPercent": 12,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradiciones del valle del Indo se representa como una tradición o complejo histórico de la familia surasiática antigua. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "vedic-religion",
@@ -2306,7 +4332,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "indoaria",
+      "regionIds": [
+        "south-asia"
+      ],
+      "placement": {
+        "regionId": "south-asia",
+        "xPercent": 20,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión védica se representa como una tradición o complejo histórico de la familia indoaria. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "brahmanism",
@@ -2331,7 +4380,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "indoaria",
+      "regionIds": [
+        "south-asia"
+      ],
+      "placement": {
+        "regionId": "south-asia",
+        "xPercent": 27,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Brahmanismo se representa como una tradición o complejo histórico de la familia indoaria. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "hinduism",
@@ -2356,7 +4428,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "dhármica",
+      "regionIds": [
+        "south-asia"
+      ],
+      "placement": {
+        "regionId": "south-asia",
+        "xPercent": 34,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Familia histórica de tradiciones del sur de Asia vinculadas con los Vedas, la práctica ritual, la devoción, la filosofía y múltiples teologías.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "vaishnavism",
@@ -2381,7 +4476,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "hinduismo",
+      "regionIds": [
+        "south-asia"
+      ],
+      "placement": {
+        "regionId": "south-asia",
+        "xPercent": 40,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Visnuismo se representa como una tradición o complejo histórico de la familia hinduismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "shaivism",
@@ -2406,7 +4524,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "hinduismo",
+      "regionIds": [
+        "south-asia"
+      ],
+      "placement": {
+        "regionId": "south-asia",
+        "xPercent": 46,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Shivaísmo se representa como una tradición o complejo histórico de la familia hinduismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "shaktism",
@@ -2431,7 +4572,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "hinduismo",
+      "regionIds": [
+        "south-asia"
+      ],
+      "placement": {
+        "regionId": "south-asia",
+        "xPercent": 52,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Shaktismo se representa como una tradición o complejo histórico de la familia hinduismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "smartism",
@@ -2456,7 +4620,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "hinduismo",
+      "regionIds": [
+        "south-asia"
+      ],
+      "placement": {
+        "regionId": "south-asia",
+        "xPercent": 57,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Smartismo se representa como una tradición o complejo histórico de la familia hinduismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "vedanta",
@@ -2481,7 +4668,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "filosofías dhármicas",
+      "regionIds": [
+        "south-asia"
+      ],
+      "placement": {
+        "regionId": "south-asia",
+        "xPercent": 62,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Vedānta se representa como una tradición o complejo histórico de la familia filosofías dhármicas. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "yoga-traditions",
@@ -2506,7 +4716,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "filosofías dhármicas",
+      "regionIds": [
+        "south-asia"
+      ],
+      "placement": {
+        "regionId": "south-asia",
+        "xPercent": 67,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradiciones del yoga se representa como una tradición o complejo histórico de la familia filosofías dhármicas. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "sramana",
@@ -2531,7 +4764,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "dhármica",
+      "regionIds": [
+        "south-asia"
+      ],
+      "placement": {
+        "regionId": "south-asia",
+        "xPercent": 72,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Movimientos śramaṇa se representa como una tradición o complejo histórico de la familia dhármica. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "jainism",
@@ -2556,7 +4812,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "dhármica",
+      "regionIds": [
+        "south-asia"
+      ],
+      "placement": {
+        "regionId": "south-asia",
+        "xPercent": 76,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradición śramaṇa centrada en los tīrthaṅkaras, la no violencia, la disciplina ascética y la liberación del ciclo de renacimientos.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "digambara",
@@ -2581,7 +4860,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "jainismo",
+      "regionIds": [
+        "south-asia"
+      ],
+      "placement": {
+        "regionId": "south-asia",
+        "xPercent": 80,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Digambara se representa como una tradición o complejo histórico de la familia jainismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "svetambara",
@@ -2606,7 +4908,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "jainismo",
+      "regionIds": [
+        "south-asia"
+      ],
+      "placement": {
+        "regionId": "south-asia",
+        "xPercent": 84,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Śvētāmbara se representa como una tradición o complejo histórico de la familia jainismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "buddhism",
@@ -2631,7 +4956,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "dhármica",
+      "regionIds": [
+        "south-asia"
+      ],
+      "placement": {
+        "regionId": "south-asia",
+        "xPercent": 88,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradiciones originadas en las enseñanzas atribuidas a Siddhartha Gautama, organizadas en comunidades monásticas y múltiples escuelas asiáticas y globales.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "theravada",
@@ -2656,7 +5004,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "budismo",
+      "regionIds": [
+        "south-asia"
+      ],
+      "placement": {
+        "regionId": "south-asia",
+        "xPercent": 92,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Theravāda se representa como una tradición o complejo histórico de la familia budismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "mahayana",
@@ -2681,7 +5052,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "budismo",
+      "regionIds": [
+        "south-asia"
+      ],
+      "placement": {
+        "regionId": "south-asia",
+        "xPercent": 96,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Mahāyāna se representa como una tradición o complejo histórico de la familia budismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "vajrayana",
@@ -2706,7 +5100,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "budismo",
+      "regionIds": [
+        "south-asia"
+      ],
+      "placement": {
+        "regionId": "south-asia",
+        "xPercent": 99,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Vajrayāna se representa como una tradición o complejo histórico de la familia budismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "sikhism",
@@ -2731,7 +5148,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "sijismo",
+      "regionIds": [
+        "south-asia"
+      ],
+      "placement": {
+        "regionId": "south-asia",
+        "xPercent": 8,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradición fundada en el Punjab a partir de las enseñanzas de Gurú Nanak y los gurús sucesivos, con el Gurú Granth Sahib como autoridad escritural.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "sant-mat",
@@ -2756,7 +5196,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "devoción surasiática",
+      "regionIds": [
+        "south-asia"
+      ],
+      "placement": {
+        "regionId": "south-asia",
+        "xPercent": 14,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Sant Mat se representa como una tradición o complejo histórico de la familia devoción surasiática. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "lingayatism",
@@ -2781,7 +5244,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "hinduismo",
+      "regionIds": [
+        "south-asia"
+      ],
+      "placement": {
+        "regionId": "south-asia",
+        "xPercent": 22,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Lingayatismo se representa como una tradición o complejo histórico de la familia hinduismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "gaudiya-vaishnavism",
@@ -2806,7 +5292,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "hinduismo",
+      "regionIds": [
+        "south-asia"
+      ],
+      "placement": {
+        "regionId": "south-asia",
+        "xPercent": 30,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Visnuismo gauḍīya se representa como una tradición o complejo histórico de la familia hinduismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "east-asian-prehistory",
@@ -2831,7 +5340,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": false,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "prehistoria ritual",
+      "regionIds": [
+        "east-asia"
+      ],
+      "placement": {
+        "regionId": "east-asia",
+        "xPercent": 5,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Rituales prehistóricos de Asia oriental se representa como una tradición o complejo histórico de la familia prehistoria ritual. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "shang-religion",
@@ -2856,7 +5388,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "china antigua",
+      "regionIds": [
+        "east-asia"
+      ],
+      "placement": {
+        "regionId": "east-asia",
+        "xPercent": 12,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión de Shang se representa como una tradición o complejo histórico de la familia china antigua. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "zhou-religion",
@@ -2881,7 +5436,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "china antigua",
+      "regionIds": [
+        "east-asia"
+      ],
+      "placement": {
+        "regionId": "east-asia",
+        "xPercent": 20,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión ritual de Zhou se representa como una tradición o complejo histórico de la familia china antigua. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "chinese-folk",
@@ -2906,7 +5484,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "china",
+      "regionIds": [
+        "east-asia"
+      ],
+      "placement": {
+        "regionId": "east-asia",
+        "xPercent": 28,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Complejo cambiante de cultos locales, ancestros, dioses, rituales comunitarios y prácticas domésticas; se entrelaza con taoísmo, budismo y confucianismo.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "confucianism",
@@ -2931,7 +5532,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "china",
+      "regionIds": [
+        "east-asia"
+      ],
+      "placement": {
+        "regionId": "east-asia",
+        "xPercent": 36,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradición ética, ritual y política formada alrededor de Confucio y de los clásicos, con desarrollos imperiales, neoconfucianos y modernos.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "neo-confucianism",
@@ -2956,7 +5580,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "china",
+      "regionIds": [
+        "east-asia"
+      ],
+      "placement": {
+        "regionId": "east-asia",
+        "xPercent": 42,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Neoconfucianismo se representa como una tradición o complejo histórico de la familia china. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "taoism",
@@ -2981,7 +5628,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "china",
+      "regionIds": [
+        "east-asia"
+      ],
+      "placement": {
+        "regionId": "east-asia",
+        "xPercent": 48,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Conjunto de corrientes filosóficas, rituales, comunitarias y alquímicas chinas relacionadas con el Dao y con diversos linajes institucionales.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "celestial-masters",
@@ -3006,7 +5676,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "taoísmo",
+      "regionIds": [
+        "east-asia"
+      ],
+      "placement": {
+        "regionId": "east-asia",
+        "xPercent": 54,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Camino de los Maestros Celestiales se representa como una tradición o complejo histórico de la familia taoísmo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "quanzhen",
@@ -3031,7 +5724,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "taoísmo",
+      "regionIds": [
+        "east-asia"
+      ],
+      "placement": {
+        "regionId": "east-asia",
+        "xPercent": 59,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Escuela Quanzhen se representa como una tradición o complejo histórico de la familia taoísmo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "chinese-buddhism",
@@ -3056,7 +5772,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "budismo",
+      "regionIds": [
+        "east-asia"
+      ],
+      "placement": {
+        "regionId": "east-asia",
+        "xPercent": 65,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Budismo chino se representa como una tradición o complejo histórico de la familia budismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "chan-buddhism",
@@ -3081,7 +5820,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "budismo",
+      "regionIds": [
+        "east-asia"
+      ],
+      "placement": {
+        "regionId": "east-asia",
+        "xPercent": 70,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Budismo Chan se representa como una tradición o complejo histórico de la familia budismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "pure-land",
@@ -3106,7 +5868,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "budismo",
+      "regionIds": [
+        "east-asia"
+      ],
+      "placement": {
+        "regionId": "east-asia",
+        "xPercent": 75,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Budismo de la Tierra Pura se representa como una tradición o complejo histórico de la familia budismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "tibetan-buddhism",
@@ -3131,7 +5916,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "budismo",
+      "regionIds": [
+        "east-asia"
+      ],
+      "placement": {
+        "regionId": "east-asia",
+        "xPercent": 80,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Budismo tibetano se representa como una tradición o complejo histórico de la familia budismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "bon",
@@ -3156,7 +5964,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "tibetana",
+      "regionIds": [
+        "east-asia"
+      ],
+      "placement": {
+        "regionId": "east-asia",
+        "xPercent": 84,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Bön se representa como una tradición o complejo histórico de la familia tibetana. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "korean-shamanism",
@@ -3181,7 +6012,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "coreana",
+      "regionIds": [
+        "east-asia"
+      ],
+      "placement": {
+        "regionId": "east-asia",
+        "xPercent": 88,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Muismo coreano se representa como una tradición o complejo histórico de la familia coreana. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "korean-buddhism",
@@ -3206,7 +6060,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "budismo",
+      "regionIds": [
+        "east-asia"
+      ],
+      "placement": {
+        "regionId": "east-asia",
+        "xPercent": 92,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Budismo coreano se representa como una tradición o complejo histórico de la familia budismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "shinto",
@@ -3231,7 +6108,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "japonesa",
+      "regionIds": [
+        "east-asia"
+      ],
+      "placement": {
+        "regionId": "east-asia",
+        "xPercent": 96,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradiciones rituales japonesas vinculadas a los kami, santuarios y calendarios locales; su definición institucional moderna no debe proyectarse sin matices al pasado remoto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "japanese-buddhism",
@@ -3256,7 +6156,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "budismo",
+      "regionIds": [
+        "east-asia"
+      ],
+      "placement": {
+        "regionId": "east-asia",
+        "xPercent": 99,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Budismo japonés se representa como una tradición o complejo histórico de la familia budismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "zen",
@@ -3281,7 +6204,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "budismo",
+      "regionIds": [
+        "east-asia"
+      ],
+      "placement": {
+        "regionId": "east-asia",
+        "xPercent": 72,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Zen se representa como una tradición o complejo histórico de la familia budismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "nichiren",
@@ -3306,7 +6252,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "budismo",
+      "regionIds": [
+        "east-asia"
+      ],
+      "placement": {
+        "regionId": "east-asia",
+        "xPercent": 98,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Budismo Nichiren se representa como una tradición o complejo histórico de la familia budismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "se-asian-prehistory",
@@ -3331,7 +6300,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": false,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "prehistoria ritual",
+      "regionIds": [
+        "southeast-asia"
+      ],
+      "placement": {
+        "regionId": "southeast-asia",
+        "xPercent": 7,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradiciones prehistóricas del Sudeste Asiático se representa como una tradición o complejo histórico de la familia prehistoria ritual. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "austroasiatic-religions",
@@ -3356,7 +6348,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "austroasiática",
+      "regionIds": [
+        "southeast-asia"
+      ],
+      "placement": {
+        "regionId": "southeast-asia",
+        "xPercent": 16,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religiones austroasiáticas se representa como una tradición o complejo histórico de la familia austroasiática. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "austronesian-religions",
@@ -3381,7 +6396,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "austronesia",
+      "regionIds": [
+        "southeast-asia"
+      ],
+      "placement": {
+        "regionId": "southeast-asia",
+        "xPercent": 25,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religiones austronesias se representa como una tradición o complejo histórico de la familia austronesia. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "vietnamese-folk",
@@ -3406,7 +6444,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "vietnamita",
+      "regionIds": [
+        "southeast-asia"
+      ],
+      "placement": {
+        "regionId": "southeast-asia",
+        "xPercent": 34,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión tradicional vietnamita se representa como una tradición o complejo histórico de la familia vietnamita. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "khmer-religion",
@@ -3431,7 +6492,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "jemer",
+      "regionIds": [
+        "southeast-asia"
+      ],
+      "placement": {
+        "regionId": "southeast-asia",
+        "xPercent": 42,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión jemer prebudista se representa como una tradición o complejo histórico de la familia jemer. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "se-asian-hinduism",
@@ -3456,7 +6540,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "hinduismo",
+      "regionIds": [
+        "southeast-asia"
+      ],
+      "placement": {
+        "regionId": "southeast-asia",
+        "xPercent": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Hinduismo del Sudeste Asiático se representa como una tradición o complejo histórico de la familia hinduismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "se-asian-theravada",
@@ -3481,7 +6588,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "budismo",
+      "regionIds": [
+        "southeast-asia"
+      ],
+      "placement": {
+        "regionId": "southeast-asia",
+        "xPercent": 58,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Theravāda del Sudeste Asiático se representa como una tradición o complejo histórico de la familia budismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "burmese-buddhism",
@@ -3506,7 +6636,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "budismo",
+      "regionIds": [
+        "southeast-asia"
+      ],
+      "placement": {
+        "regionId": "southeast-asia",
+        "xPercent": 64,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Budismo birmano se representa como una tradición o complejo histórico de la familia budismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "thai-buddhism",
@@ -3531,7 +6684,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "budismo",
+      "regionIds": [
+        "southeast-asia"
+      ],
+      "placement": {
+        "regionId": "southeast-asia",
+        "xPercent": 70,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Budismo tailandés se representa como una tradición o complejo histórico de la familia budismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "indonesian-islam",
@@ -3556,7 +6732,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "islam",
+      "regionIds": [
+        "southeast-asia"
+      ],
+      "placement": {
+        "regionId": "southeast-asia",
+        "xPercent": 77,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Islam de Indonesia se representa como una tradición o complejo histórico de la familia islam. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "abangan",
@@ -3581,7 +6780,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "sincretismo javanés",
+      "regionIds": [
+        "southeast-asia"
+      ],
+      "placement": {
+        "regionId": "southeast-asia",
+        "xPercent": 82,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Abangan se representa como una tradición o complejo histórico de la familia sincretismo javanés. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "balinese-hinduism",
@@ -3606,7 +6828,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "hinduismo",
+      "regionIds": [
+        "southeast-asia"
+      ],
+      "placement": {
+        "regionId": "southeast-asia",
+        "xPercent": 87,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Hinduismo balinés se representa como una tradición o complejo histórico de la familia hinduismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "cao-dai",
@@ -3631,7 +6876,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "nuevo movimiento religioso",
+      "regionIds": [
+        "southeast-asia"
+      ],
+      "placement": {
+        "regionId": "southeast-asia",
+        "xPercent": 92,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Caodaísmo se representa como una tradición o complejo histórico de la familia nuevo movimiento religioso. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "hoa-hao",
@@ -3656,7 +6924,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "budismo",
+      "regionIds": [
+        "southeast-asia"
+      ],
+      "placement": {
+        "regionId": "southeast-asia",
+        "xPercent": 97,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Hòa Hảo se representa como una tradición o complejo histórico de la familia budismo. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "sahul-ritual",
@@ -3681,7 +6972,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": false,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "sahul",
+      "regionIds": [
+        "oceania"
+      ],
+      "placement": {
+        "regionId": "oceania",
+        "xPercent": 10,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradiciones rituales de Sahul se representa como una tradición o complejo histórico de la familia sahul. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "aboriginal-australian",
@@ -3706,7 +7020,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "australiana indígena",
+      "regionIds": [
+        "oceania"
+      ],
+      "placement": {
+        "regionId": "oceania",
+        "xPercent": 22,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Pluralidad de leyes, relatos, lugares y prácticas de los pueblos aborígenes australianos; “Tiempo del Sueño” es una traducción simplificadora de conceptos diversos.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "papuan-religions",
@@ -3731,7 +7068,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "papú",
+      "regionIds": [
+        "oceania"
+      ],
+      "placement": {
+        "regionId": "oceania",
+        "xPercent": 35,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religiones papúes se representa como una tradición o complejo histórico de la familia papú. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "melanesian-religions",
@@ -3756,7 +7116,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "melanesia",
+      "regionIds": [
+        "oceania"
+      ],
+      "placement": {
+        "regionId": "oceania",
+        "xPercent": 48,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religiones melanesias se representa como una tradición o complejo histórico de la familia melanesia. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "arnhem-land",
@@ -3781,7 +7164,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "australiana indígena",
+      "regionIds": [
+        "oceania"
+      ],
+      "placement": {
+        "regionId": "oceania",
+        "xPercent": 58,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradiciones de la Tierra de Arnhem se representa como una tradición o complejo histórico de la familia australiana indígena. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "rainbow-serpent",
@@ -3806,7 +7212,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "australiana indígena",
+      "regionIds": [
+        "oceania"
+      ],
+      "placement": {
+        "regionId": "oceania",
+        "xPercent": 68,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Complejos de la Serpiente Arcoíris se representa como una tradición o complejo histórico de la familia australiana indígena. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "cargo-cults",
@@ -3831,7 +7260,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "nuevo movimiento religioso",
+      "regionIds": [
+        "oceania"
+      ],
+      "placement": {
+        "regionId": "oceania",
+        "xPercent": 80,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Cultos cargo se representa como una tradición o complejo histórico de la familia nuevo movimiento religioso. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "john-frum",
@@ -3856,7 +7308,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "nuevo movimiento religioso",
+      "regionIds": [
+        "oceania"
+      ],
+      "placement": {
+        "regionId": "oceania",
+        "xPercent": 90,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Movimiento John Frum se representa como una tradición o complejo histórico de la familia nuevo movimiento religioso. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "lapita-religion",
@@ -3881,7 +7356,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "austronesia",
+      "regionIds": [
+        "pacific"
+      ],
+      "placement": {
+        "regionId": "pacific",
+        "xPercent": 8,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradiciones Lapita se representa como una tradición o complejo histórico de la familia austronesia. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "polynesian-religions",
@@ -3906,7 +7404,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "polinesia",
+      "regionIds": [
+        "pacific"
+      ],
+      "placement": {
+        "regionId": "pacific",
+        "xPercent": 22,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religiones polinesias se representa como una tradición o complejo histórico de la familia polinesia. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "micronesian-religions",
@@ -3931,7 +7452,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "micronesia",
+      "regionIds": [
+        "pacific"
+      ],
+      "placement": {
+        "regionId": "pacific",
+        "xPercent": 34,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religiones micronesias se representa como una tradición o complejo histórico de la familia micronesia. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "hawaiian-religion",
@@ -3956,7 +7500,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "polinesia",
+      "regionIds": [
+        "pacific"
+      ],
+      "placement": {
+        "regionId": "pacific",
+        "xPercent": 46,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión hawaiana se representa como una tradición o complejo histórico de la familia polinesia. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "maori-religion",
@@ -3981,7 +7548,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "polinesia",
+      "regionIds": [
+        "pacific"
+      ],
+      "placement": {
+        "regionId": "pacific",
+        "xPercent": 58,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión maorí se representa como una tradición o complejo histórico de la familia polinesia. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "samoan-religion",
@@ -4006,7 +7596,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "polinesia",
+      "regionIds": [
+        "pacific"
+      ],
+      "placement": {
+        "regionId": "pacific",
+        "xPercent": 69,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión tradicional samoana se representa como una tradición o complejo histórico de la familia polinesia. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "tongan-religion",
@@ -4031,7 +7644,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "polinesia",
+      "regionIds": [
+        "pacific"
+      ],
+      "placement": {
+        "regionId": "pacific",
+        "xPercent": 79,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión tradicional tongana se representa como una tradición o complejo histórico de la familia polinesia. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "rapa-nui-religion",
@@ -4056,7 +7692,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "polinesia",
+      "regionIds": [
+        "pacific"
+      ],
+      "placement": {
+        "regionId": "pacific",
+        "xPercent": 90,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión rapanui se representa como una tradición o complejo histórico de la familia polinesia. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "ringatu",
@@ -4081,7 +7740,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "maorí-cristiana",
+      "regionIds": [
+        "pacific"
+      ],
+      "placement": {
+        "regionId": "pacific",
+        "xPercent": 96,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Ringatū se representa como una tradición o complejo histórico de la familia maorí-cristiana. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "beringian-ritual",
@@ -4106,7 +7788,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": false,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "prehistoria americana",
+      "regionIds": [
+        "north-america"
+      ],
+      "placement": {
+        "regionId": "north-america",
+        "xPercent": 6,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradiciones de los primeros poblamientos americanos se representa como una tradición o complejo histórico de la familia prehistoria americana. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "native-north-american",
@@ -4131,7 +7836,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "indígena norteamericana",
+      "regionIds": [
+        "north-america"
+      ],
+      "placement": {
+        "regionId": "north-america",
+        "xPercent": 14,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Rótulo de navegación para tradiciones indígenas muy diversas; no implica una doctrina panamericana única.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "inuit-religion",
@@ -4156,7 +7884,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "ártico",
+      "regionIds": [
+        "north-america"
+      ],
+      "placement": {
+        "regionId": "north-america",
+        "xPercent": 22,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión inuit se representa como una tradición o complejo histórico de la familia ártico. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "dene-religions",
@@ -4181,7 +7932,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "na-dené",
+      "regionIds": [
+        "north-america"
+      ],
+      "placement": {
+        "regionId": "north-america",
+        "xPercent": 30,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradiciones dené se representa como una tradición o complejo histórico de la familia na-dené. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "northwest-coast",
@@ -4206,7 +7980,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "costa noroeste",
+      "regionIds": [
+        "north-america"
+      ],
+      "placement": {
+        "regionId": "north-america",
+        "xPercent": 38,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradiciones de la costa noroeste se representa como una tradición o complejo histórico de la familia costa noroeste. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "plains-religions",
@@ -4231,7 +8028,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "llanuras",
+      "regionIds": [
+        "north-america"
+      ],
+      "placement": {
+        "regionId": "north-america",
+        "xPercent": 46,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradiciones de las Grandes Llanuras se representa como una tradición o complejo histórico de la familia llanuras. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "iroquois-religion",
@@ -4258,7 +8078,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "bosques orientales",
+      "regionIds": [
+        "north-america"
+      ],
+      "placement": {
+        "regionId": "north-america",
+        "xPercent": 54,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión haudenosaunee se representa como una tradición o complejo histórico de la familia bosques orientales. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "cherokee-religion",
@@ -4283,7 +8126,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "sudeste norteamericano",
+      "regionIds": [
+        "north-america"
+      ],
+      "placement": {
+        "regionId": "north-america",
+        "xPercent": 62,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión cherokee se representa como una tradición o complejo histórico de la familia sudeste norteamericano. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "pueblo-religions",
@@ -4308,7 +8174,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "suroeste norteamericano",
+      "regionIds": [
+        "north-america"
+      ],
+      "placement": {
+        "regionId": "north-america",
+        "xPercent": 70,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religiones pueblo se representa como una tradición o complejo histórico de la familia suroeste norteamericano. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "navajo-religion",
@@ -4335,7 +8224,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "suroeste norteamericano",
+      "regionIds": [
+        "north-america"
+      ],
+      "placement": {
+        "regionId": "north-america",
+        "xPercent": 76,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión diné se representa como una tradición o complejo histórico de la familia suroeste norteamericano. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "midewiwin",
@@ -4360,7 +8272,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "anishinaabe",
+      "regionIds": [
+        "north-america"
+      ],
+      "placement": {
+        "regionId": "north-america",
+        "xPercent": 82,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Midewiwin se representa como una tradición o complejo histórico de la familia anishinaabe. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "peyote-religion",
@@ -4385,7 +8320,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "panindígena",
+      "regionIds": [
+        "north-america"
+      ],
+      "placement": {
+        "regionId": "north-america",
+        "xPercent": 87,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión del peyote se representa como una tradición o complejo histórico de la familia panindígena. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "native-american-church",
@@ -4410,7 +8368,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "panindígena",
+      "regionIds": [
+        "north-america"
+      ],
+      "placement": {
+        "regionId": "north-america",
+        "xPercent": 92,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Native American Church se representa como una tradición o complejo histórico de la familia panindígena. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "ghost-dance",
@@ -4435,7 +8416,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "panindígena",
+      "regionIds": [
+        "north-america"
+      ],
+      "placement": {
+        "regionId": "north-america",
+        "xPercent": 96,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Danza de los Espíritus se representa como una tradición o complejo histórico de la familia panindígena. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "mesoamerican-prehistory",
@@ -4460,7 +8464,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": false,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "prehistoria mesoamericana",
+      "regionIds": [
+        "mesoamerica"
+      ],
+      "placement": {
+        "regionId": "mesoamerica",
+        "xPercent": 7,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Complejos rituales mesoamericanos tempranos se representa como una tradición o complejo histórico de la familia prehistoria mesoamericana. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "olmec-religion",
@@ -4485,7 +8512,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "mesoamericana",
+      "regionIds": [
+        "mesoamerica"
+      ],
+      "placement": {
+        "regionId": "mesoamerica",
+        "xPercent": 18,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión olmeca se representa como una tradición o complejo histórico de la familia mesoamericana. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "zapotec-religion",
@@ -4510,7 +8560,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "mesoamericana",
+      "regionIds": [
+        "mesoamerica"
+      ],
+      "placement": {
+        "regionId": "mesoamerica",
+        "xPercent": 29,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión zapoteca se representa como una tradición o complejo histórico de la familia mesoamericana. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "teotihuacan-religion",
@@ -4535,7 +8608,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "mesoamericana",
+      "regionIds": [
+        "mesoamerica"
+      ],
+      "placement": {
+        "regionId": "mesoamerica",
+        "xPercent": 40,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión de Teotihuacan se representa como una tradición o complejo histórico de la familia mesoamericana. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "maya",
@@ -4560,7 +8656,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "mesoamericana",
+      "regionIds": [
+        "mesoamerica"
+      ],
+      "placement": {
+        "regionId": "mesoamerica",
+        "xPercent": 51,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradiciones mesoamericanas de larga duración, con calendarios, deidades, culto dinástico y prácticas comunitarias que continúan transformadas tras la conquista.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "toltec-religion",
@@ -4585,7 +8704,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "mesoamericana",
+      "regionIds": [
+        "mesoamerica"
+      ],
+      "placement": {
+        "regionId": "mesoamerica",
+        "xPercent": 62,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión tolteca se representa como una tradición o complejo histórico de la familia mesoamericana. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "mixtec-religion",
@@ -4610,7 +8752,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "mesoamericana",
+      "regionIds": [
+        "mesoamerica"
+      ],
+      "placement": {
+        "regionId": "mesoamerica",
+        "xPercent": 72,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión mixteca se representa como una tradición o complejo histórico de la familia mesoamericana. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "aztec",
@@ -4637,7 +8802,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "mesoamericana",
+      "regionIds": [
+        "mesoamerica"
+      ],
+      "placement": {
+        "regionId": "mesoamerica",
+        "xPercent": 82,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión estatal y comunitaria de la Triple Alianza mexica, heredera y reformuladora de tradiciones mesoamericanas anteriores.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "mayan-syncretism",
@@ -4662,7 +8850,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "mesoamericana-cristiana",
+      "regionIds": [
+        "mesoamerica"
+      ],
+      "placement": {
+        "regionId": "mesoamerica",
+        "xPercent": 91,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión maya-cristiana se representa como una tradición o complejo histórico de la familia mesoamericana-cristiana. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "mexican-folk-catholicism",
@@ -4687,7 +8898,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "cristianismo popular",
+      "regionIds": [
+        "mesoamerica"
+      ],
+      "placement": {
+        "regionId": "mesoamerica",
+        "xPercent": 97,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Catolicismo popular mexicano se representa como una tradición o complejo histórico de la familia cristianismo popular. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "south-american-prehistory",
@@ -4712,7 +8946,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": false,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "prehistoria americana",
+      "regionIds": [
+        "south-america"
+      ],
+      "placement": {
+        "regionId": "south-america",
+        "xPercent": 6,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Tradiciones de los primeros poblamientos sudamericanos se representa como una tradición o complejo histórico de la familia prehistoria americana. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "andean-religions",
@@ -4737,7 +8994,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "andina",
+      "regionIds": [
+        "south-america"
+      ],
+      "placement": {
+        "regionId": "south-america",
+        "xPercent": 16,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religiones andinas se representa como una tradición o complejo histórico de la familia andina. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "caral-religion",
@@ -4762,7 +9042,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": false,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "andina",
+      "regionIds": [
+        "south-america"
+      ],
+      "placement": {
+        "regionId": "south-america",
+        "xPercent": 24,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Complejo ritual de Caral se representa como una tradición o complejo histórico de la familia andina. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "chavin-religion",
@@ -4787,7 +9090,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "andina",
+      "regionIds": [
+        "south-america"
+      ],
+      "placement": {
+        "regionId": "south-america",
+        "xPercent": 32,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión Chavín se representa como una tradición o complejo histórico de la familia andina. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "moche-religion",
@@ -4812,7 +9138,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "andina",
+      "regionIds": [
+        "south-america"
+      ],
+      "placement": {
+        "regionId": "south-america",
+        "xPercent": 40,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión moche se representa como una tradición o complejo histórico de la familia andina. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "tiwanaku-religion",
@@ -4837,7 +9186,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "andina",
+      "regionIds": [
+        "south-america"
+      ],
+      "placement": {
+        "regionId": "south-america",
+        "xPercent": 48,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión de Tiwanaku se representa como una tradición o complejo histórico de la familia andina. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "inca",
@@ -4862,7 +9234,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "andina",
+      "regionIds": [
+        "south-america"
+      ],
+      "placement": {
+        "regionId": "south-america",
+        "xPercent": 56,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Sistema ritual imperial del Tawantinsuyu articulado con cultos solares, huacas, ancestros y tradiciones andinas locales.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "amazonian-religions",
@@ -4887,7 +9282,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "amazónica",
+      "regionIds": [
+        "south-america"
+      ],
+      "placement": {
+        "regionId": "south-america",
+        "xPercent": 66,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religiones amazónicas se representa como una tradición o complejo histórico de la familia amazónica. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "tupi-guarani",
@@ -4912,7 +9330,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "amazónica",
+      "regionIds": [
+        "south-america"
+      ],
+      "placement": {
+        "regionId": "south-america",
+        "xPercent": 74,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religiones tupí-guaraníes se representa como una tradición o complejo histórico de la familia amazónica. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "mapuche-religion",
@@ -4937,7 +9378,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 2
+      "importance": 2,
+      "subtitle": "cono sur",
+      "regionIds": [
+        "south-america"
+      ],
+      "placement": {
+        "regionId": "south-america",
+        "xPercent": 82,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Religión mapuche se representa como una tradición o complejo histórico de la familia cono sur. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "andean-catholicism",
@@ -4962,7 +9426,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "andina-cristiana",
+      "regionIds": [
+        "south-america"
+      ],
+      "placement": {
+        "regionId": "south-america",
+        "xPercent": 90,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Catolicismo andino se representa como una tradición o complejo histórico de la familia andina-cristiana. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     },
     {
       "id": "candomble",
@@ -4987,7 +9474,30 @@
       ],
       "posterVerified": true,
       "verifierMatched": true,
-      "importance": 1
+      "importance": 1,
+      "subtitle": "afrodiaspórica",
+      "regionIds": [
+        "south-america"
+      ],
+      "placement": {
+        "regionId": "south-america",
+        "xPercent": 96,
+        "offsetX": 0,
+        "offsetY": 0,
+        "autoAvoidOverlap": true
+      },
+      "icon": {
+        "path": null,
+        "embeddedDataUrl": null,
+        "scale": 1
+      },
+      "details": {
+        "overview": "Candomblé se representa como una tradición o complejo histórico de la familia afrodiaspórica. La fecha indica una aparición aproximada en el registro disponible, no un instante fundacional necesariamente exacto.",
+        "history": "",
+        "beliefs": "",
+        "evidence": "",
+        "bibliography": ""
+      }
     }
   ],
   "events": [
@@ -5269,7 +9779,13 @@
       "targetId": "judaism",
       "kind": "influence",
       "confidence": "low",
-      "note": "Se han propuesto influencias durante y después del periodo aqueménida; la dirección y el alcance exactos son debatidos."
+      "note": "Se han propuesto influencias durante y después del periodo aqueménida; la dirección y el alcance exactos son debatidos.",
+      "role": "secondary",
+      "strength": 60,
+      "visual": {
+        "route": "curve",
+        "gradientColors": []
+      }
     },
     {
       "id": "manichaean-synthesis",
@@ -5277,7 +9793,13 @@
       "targetId": "manichaeism",
       "kind": "syncretism",
       "confidence": "high",
-      "note": "El maniqueísmo integró elementos cristianos junto con repertorios iranios y otras tradiciones."
+      "note": "El maniqueísmo integró elementos cristianos junto con repertorios iranios y otras tradiciones.",
+      "role": "secondary",
+      "strength": 60,
+      "visual": {
+        "route": "curve",
+        "gradientColors": []
+      }
     },
     {
       "id": "buddhism-bon",
@@ -5285,7 +9807,13 @@
       "targetId": "tibetan-buddhism",
       "kind": "syncretism",
       "confidence": "medium",
-      "note": "La interacción histórica entre Bön y budismo tibetano produjo préstamos y reformulaciones mutuas."
+      "note": "La interacción histórica entre Bön y budismo tibetano produjo préstamos y reformulaciones mutuas.",
+      "role": "secondary",
+      "strength": 60,
+      "visual": {
+        "route": "curve",
+        "gradientColors": []
+      }
     },
     {
       "id": "confucian-buddhist",
@@ -5293,7 +9821,13 @@
       "targetId": "neo-confucianism",
       "kind": "influence",
       "confidence": "high",
-      "note": "El neoconfucianismo respondió también a problemas y vocabularios desarrollados en diálogo con budismo y taoísmo."
+      "note": "El neoconfucianismo respondió también a problemas y vocabularios desarrollados en diálogo con budismo y taoísmo.",
+      "role": "secondary",
+      "strength": 60,
+      "visual": {
+        "route": "curve",
+        "gradientColors": []
+      }
     },
     {
       "id": "taoist-folk",
@@ -5301,7 +9835,13 @@
       "targetId": "taoism",
       "kind": "context",
       "confidence": "high",
-      "note": "El taoísmo institucional y los cultos locales se solapan sin ser idénticos."
+      "note": "El taoísmo institucional y los cultos locales se solapan sin ser idénticos.",
+      "role": "secondary",
+      "strength": 60,
+      "visual": {
+        "route": "curve",
+        "gradientColors": []
+      }
     },
     {
       "id": "shinto-buddhist",
@@ -5309,7 +9849,13 @@
       "targetId": "shinto",
       "kind": "syncretism",
       "confidence": "high",
-      "note": "Durante siglos kami y budas se interpretaron mediante complejos sistemas combinados."
+      "note": "Durante siglos kami y budas se interpretaron mediante complejos sistemas combinados.",
+      "role": "secondary",
+      "strength": 60,
+      "visual": {
+        "route": "curve",
+        "gradientColors": []
+      }
     },
     {
       "id": "hindu-buddhist-sea",
@@ -5317,7 +9863,13 @@
       "targetId": "se-asian-theravada",
       "kind": "context",
       "confidence": "high",
-      "note": "Reinos y comunidades del Sudeste Asiático combinaron o sucedieron repertorios hinduistas y budistas de modos regionales."
+      "note": "Reinos y comunidades del Sudeste Asiático combinaron o sucedieron repertorios hinduistas y budistas de modos regionales.",
+      "role": "secondary",
+      "strength": 60,
+      "visual": {
+        "route": "curve",
+        "gradientColors": []
+      }
     },
     {
       "id": "africa-candomble",
@@ -5325,7 +9877,13 @@
       "targetId": "candomble",
       "kind": "migration",
       "confidence": "high",
-      "note": "Las tradiciones yoruba y otras matrices africanas participaron en la formación del Candomblé bajo la diáspora forzada."
+      "note": "Las tradiciones yoruba y otras matrices africanas participaron en la formación del Candomblé bajo la diáspora forzada.",
+      "role": "migration",
+      "strength": 60,
+      "visual": {
+        "route": "curve",
+        "gradientColors": []
+      }
     },
     {
       "id": "catholic-mesoamerican",
@@ -5333,7 +9891,13 @@
       "targetId": "mayan-syncretism",
       "kind": "context",
       "confidence": "high",
-      "note": "Ambas formaciones combinan repertorios cristianos e indígenas sin constituir una sola tradición."
+      "note": "Ambas formaciones combinan repertorios cristianos e indígenas sin constituir una sola tradición.",
+      "role": "secondary",
+      "strength": 60,
+      "visual": {
+        "route": "curve",
+        "gradientColors": []
+      }
     },
     {
       "id": "andean-inca",
@@ -5341,7 +9905,13 @@
       "targetId": "inca",
       "kind": "influence",
       "confidence": "medium",
-      "note": "Motivos y prácticas andinas de larga duración preceden al imperio inca, pero no forman una línea institucional simple."
+      "note": "Motivos y prácticas andinas de larga duración preceden al imperio inca, pero no forman una línea institucional simple.",
+      "role": "secondary",
+      "strength": 60,
+      "visual": {
+        "route": "curve",
+        "gradientColors": []
+      }
     },
     {
       "id": "steppe-buddhism",
@@ -5349,7 +9919,13 @@
       "targetId": "siberian-buddhism",
       "kind": "context",
       "confidence": "medium",
-      "note": "La adopción del budismo en sociedades de la estepa convivió con prácticas anteriores."
+      "note": "La adopción del budismo en sociedades de la estepa convivió con prácticas anteriores.",
+      "role": "secondary",
+      "strength": 60,
+      "visual": {
+        "route": "curve",
+        "gradientColors": []
+      }
     },
     {
       "id": "sikh-context",
@@ -5357,7 +9933,13 @@
       "targetId": "sikhism",
       "kind": "context",
       "confidence": "high",
-      "note": "El sijismo surgió en un paisaje punjabí con corrientes devocionales, islámicas e hinduistas; no se reduce a ninguna de ellas."
+      "note": "El sijismo surgió en un paisaje punjabí con corrientes devocionales, islámicas e hinduistas; no se reduce a ninguna de ellas.",
+      "role": "secondary",
+      "strength": 60,
+      "visual": {
+        "route": "curve",
+        "gradientColors": []
+      }
     }
   ]
 }

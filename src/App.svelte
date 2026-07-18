@@ -31,7 +31,7 @@
   let activeOnly = $state(false);
   let posterOnly = $state(false);
   let showEvents = $state(true);
-  let showRelations = $state(false);
+  let showRelations = $state(true);
   let zoomPercent = $state(17);
   let camera = $state<Camera>({ x: 90, y: 10, scale: .17 });
   let axisAnimated = $state(false);
@@ -46,9 +46,9 @@
 
   const needle = $derived(normalize(query.trim()));
   const visibleTraditions = $derived(data.traditions.filter((entry) => {
-    const haystack = normalize([entry.name, ...entry.alternativeNames, entry.family, entry.summary, entry.regionId].join(' '));
+    const haystack = normalize([entry.name, entry.subtitle, ...entry.alternativeNames, entry.family, entry.summary, entry.regionId, ...(entry.regionIds ?? [])].join(' '));
     return (!needle || haystack.includes(needle))
-      && (!selectedRegions.length || selectedRegions.includes(entry.regionId))
+      && (!selectedRegions.length || (entry.regionIds ?? [entry.regionId]).some((id) => selectedRegions.includes(id)))
       && (kind === 'all' || entry.kind === kind)
       && (!activeOnly || entry.status === 'active')
       && (!posterOnly || entry.posterVerified);
@@ -157,7 +157,7 @@
     oncamera={updateCamera}
     onzoom={(value) => zoomPercent = value}
   />
-  <TimeAxis {camera} animated={axisAnimated}/>
+  <TimeAxis {camera} animated={axisAnimated} customStops={data.metadata.timelineStops ?? []}/>
   <RegionAxis regions={data.regions} {camera} onfocus={(id) => tree?.focusRegion?.(id)}/>
 
   {#if filtering}

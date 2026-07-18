@@ -8,25 +8,34 @@ El editor se distribuye como `ReliTree-Editor.html`. No requiere instalación, P
 
 - **Seleccionar (V):** abre el inspector. Un nodo puede arrastrarse horizontalmente entre áreas y carriles, y verticalmente para modificar su año.
 - **Desplazar (H):** recorre el lienzo sin modificar elementos.
-- **Añadir nodo (N):** crea una tradición en el punto temporal y geográfico pulsado.
-- **Crear unión (L):** selecciona primero el nodo de origen y después el de destino.
+- **Añadir nodo (N):** crea una entidad en el punto temporal y geográfico pulsado.
+- **Crear unión (L):** selecciona primero la entidad de origen y después la de destino. No hay límite de entradas o salidas.
 - **Añadir acontecimiento (E):** crea una línea histórica en el año y área pulsados.
 
 La rueda controla el zoom. `Supr` elimina la selección; `Ctrl+Z` y `Ctrl+Y` deshacen o rehacen; `Ctrl+S` guarda el proyecto; `Ctrl+O` abre otro proyecto.
 
 ## Inspector
 
-El inspector permite editar:
+El botón **Proyecto** abre la configuración global: anchura y color de cada área, nuevas zonas geográficas, marcas temporales personalizadas y separación automática de colisiones.
 
-- nombre, identificador, área, carril, año inicial y final;
-- padre y tipo de relación genealógica;
-- familia, clase, estado, importancia y resumen;
-- color, grosor, patrón SVG del trazo, opacidad y visibilidad;
-- radio del punto y desplazamiento de la etiqueta;
-- origen, destino, clase, confianza y nota de las uniones;
+El inspector de entidad permite editar:
+
+- título, subtítulo y fecha, los tres datos visibles en el mapa;
+- área principal, múltiples áreas asociadas, posición porcentual y correcciones X/Y;
+- separación automática de entidades coincidentes por fecha y territorio;
+- icono mediante ruta del repositorio o SVG incrustado;
+- familia, clase, estado, resumen, historia, doctrinas, evidencia y bibliografía;
+- color, radio, opacidad, visibilidad y desplazamiento de las etiquetas;
+- relaciones de entrada y salida, incluyendo fusiones con varios orígenes;
 - título, año, áreas afectadas, clase y resumen de acontecimientos.
 
+El inspector de relación controla origen, destino, papel visual, intensidad de 1 a 100, confianza, forma recta/ortogonal/curva, desplazamiento del recorrido, color, gradiente multicolor, grosor y patrón discontinuo.
+
 Los patrones de trazo usan la sintaxis SVG: `7 7` crea una línea discontinua, `2 3` una línea punteada y un valor vacío una línea continua.
+
+## Iconos automáticos
+
+Los SVG del repositorio se guardan en `public/icons/`. El build intenta asociarlos por identificador (`christianity.svg`) y después por nombre normalizado (`cristianismo.svg`). Mientras no exista icono, la entidad se muestra como una esfera. En ambos casos aparecen debajo título, subtítulo y fecha.
 
 ## Imagen de referencia
 

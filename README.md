@@ -8,9 +8,11 @@ Atlas cronológico e interactivo de religiones, tradiciones espirituales y conte
 
 - Lienzo SVG sin pérdida de resolución, ampliable y desplazable.
 - Eje histórico fijo desde el presente hasta el año -400.000, con escala temporal por tramos y años con signo.
-- Doce bandas geoculturales inspiradas en la organización de *The Great Tree of Religion 3.0*.
+- Bandas geoculturales de anchura configurable, inspiradas en la organización de *The Great Tree of Religion 3.0*.
 - Tradiciones, vínculos históricos y acontecimientos consultables.
-- Diferenciación explícita entre descendencia institucional, reforma, influencia, sincretismo y relación contextual.
+- Entidades con título, subtítulo, fecha, múltiples áreas, iconos SVG y fichas editoriales extensas.
+- Relaciones múltiples de entrada y salida, fusiones, intensidades, recorridos y gradientes multicolor.
+- Autoubicación por fecha y territorio con separación automática de colisiones y ajuste manual posterior.
 - Buscador, filtros, capas, temas claro/oscuro/automático y fichas documentales.
 - Base `SQLite` generada en cada build y consultable en el navegador mediante WebAssembly.
 - Catálogo verificador extraído del listado de Wikipedia aportado como documento de referencia.
@@ -57,6 +59,6 @@ Para publicar los cambios del editor:
 2. Sustituir `data/reli-tree-project.json` en el repositorio.
 3. Hacer commit en `main`; GitHub Actions valida el formato y reconstruye el atlas, SQLite y Pages.
 
-El archivo editorial conserva nodos, relaciones, acontecimientos, posiciones y estilos. La imagen de referencia sólo se incrusta si se activa expresamente esa opción, para evitar añadir accidentalmente una copia pesada o restringida al repositorio.
+El archivo editorial de formato 2 conserva entidades, relaciones, acontecimientos, anchuras geográficas, marcas temporales, coordenadas territoriales, iconos, fichas y estilos. La imagen de referencia sólo se incrusta si se activa expresamente esa opción, para evitar añadir accidentalmente una copia pesada o restringida al repositorio.
 
 Manual completo: [`docs/EDITOR.md`](docs/EDITOR.md).

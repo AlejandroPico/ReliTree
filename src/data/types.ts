@@ -24,6 +24,8 @@ export type TraditionKind =
 export type TraditionStatus = 'active' | 'historical' | 'reconstructed' | 'disputed';
 export type DatePrecision = 'year' | 'decade' | 'century' | 'millennium' | 'deep-time' | 'disputed';
 export type RelationKind = 'descent' | 'reform' | 'influence' | 'syncretism' | 'context' | 'migration';
+export type RelationRole = 'primary' | 'secondary' | 'hypothetical' | 'fusion' | 'migration';
+export type RelationRoute = 'curve' | 'orthogonal' | 'straight';
 export type Confidence = 'high' | 'medium' | 'low' | 'hypothesis';
 export type SourceId = 'poster-3' | 'poster-beta' | 'wikipedia-list' | 'academic-synthesis';
 
@@ -39,6 +41,34 @@ export interface ElementVisualStyle {
   parentLineWidth?: number;
   parentLineDash?: string;
   hidden?: boolean;
+  gradientColors?: string[];
+  route?: RelationRoute;
+  curve?: number;
+  midpointOffsetX?: number;
+  midpointOffsetY?: number;
+}
+
+export interface EntityPlacement {
+  regionId?: RegionId;
+  xPercent?: number;
+  offsetX?: number;
+  offsetY?: number;
+  autoAvoidOverlap?: boolean;
+}
+
+export interface EntityIcon {
+  path?: string | null;
+  embeddedDataUrl?: string | null;
+  resolvedPath?: string | null;
+  scale?: number;
+}
+
+export interface EntityDetails {
+  overview?: string;
+  history?: string;
+  beliefs?: string;
+  evidence?: string;
+  bibliography?: string;
 }
 
 export interface Region {
@@ -48,13 +78,17 @@ export interface Region {
   color: string;
   order: number;
   scope: string;
+  width?: number;
+  minLaneGap?: number;
 }
 
 export interface Tradition {
   id: string;
   name: string;
+  subtitle: string;
   alternativeNames: string[];
   regionId: RegionId;
+  regionIds?: RegionId[];
   parentId: string | null;
   startYear: number;
   endYear: number | null;
@@ -70,6 +104,9 @@ export interface Tradition {
   posterVerified: boolean;
   verifierMatched: boolean;
   importance: 1 | 2 | 3;
+  placement?: EntityPlacement;
+  icon?: EntityIcon;
+  details?: EntityDetails;
   visual?: ElementVisualStyle;
 }
 
@@ -91,6 +128,8 @@ export interface CrossRelation {
   kind: RelationKind;
   confidence: Confidence;
   note: string;
+  role?: RelationRole;
+  strength?: number;
   visual?: ElementVisualStyle;
 }
 
@@ -106,6 +145,7 @@ export interface AtlasData {
     version: string;
     presentYear: number;
     referenceNotice: string;
+    timelineStops?: Array<{ year: number; major?: boolean; label?: string }>;
   };
   regions: Region[];
   traditions: Tradition[];

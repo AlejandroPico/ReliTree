@@ -19,6 +19,7 @@
 
   let tab = $state<'summary' | 'lineage' | 'evidence'>('summary');
   const region = $derived(data.regions.find((entry) => entry.id === tradition.regionId)!);
+  const regions = $derived(data.regions.filter((entry) => (tradition.regionIds ?? [tradition.regionId]).includes(entry.id)));
   const parent = $derived(tradition.parentId ? data.traditions.find((entry) => entry.id === tradition.parentId) ?? null : null);
   const children = $derived(data.traditions.filter((entry) => entry.parentId === tradition.id));
   const relations = $derived(data.relations.filter((entry) => entry.sourceId === tradition.id || entry.targetId === tradition.id));
@@ -44,7 +45,7 @@
     <div>
       <span class="eyebrow">{tradition.status === 'active' ? 'TRADICIÓN ACTIVA' : tradition.status === 'historical' ? 'TRADICIÓN HISTÓRICA' : tradition.status.toLocaleUpperCase('es')}</span>
       <h2>{tradition.name}</h2>
-      <p>{tradition.family}</p>
+      <p>{tradition.subtitle || tradition.family}</p>
     </div>
     <button class="icon-button" type="button" aria-label="Cerrar ficha" onclick={onclose}><X size={19}/></button>
   </header>
@@ -57,15 +58,17 @@
 
   <div class="detail-body">
     {#if tab === 'summary'}
-      <p class="detail-lead">{tradition.summary}</p>
+      <p class="detail-lead">{tradition.details?.overview || tradition.summary}</p>
       <dl class="plain-facts">
         <div><dt><CalendarRange size={14}/>Cronología</dt><dd>{dateRange(tradition.startYear, tradition.endYear)}</dd></div>
-        <div><dt><MapPin size={14}/>Ámbito horizontal</dt><dd>{region.name} · {region.scope}</dd></div>
+        <div><dt><MapPin size={14}/>Ámbito horizontal</dt><dd>{regions.map((entry) => entry.name).join(' · ')}</dd></div>
         <div><dt><Network size={14}/>Clasificación</dt><dd>{tradition.kind} · {tradition.family}</dd></div>
       </dl>
       {#if tradition.alternativeNames.length}
         <section class="detail-section"><span>NOMBRES ALTERNATIVOS</span><p>{tradition.alternativeNames.join(' · ')}</p></section>
       {/if}
+      {#if tradition.details?.history}<section class="detail-section"><span>DESARROLLO HISTÓRICO</span><p>{tradition.details.history}</p></section>{/if}
+      {#if tradition.details?.beliefs}<section class="detail-section"><span>DOCTRINAS Y PRÁCTICAS</span><p>{tradition.details.beliefs}</p></section>{/if}
       <button class="focus-button" type="button" onclick={() => onfocus(tradition.id)}><Focus size={15}/>Centrar esta rama en el lienzo</button>
     {:else if tab === 'lineage'}
       <p class="section-intro">Los vínculos no significan siempre descendencia. Cada conexión declara su lectura histórica.</p>
@@ -108,6 +111,8 @@
         <p class:missing={!tradition.posterVerified}>{tradition.posterVerified ? 'Localizada en la infografía principal' : 'Añadida como contexto; no verificada en el póster'}</p>
         <p class:missing={!tradition.verifierMatched}>{tradition.verifierMatched ? 'Tiene correspondencia en el catálogo verificador' : 'Entrada arqueológica o de síntesis; sin correspondencia nominal'}</p>
       </section>
+      {#if tradition.details?.evidence}<section class="detail-section"><span>NOTAS DE EVIDENCIA</span><p>{tradition.details.evidence}</p></section>{/if}
+      {#if tradition.details?.bibliography}<section class="detail-section"><span>BIBLIOGRAFÍA EDITORIAL</span><p>{tradition.details.bibliography}</p></section>{/if}
     {/if}
   </div>
 </aside>

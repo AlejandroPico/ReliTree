@@ -3,8 +3,8 @@
   import type { AtlasData, Camera, PositionedTradition, RegionId, Tradition } from '../data/types';
   import { formatYear, timelineStops, yearToY } from '../lib/timeline';
   import {
-    parentPath, positionTraditions, REGION_WIDTH, relationPath, regionBounds,
-    regionX, WORLD_HEIGHT, WORLD_LEFT, WORLD_WIDTH
+    parentPath, positionTraditions, regionBounds, regionWidth,
+    regionX, styledRelationPath, worldWidth, WORLD_HEIGHT, WORLD_LEFT
   } from '../lib/layout';
 
   let {
@@ -36,6 +36,11 @@
   let pointer = { x: 0, y: 0 };
   let camera = $state<Camera>({ x: 90, y: 10, scale: .17 });
   const positioned = $derived(positionTraditions(data));
+  const canvasWidth = $derived(worldWidth(data.regions));
+  const gridStops = $derived([
+    ...timelineStops,
+    ...(data.metadata.timelineStops ?? []).filter((entry) => !timelineStops.some((stop) => stop.year === entry.year)).map((entry) => ({ year: entry.year, y: yearToY(entry.year), major: entry.major ?? false }))
+  ]);
   const byId = $derived(new Map(positioned.map((entry) => [entry.id, entry])));
   const selected = $derived(selectedId ? byId.get(selectedId) ?? null : null);
   const detailLevel = $derived(camera.scale < .2 ? 1 : camera.scale < .42 ? 2 : 3);
@@ -81,7 +86,7 @@
     onzoom(Math.round(camera.scale * 100));
   }
 
-  function fitRange(topY: number, bottomY: number, x = 0, width = WORLD_WIDTH, shouldAnimate = true): void {
+  function fitRange(topY: number, bottomY: number, x = 0, width = canvasWidth, shouldAnimate = true): void {
     if (!viewport) return;
     const rect = viewport.getBoundingClientRect();
     const availableWidth = Math.max(280, rect.width - 112);
@@ -95,11 +100,11 @@
   }
 
   function fitModern(shouldAnimate = true): void {
-    fitRange(120, yearToY(-2600), 0, WORLD_WIDTH, shouldAnimate);
+    fitRange(120, yearToY(-2600), 0, canvasWidth, shouldAnimate);
   }
 
   function fitAll(shouldAnimate = true): void {
-    fitRange(0, WORLD_HEIGHT, 0, WORLD_WIDTH, shouldAnimate);
+    fitRange(0, WORLD_HEIGHT, 0, canvasWidth, shouldAnimate);
   }
 
   function focusRegion(regionId: RegionId, shouldAnimate = true): void {
@@ -176,8 +181,8 @@
     if (!svg) return;
     const clone = svg.cloneNode(true) as SVGSVGElement;
     clone.setAttribute('style', '--inv-scale:1');
-    clone.setAttribute('viewBox', `0 0 ${WORLD_WIDTH} ${WORLD_HEIGHT}`);
-    clone.setAttribute('width', String(WORLD_WIDTH));
+    clone.setAttribute('viewBox', `0 0 ${canvasWidth} ${WORLD_HEIGHT}`);
+    clone.setAttribute('width', String(canvasWidth));
     clone.setAttribute('height', String(WORLD_HEIGHT));
     clone.querySelector<SVGGElement>('.world-layer')?.setAttribute('transform', 'translate(0 0) scale(1)');
     const style = document.createElementNS('http://www.w3.org/2000/svg', 'style');
@@ -227,21 +232,34 @@
 >
   <svg bind:this={svg} class="tree-svg" style={`--inv-scale:${1 / camera.scale}`} aria-label="Árbol cronológico vectorial">
     <g class="world-layer" transform={`translate(${camera.x} ${camera.y}) scale(${camera.scale})`}>
-      <rect class="world-background" width={WORLD_WIDTH} height={WORLD_HEIGHT}/>
+      <rect class="world-background" width={canvasWidth} height={WORLD_HEIGHT}/>
+
+      <defs>
+        {#each data.relations as relation}
+          {#if (relation.visual?.gradientColors?.length ?? 0) > 1}
+            <linearGradient id={`relation-gradient-${relation.id}`} x1="0%" x2="100%">
+              {#each relation.visual!.gradientColors! as color, index}
+                <stop offset={`${index / (relation.visual!.gradientColors!.length - 1) * 100}%`} stop-color={color}/>
+              {/each}
+            </linearGradient>
+          {/if}
+        {/each}
+      </defs>
 
       {#each data.regions as region}
-        {@const left = regionX(region)}
+        {@const left = regionX(region, data.regions)}
+        {@const width = regionWidth(region)}
         <g class="region-column">
-          <rect class="region-band" x={left} y="0" width={REGION_WIDTH} height={WORLD_HEIGHT}/>
-          <rect class="region-shade" x={left} y="0" width={REGION_WIDTH} height={WORLD_HEIGHT} fill={region.color}/>
+          <rect class="region-band" x={left} y="0" width={width} height={WORLD_HEIGHT}/>
+          <rect class="region-shade" x={left} y="0" width={width} height={WORLD_HEIGHT} fill={region.color}/>
           <line class="region-divider" x1={left} x2={left} y1="0" y2={WORLD_HEIGHT}/>
-          <rect x={left + 12} y="84" width={REGION_WIDTH - 24} height="8" rx="4" fill={region.color}/>
-          <text class="region-name" x={left + REGION_WIDTH / 2} y="62" text-anchor="middle">{region.name.toLocaleUpperCase('es')}</text>
+          <rect x={left + 12} y="84" width={width - 24} height="8" rx="4" fill={region.color}/>
+          <text class="region-name" x={left + width / 2} y="62" text-anchor="middle">{region.name.toLocaleUpperCase('es')}</text>
         </g>
       {/each}
 
-      {#each timelineStops as stop}
-        <line class:major={stop.major} class="grid-line" x1={WORLD_LEFT} x2={WORLD_WIDTH - 40} y1={stop.y} y2={stop.y}/>
+      {#each gridStops as stop}
+        <line class:major={stop.major} class="grid-line" x1={WORLD_LEFT} x2={canvasWidth - 40} y1={stop.y} y2={stop.y}/>
       {/each}
 
       {#if showEvents}
@@ -250,8 +268,10 @@
           {@const affected = data.regions.filter((region) => event.regionIds.includes(region.id))}
           {@const minOrder = Math.min(...affected.map((region) => region.order))}
           {@const maxOrder = Math.max(...affected.map((region) => region.order))}
-          {@const x1 = WORLD_LEFT + minOrder * REGION_WIDTH + 20}
-          {@const x2 = WORLD_LEFT + (maxOrder + 1) * REGION_WIDTH - 20}
+          {@const firstRegion = data.regions.find((region) => region.order === minOrder)!}
+          {@const lastRegion = data.regions.find((region) => region.order === maxOrder)!}
+          {@const x1 = regionX(firstRegion, data.regions) + 20}
+          {@const x2 = regionX(lastRegion, data.regions) + regionWidth(lastRegion) - 20}
           <g class="event-marker" opacity={event.visual?.opacity ?? 1}>
             <line class="event-line" x1={x1} x2={x2} y1={y} y2={y} stroke={event.visual?.color} style={`stroke-width:${event.visual?.lineWidth ?? 1.2};stroke-dasharray:${event.visual?.lineDash ?? '7 7'}`}/>
             {#if showEventLabels}<text class="event-text" x={x1 + 10} y={y - 9} fill={event.visual?.color}>{event.title} · {formatYear(event.year, true)}</text>{/if}
@@ -275,7 +295,10 @@
             {@const source = byId.get(relation.sourceId)}
             {@const target = byId.get(relation.targetId)}
             {#if source && target && shownSet.has(source.id) && shownSet.has(target.id)}
-              <path class={`cross-link relation-${relation.kind}`} d={relationPath(source, target)} stroke={relation.visual?.color ?? source.region.color} style={`stroke-width:${relation.visual?.lineWidth ?? 1.5};stroke-dasharray:${relation.visual?.lineDash ?? '7 7'}`} opacity={relation.visual?.opacity ?? .55}/>
+              {@const gradient = relation.visual?.gradientColors}
+              {@const roleDash = relation.role === 'hypothetical' ? '3 7' : relation.role === 'secondary' ? '10 6' : relation.role === 'fusion' ? '14 5 3 5' : relation.kind === 'influence' || relation.kind === 'context' ? '7 7' : ''}
+              {@const width = relation.visual?.lineWidth ?? .8 + (relation.strength ?? 70) * .08}
+              <path class={`cross-link relation-${relation.kind}`} d={styledRelationPath(source, target, relation)} stroke={(gradient?.length ?? 0) > 1 ? `url(#relation-gradient-${relation.id})` : relation.visual?.color ?? source.region.color} style={`stroke-width:${width};stroke-dasharray:${relation.visual?.lineDash ?? roleDash}`} opacity={relation.visual?.opacity ?? .7}/>
             {/if}
           {/each}
         </g>
@@ -287,6 +310,7 @@
           {@const labelOffset = (labelPositions.get(entry.id) ?? entry.startY) - entry.startY + (entry.visual?.labelOffsetY ?? 0) / camera.scale}
           {@const labelX = (entry.visual?.labelOffsetX ?? 0) / camera.scale}
           {@const entryRadius = entry.visual?.nodeRadius ? entry.visual.nodeRadius / camera.scale : nodeRadius}
+          {@const iconPath = entry.icon?.embeddedDataUrl ?? entry.icon?.resolvedPath ?? entry.icon?.path}
           <g
             data-node
             class:selected={entry.id === selectedId}
@@ -299,14 +323,18 @@
             onkeydown={(event) => { if (event.key === 'Enter' || event.key === ' ') onselect(entry); }}
           >
             <circle class="node-halo" r={entryRadius * 1.9} fill={entry.visual?.color ?? entry.region.color}/>
-            <circle class="node-dot" r={entryRadius} fill={entry.status === 'historical' ? '#11151d' : (entry.visual?.color ?? entry.region.color)}/>
-            {#if labelOffset > 1}<path class="label-leader" d={`M ${entryRadius} 0 L ${entryRadius + labelX} ${labelOffset}`} stroke={entry.visual?.color ?? entry.region.color}/>{/if}
-            <text class="node-label" x={entryRadius + labelX + 8 / camera.scale} y={labelOffset - ((lines.length - 1) * labelScale * .56)} style={`font-size:${labelScale}px`}>
-              {#each lines as line, index}<tspan x={entryRadius + labelX + 8 / camera.scale} dy={index === 0 ? 0 : labelScale * 1.05}>{line}</tspan>{/each}
-            </text>
-            {#if detailLevel >= 2}
-              <text class="node-date" x={entryRadius + labelX + 8 / camera.scale} y={labelOffset + (lines.length * labelScale * 1.05) + 5 / camera.scale} style={`font-size:${labelScale * .76}px`}>{formatYear(entry.startYear, true)}</text>
+            {#if iconPath}
+              <circle class="node-icon-bg" r={entryRadius * 1.18} fill="var(--world)" stroke={entry.visual?.color ?? entry.region.color}/>
+              <image class="node-icon" href={iconPath} x={-entryRadius} y={-entryRadius} width={entryRadius * 2} height={entryRadius * 2} preserveAspectRatio="xMidYMid meet"/>
+            {:else}
+              <circle class="node-dot" r={entryRadius} fill={entry.status === 'historical' ? '#11151d' : (entry.visual?.color ?? entry.region.color)}/>
             {/if}
+            {#if labelOffset > 1}<path class="label-leader" d={`M ${entryRadius} 0 L ${entryRadius + labelX} ${labelOffset}`} stroke={entry.visual?.color ?? entry.region.color}/>{/if}
+            <text class="node-label" text-anchor="middle" x={labelX} y={entryRadius + labelOffset + labelScale} style={`font-size:${labelScale}px`}>
+              {#each lines as line, index}<tspan x={labelX} dy={index === 0 ? 0 : labelScale * 1.05}>{line}</tspan>{/each}
+            </text>
+            <text class="node-subtitle" text-anchor="middle" x={labelX} y={entryRadius + labelOffset + (lines.length + .25) * labelScale * 1.05} style={`font-size:${labelScale * .76}px`}>{entry.subtitle}</text>
+            <text class="node-date" text-anchor="middle" x={labelX} y={entryRadius + labelOffset + (lines.length + 1.05) * labelScale * 1.05} style={`font-size:${labelScale * .72}px`}>{formatYear(entry.startYear, true)}</text>
           </g>
         {/each}
       </g>

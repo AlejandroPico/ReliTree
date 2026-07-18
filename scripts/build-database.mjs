@@ -26,26 +26,48 @@ db.run(`
     short_name TEXT NOT NULL,
     color TEXT NOT NULL,
     display_order INTEGER NOT NULL,
-    scope TEXT NOT NULL
+    scope TEXT NOT NULL,
+    width REAL NOT NULL,
+    min_lane_gap REAL NOT NULL
   );
   CREATE TABLE traditions (
     id TEXT PRIMARY KEY,
     name TEXT NOT NULL,
+    subtitle TEXT NOT NULL,
     region_id TEXT NOT NULL REFERENCES regions(id),
     parent_id TEXT REFERENCES traditions(id),
     start_year INTEGER NOT NULL,
     end_year INTEGER,
     lane REAL NOT NULL,
+    x_percent REAL NOT NULL,
+    offset_x REAL NOT NULL,
+    offset_y REAL NOT NULL,
+    auto_avoid_overlap INTEGER NOT NULL CHECK (auto_avoid_overlap IN (0, 1)),
     kind TEXT NOT NULL,
     status TEXT NOT NULL,
     date_precision TEXT NOT NULL,
     confidence TEXT NOT NULL,
     family TEXT NOT NULL,
     summary TEXT NOT NULL,
+    overview TEXT NOT NULL,
+    history TEXT NOT NULL,
+    beliefs TEXT NOT NULL,
+    evidence TEXT NOT NULL,
+    bibliography TEXT NOT NULL,
     relation_to_parent TEXT,
+    icon_path TEXT,
+    icon_data_url TEXT,
+    icon_scale REAL NOT NULL,
     poster_verified INTEGER NOT NULL CHECK (poster_verified IN (0, 1)),
     verifier_matched INTEGER NOT NULL CHECK (verifier_matched IN (0, 1)),
-    importance INTEGER NOT NULL CHECK (importance BETWEEN 1 AND 3)
+    importance INTEGER NOT NULL CHECK (importance BETWEEN 1 AND 3),
+    visual_json TEXT NOT NULL
+  );
+  CREATE TABLE tradition_regions (
+    tradition_id TEXT NOT NULL REFERENCES traditions(id),
+    region_id TEXT NOT NULL REFERENCES regions(id),
+    is_primary INTEGER NOT NULL CHECK (is_primary IN (0, 1)),
+    PRIMARY KEY (tradition_id, region_id)
   );
   CREATE TABLE aliases (
     tradition_id TEXT NOT NULL REFERENCES traditions(id),
@@ -63,7 +85,8 @@ db.run(`
     year INTEGER NOT NULL,
     kind TEXT NOT NULL,
     summary TEXT NOT NULL,
-    confidence TEXT NOT NULL
+    confidence TEXT NOT NULL,
+    visual_json TEXT NOT NULL
   );
   CREATE TABLE event_regions (
     event_id TEXT NOT NULL REFERENCES events(id),
@@ -75,8 +98,11 @@ db.run(`
     source_id TEXT NOT NULL REFERENCES traditions(id),
     target_id TEXT NOT NULL REFERENCES traditions(id),
     kind TEXT NOT NULL,
+    role TEXT NOT NULL,
+    strength INTEGER NOT NULL CHECK (strength BETWEEN 1 AND 100),
     confidence TEXT NOT NULL,
-    note TEXT NOT NULL
+    note TEXT NOT NULL,
+    visual_json TEXT NOT NULL
   );
   CREATE TABLE verifier_catalog (
     name TEXT NOT NULL,
@@ -92,18 +118,19 @@ db.run(`
 `);
 
 const insertMetadata = db.prepare('INSERT INTO metadata(key, value) VALUES (?, ?)');
-for (const [key, value] of Object.entries(atlas.metadata)) insertMetadata.run([key, String(value)]);
+for (const [key, value] of Object.entries(atlas.metadata)) insertMetadata.run([key, typeof value === 'object' ? JSON.stringify(value) : String(value)]);
 insertMetadata.free();
 
-const insertRegion = db.prepare('INSERT INTO regions VALUES (?, ?, ?, ?, ?, ?)');
-for (const region of atlas.regions) insertRegion.run([region.id, region.name, region.shortName, region.color, region.order, region.scope]);
+const insertRegion = db.prepare('INSERT INTO regions VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
+for (const region of atlas.regions) insertRegion.run([region.id, region.name, region.shortName, region.color, region.order, region.scope, region.width ?? 760, region.minLaneGap ?? 76]);
 insertRegion.free();
 
 const insertTradition = db.prepare(`INSERT INTO traditions VALUES (
-  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
 )`);
 const insertAlias = db.prepare('INSERT INTO aliases VALUES (?, ?)');
 const insertSource = db.prepare('INSERT INTO tradition_sources VALUES (?, ?)');
+const insertTraditionRegion = db.prepare('INSERT INTO tradition_regions VALUES (?, ?, ?)');
 
 const pendingTraditions = [...atlas.traditions];
 const orderedTraditions = [];
@@ -120,28 +147,33 @@ while (pendingTraditions.length) {
 
 for (const entry of orderedTraditions) {
   insertTradition.run([
-    entry.id, entry.name, entry.regionId, entry.parentId, entry.startYear, entry.endYear, entry.lane,
+    entry.id, entry.name, entry.subtitle ?? '', entry.regionId, entry.parentId, entry.startYear, entry.endYear, entry.lane,
+    entry.placement?.xPercent ?? entry.lane * 100, entry.placement?.offsetX ?? 0, entry.placement?.offsetY ?? 0, Number(entry.placement?.autoAvoidOverlap !== false),
     entry.kind, entry.status, entry.precision, entry.confidence, entry.family, entry.summary,
-    entry.relationToParent, Number(entry.posterVerified), Number(entry.verifierMatched), entry.importance
+    entry.details?.overview ?? '', entry.details?.history ?? '', entry.details?.beliefs ?? '', entry.details?.evidence ?? '', entry.details?.bibliography ?? '',
+    entry.relationToParent, entry.icon?.path ?? entry.icon?.resolvedPath ?? null, entry.icon?.embeddedDataUrl ?? null, entry.icon?.scale ?? 1,
+    Number(entry.posterVerified), Number(entry.verifierMatched), entry.importance, JSON.stringify(entry.visual ?? {})
   ]);
+  for (const regionId of entry.regionIds ?? [entry.regionId]) insertTraditionRegion.run([entry.id, regionId, Number(regionId === entry.regionId)]);
   for (const alias of entry.alternativeNames) insertAlias.run([entry.id, alias]);
   for (const source of entry.sources) insertSource.run([entry.id, source]);
 }
 insertTradition.free();
 insertAlias.free();
 insertSource.free();
+insertTraditionRegion.free();
 
-const insertEvent = db.prepare('INSERT INTO events VALUES (?, ?, ?, ?, ?, ?)');
+const insertEvent = db.prepare('INSERT INTO events VALUES (?, ?, ?, ?, ?, ?, ?)');
 const insertEventRegion = db.prepare('INSERT INTO event_regions VALUES (?, ?)');
 for (const event of atlas.events) {
-  insertEvent.run([event.id, event.title, event.year, event.kind, event.summary, event.confidence]);
+  insertEvent.run([event.id, event.title, event.year, event.kind, event.summary, event.confidence, JSON.stringify(event.visual ?? {})]);
   for (const regionId of event.regionIds) insertEventRegion.run([event.id, regionId]);
 }
 insertEvent.free();
 insertEventRegion.free();
 
-const insertRelation = db.prepare('INSERT INTO relations VALUES (?, ?, ?, ?, ?, ?)');
-for (const relation of atlas.relations) insertRelation.run([relation.id, relation.sourceId, relation.targetId, relation.kind, relation.confidence, relation.note]);
+const insertRelation = db.prepare('INSERT INTO relations VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
+for (const relation of atlas.relations) insertRelation.run([relation.id, relation.sourceId, relation.targetId, relation.kind, relation.role ?? 'secondary', relation.strength ?? 60, relation.confidence, relation.note, JSON.stringify(relation.visual ?? {})]);
 insertRelation.free();
 
 const insertVerifier = db.prepare('INSERT OR IGNORE INTO verifier_catalog VALUES (?, ?, ?)');

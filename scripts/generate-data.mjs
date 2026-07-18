@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -6,6 +6,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const output = resolve(root, 'src/data/atlas.json');
 const projectInput = resolve(root, 'data/reli-tree-project.json');
 const publicProjectOutput = resolve(root, 'public/data/reli-tree-project.json');
+const iconsDirectory = resolve(root, 'public/icons');
 const PRESENT = 2026;
 
 const regions = [
@@ -366,6 +367,7 @@ function validateAtlas(candidate) {
   if (candidateIds.size !== candidate.traditions.length) throw new Error('Hay identificadores de tradiciones duplicados en el proyecto.');
   for (const entry of candidate.traditions) {
     if (!entry.id || !entry.name || !candidateRegions.has(entry.regionId)) throw new Error(`Tradición inválida: ${entry.id ?? '(sin id)'}`);
+    if (!(entry.regionIds ?? [entry.regionId]).every((id) => candidateRegions.has(id))) throw new Error(`Ámbito geográfico inválido en ${entry.id}`);
     if (entry.parentId && !candidateIds.has(entry.parentId)) throw new Error(`Padre inexistente ${entry.parentId} en ${entry.id}`);
   }
   for (const relation of candidate.relations) {
@@ -373,17 +375,76 @@ function validateAtlas(candidate) {
   }
 }
 
+function slugify(value) {
+  return String(value).toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+function migrateProject(value) {
+  const wrapped = value?.atlas ? value : { schemaVersion: 1, application: 'ReliTree Editor', savedAt: new Date().toISOString(), atlas: value, editor: {} };
+  wrapped.schemaVersion = 2;
+  wrapped.application = 'ReliTree Editor';
+  wrapped.atlas.metadata.version = '0.2.0';
+  wrapped.atlas.metadata.timelineStops ??= [];
+  wrapped.atlas.regions.forEach((region) => {
+    region.width = Math.max(260, Math.min(2200, Number(region.width) || 760));
+    region.minLaneGap ??= 76;
+  });
+  wrapped.atlas.traditions.forEach((entity) => {
+    entity.subtitle ??= entity.family || '';
+    entity.regionIds = [...new Set([entity.regionId, ...(entity.regionIds ?? [])])];
+    entity.placement = {
+      regionId: entity.placement?.regionId ?? entity.regionId,
+      xPercent: entity.placement?.xPercent ?? Math.round((Number(entity.lane) || 0) * 10000) / 100,
+      offsetX: entity.placement?.offsetX ?? 0,
+      offsetY: entity.placement?.offsetY ?? 0,
+      autoAvoidOverlap: entity.placement?.autoAvoidOverlap ?? true
+    };
+    entity.icon = { path: entity.icon?.path ?? null, embeddedDataUrl: entity.icon?.embeddedDataUrl ?? null, scale: entity.icon?.scale ?? 1 };
+    entity.details = {
+      overview: entity.details?.overview ?? entity.summary,
+      history: entity.details?.history ?? '',
+      beliefs: entity.details?.beliefs ?? '',
+      evidence: entity.details?.evidence ?? '',
+      bibliography: entity.details?.bibliography ?? ''
+    };
+  });
+  wrapped.atlas.relations.forEach((relation) => {
+    relation.role ??= relation.confidence === 'hypothesis' ? 'hypothetical' : relation.kind === 'migration' ? 'migration' : relation.kind === 'descent' || relation.kind === 'reform' ? 'primary' : 'secondary';
+    relation.strength ??= relation.role === 'primary' ? 85 : relation.role === 'hypothetical' ? 35 : 60;
+    relation.visual ??= {};
+    relation.visual.route ??= 'curve';
+    relation.visual.gradientColors ??= [];
+  });
+  wrapped.editor ??= {};
+  wrapped.editor.canvas = { zoom: .17, offsetX: 90, offsetY: 10, snap: true, gridSize: 10, autoLayout: true, ...(wrapped.editor.canvas ?? {}) };
+  wrapped.editor.reference = { opacity: .28, x: 140, y: 150, scale: 1, embeddedDataUrl: null, ...(wrapped.editor.reference ?? {}) };
+  wrapped.editor.timeline = { customStops: wrapped.atlas.metadata.timelineStops };
+  return wrapped;
+}
+
+async function resolveEntityIcons(candidate) {
+  let filenames = [];
+  try { filenames = (await readdir(iconsDirectory)).filter((name) => name.toLocaleLowerCase('es').endsWith('.svg')); }
+  catch (error) { if (error?.code !== 'ENOENT') throw error; }
+  const byStem = new Map(filenames.map((name) => [slugify(name.replace(/\.svg$/i, '')), name]));
+  for (const entity of candidate.traditions) {
+    if (entity.icon?.embeddedDataUrl || entity.icon?.path) continue;
+    const filename = byStem.get(slugify(entity.id)) ?? byStem.get(slugify(entity.name));
+    if (filename) entity.icon = { ...(entity.icon ?? {}), resolvedPath: `./icons/${filename}` };
+  }
+}
+
 let atlas = defaultAtlas;
 let project;
 try {
-  project = JSON.parse(await readFile(projectInput, 'utf8'));
-  atlas = project.atlas ?? project;
+  project = migrateProject(JSON.parse(await readFile(projectInput, 'utf8')));
+  atlas = structuredClone(project.atlas);
   validateAtlas(atlas);
   console.log(`Proyecto editorial cargado: ${projectInput}`);
 } catch (error) {
   if (error?.code !== 'ENOENT') throw error;
   project = {
-    schemaVersion: 1,
+    schemaVersion: 2,
     application: 'ReliTree Editor',
     savedAt: '2026-07-17T00:00:00.000Z',
     atlas,
@@ -396,6 +457,12 @@ try {
   await writeFile(projectInput, `${JSON.stringify(project, null, 2)}\n`, 'utf8');
   console.log(`Proyecto editorial inicial creado: ${projectInput}`);
 }
+
+project = migrateProject(project);
+atlas = structuredClone(project.atlas);
+validateAtlas(atlas);
+await resolveEntityIcons(atlas);
+await writeFile(projectInput, `${JSON.stringify(project, null, 2)}\n`, 'utf8');
 
 await mkdir(dirname(output), { recursive: true });
 await writeFile(output, `${JSON.stringify(atlas, null, 2)}\n`, 'utf8');
