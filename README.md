@@ -55,7 +55,9 @@ Los documentos de referencia y la metodología se describen en `SOURCES.md`. La 
 
 ## Editor autónomo
 
-`Alt` + clic sobre el botón **Exportar SVG vectorial** abre la descarga del editor independiente. La herramienta se llama **Atlas Studio** porque su plantilla también sirve para mapas metabólicos, cronologías geológicas y otros proyectos. Es un único archivo HTML que funciona sin conexión en Windows y conserva compatibilidad con `reli-tree-project.json`.
+`Alt` + clic sobre el botón **Exportar SVG vectorial** abre dos descargas separadas: **Atlas Studio**, que siempre arranca completamente vacío, y el archivo **Proyecto actual**, que contiene los datos de ReliTree. Para editar el atlas hay que descargar ambos y abrir el JSON desde Atlas Studio.
+
+Atlas Studio es un único HTML que funciona sin conexión en Windows. Su lienzo libre no exige áreas, columnas ni fechas; admite ejes cronológicos, numéricos, categóricos o ninguno, varias capas de referencia/fondo, catálogos editables y objetos con coordenadas absolutas.
 
 Para publicar los cambios del editor:
 
@@ -63,6 +65,6 @@ Para publicar los cambios del editor:
 2. Sustituir `data/reli-tree-project.json` en el repositorio.
 3. Hacer commit en `main`; GitHub Actions valida el formato y reconstruye el atlas, SQLite y Pages.
 
-El archivo editorial de formato 4 añade la plantilla completa del tablero y la apariencia independiente de cada zona a entidades, relaciones, acontecimientos dirigidos, puntos de paso, marcas temporales, iconos, fichas y estilos. La imagen de referencia sólo se incrusta si se activa expresamente esa opción, para evitar añadir accidentalmente una copia pesada o restringida al repositorio.
+El formato 5 de Atlas Studio guarda dentro de cada proyecto sus dimensiones de lienzo, eje opcional, áreas opcionales, catálogos, entidades, relaciones, acontecimientos, estilos de icono y múltiples imágenes de referencia. El formato 4 de ReliTree continúa siendo compatible y se migra al abrirlo, sin modificar el archivo original.
 
 Manual completo: [`docs/EDITOR.md`](docs/EDITOR.md).

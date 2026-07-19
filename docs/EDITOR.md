@@ -2,15 +2,15 @@
 
 ## Ejecución en Windows
 
-El editor se distribuye como `Atlas-Studio.html` y mantiene `ReliTree-Editor.html` como ruta compatible. No requiere instalación, Python, Java ni un servidor local: basta con abrirlo mediante Microsoft Edge, Chrome o Firefox.
+El editor se distribuye como `Atlas-Studio.html` y mantiene `ReliTree-Editor.html` como ruta compatible. Siempre se inicia con un proyecto vacío. No requiere instalación, Python, Java ni un servidor local: basta con abrirlo mediante Microsoft Edge, Chrome o Firefox y, si procede, cargar un JSON de proyecto.
 
 ## Herramientas
 
-- **Seleccionar (V):** abre el inspector. Un nodo puede arrastrarse horizontalmente entre áreas y carriles, y verticalmente para modificar su año.
+- **Seleccionar (V):** abre el inspector. En un lienzo libre, entidades y acontecimientos pueden arrastrarse a cualquier coordenada; en un tablero estructurado también pueden anclarse a un área y un valor del eje.
 - **Selección múltiple (M):** arrastra un recuadro sobre el tablero, como en Windows, para capturar entidades, relaciones y acontecimientos. `Mayús` añade el resultado a la selección existente.
-- **Transformar referencia (R):** mueve la imagen de referencia y modifica su tamaño con cuatro tiradores. `Mayús` conserva la proporción y `Alt` redimensiona desde el centro.
+- **Transformar referencia (R):** selecciona cualquiera de las capas de imagen, la mueve y modifica su tamaño con cuatro tiradores visibles a cualquier zoom. `Mayús` conserva la proporción y `Alt` redimensiona desde el centro.
 - **Desplazar (H):** recorre el lienzo sin modificar elementos.
-- **Añadir nodo (N):** crea una entidad en el punto temporal y geográfico pulsado.
+- **Añadir nodo (N):** crea una entidad libre exactamente donde se pulsa; las áreas y fechas son opcionales.
 - **Crear unión (L):** selecciona primero la entidad de origen y después la de destino. No hay límite de entradas o salidas.
 - **Añadir acontecimiento (E):** crea una línea histórica en el año y área pulsados.
 
@@ -18,14 +18,14 @@ La rueda controla el zoom. `Supr` solicita confirmación antes de eliminar; `Ctr
 
 ## Inspector
 
-El botón **Tablero** abre una ventana central de configuración. El lienzo global controla color y opacidad; el eje y la cuadrícula pueden ocultarse; y cada área dispone de forma —columna, redondeada, cápsula, elipse, contorno o invisible—, relleno, opacidad, borde y cabecera independientes. Los preajustes crean columnas suaves, carriles, zonas sólidas o un lienzo libre sin alterar los datos.
+El botón **Tablero** abre una ventana central de configuración. El lienzo tiene anchura, altura, color y opacidad propios y no necesita áreas. El eje Y puede ser cronológico, numérico, categórico o inexistente. Cada área opcional dispone de forma, relleno, opacidad, borde y cabecera independientes; incluso la última área puede eliminarse y los objetos afectados pasan a coordenadas libres.
 
 El inspector de entidad permite editar:
 
 - título, subtítulo y fecha, los tres datos visibles en el mapa;
 - área principal, múltiples áreas asociadas, posición porcentual y correcciones X/Y;
 - separación automática de entidades coincidentes por fecha y territorio;
-- icono mediante ruta del repositorio o SVG incrustado;
+- icono mediante ruta del repositorio o SVG incrustado, con fondo transparente/blanco/negro/personalizado, opacidad e inversión de colores;
 - familia, clase, estado, resumen, historia, doctrinas, evidencia y bibliografía;
 - color, radio, opacidad, visibilidad y desplazamiento de las etiquetas;
 - anchura independiente de la línea vertical de duración;
@@ -42,15 +42,19 @@ Los patrones de trazo usan la sintaxis SVG: `7 7` crea una línea discontinua, `
 
 Los SVG del repositorio se guardan en `public/icons/`. El build intenta asociarlos por identificador (`christianity.svg`) y después por nombre normalizado (`cristianismo.svg`). Mientras no exista icono, la entidad se muestra como una esfera. En ambos casos aparecen debajo título, subtítulo y fecha.
 
-## Imagen de referencia
+## Referencias y fondos
 
-El botón **Referencia** carga localmente una imagen y la sitúa detrás de la estructura vectorial. Anchura, altura, posición, giro, visibilidad y opacidad admiten valores exactos. También puede transformarse directamente mediante tiradores, encajarse al ancho del tablero o eliminarse con confirmación.
+El botón **Referencia** añade una imagen sin sustituir las anteriores. Cada capa puede actuar como referencia o fondo y conserva nombre, anchura, altura, posición, giro, visibilidad y opacidad. Puede transformarse mediante tiradores, encajarse al lienzo o eliminarse con confirmación.
 
-La referencia no se guarda por defecto. Activar **Incrustar referencia al guardar** añade la imagen como `data:` URL y puede aumentar mucho el tamaño del JSON; no debe activarse para publicar material de referencia con restricciones de redistribución.
+Cada imagen puede guardarse dentro del proyecto como `data:` URL. Esto permite reabrir el JSON sin buscar los archivos originales, aunque aumenta el tamaño y no debe usarse para publicar material con restricciones de redistribución.
+
+## Catálogos del proyecto
+
+Los tipos de entidad, estados, tipos y papeles de relación, tipos de acontecimiento y niveles de confianza son listas editables. Se almacenan en el propio JSON, no en la instalación del editor. Borrar una opción del catálogo no elimina ni altera los objetos que ya conserven su identificador.
 
 ## Formato y publicación
 
-El botón **Guardar proyecto** produce `reli-tree-project.json`. Para que la web adopte los cambios:
+El botón **Guardar proyecto** produce un JSON de formato 5. El archivo de ReliTree disponible mediante `Alt` + **Exportar SVG vectorial** continúa siendo un proyecto separado y compatible. Para que la web adopte cambios de ReliTree:
 
 1. sustituir `data/reli-tree-project.json` en el repositorio;
 2. revisar y confirmar el commit en `main`;

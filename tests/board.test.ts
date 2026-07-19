@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 
 const project = JSON.parse(readFileSync(new URL('../data/reli-tree-project.json', import.meta.url), 'utf8'));
+const blank = JSON.parse(readFileSync(new URL('../data/atlas-studio-blank-project.json', import.meta.url), 'utf8'));
 
 describe('plantilla de Atlas Studio', () => {
   it('separa el color semántico del fondo de cada zona', () => {
@@ -21,5 +22,23 @@ describe('plantilla de Atlas Studio', () => {
     expect(reference.height).toBeGreaterThan(0);
     expect(reference.aspectRatio).toBeCloseTo(reference.width / reference.height);
     expect(reference.lockAspect).toBe(true);
+  });
+
+  it('genera Atlas Studio realmente vacío y sin ejes obligatorios', () => {
+    expect(blank.schemaVersion).toBe(5);
+    expect(blank.atlas.regions).toEqual([]);
+    expect(blank.atlas.traditions).toEqual([]);
+    expect(blank.atlas.events).toEqual([]);
+    expect(blank.atlas.relations).toEqual([]);
+    expect(blank.editor.references).toEqual([]);
+    expect(blank.atlas.metadata.board.layout).toBe('freeform');
+    expect(blank.atlas.metadata.board.axisMode).toBe('none');
+  });
+
+  it('guarda los catálogos editables dentro del proyecto vacío', () => {
+    expect(blank.catalogs.entityKinds.length).toBeGreaterThan(0);
+    expect(blank.catalogs.relationKinds.length).toBeGreaterThan(0);
+    expect(blank.catalogs.eventKinds.length).toBeGreaterThan(0);
+    expect(blank.catalogs.confidences.length).toBeGreaterThan(0);
   });
 });

@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 5,
+  "application": "Atlas Studio",
+  "savedAt": "",
+  "atlas": {
+    "metadata": {
+      "generatedAt": "",
+      "version": "0.5.0",
+      "presentYear": 2026,
+      "referenceNotice": "",
+      "timelineStops": [],
+      "board": {
+        "title": "Nuevo proyecto",
+        "layout": "freeform",
+        "axisMode": "none",
+        "width": 6000,
+        "height": 4000,
+        "autoExpand": true,
+        "backgroundColor": "#ffffff",
+        "backgroundOpacity": 1,
+        "gridVisible": false,
+        "gridColor": "#64748b",
+        "gridOpacity": 0.12,
+        "headersVisible": false,
+        "axis": {
+          "label": "",
+          "min": 0,
+          "max": 100,
+          "step": 10,
+          "categories": []
+        }
+      }
+    },
+    "regions": [],
+    "traditions": [],
+    "events": [],
+    "relations": []
+  },
+  "catalogs": {
+    "entityKinds": [
+      { "id": "entity", "label": "Entidad" },
+      { "id": "process", "label": "Proceso" },
+      { "id": "concept", "label": "Concepto" }
+    ],
+    "statuses": [
+      { "id": "active", "label": "Activo" },
+      { "id": "historical", "label": "Histórico" },
+      { "id": "draft", "label": "Borrador" }
+    ],
+    "relationKinds": [
+      { "id": "descent", "label": "Derivación" },
+      { "id": "influence", "label": "Influencia" },
+      { "id": "fusion", "label": "Fusión" },
+      { "id": "connection", "label": "Conexión" }
+    ],
+    "relationRoles": [
+      { "id": "primary", "label": "Principal" },
+      { "id": "secondary", "label": "Secundaria" },
+      { "id": "hypothetical", "label": "Hipotética" }
+    ],
+    "eventKinds": [
+      { "id": "milestone", "label": "Hito" },
+      { "id": "change", "label": "Cambio" },
+      { "id": "annotation", "label": "Anotación" }
+    ],
+    "confidences": [
+      { "id": "high", "label": "Alta" },
+      { "id": "medium", "label": "Media" },
+      { "id": "low", "label": "Baja" },
+      { "id": "hypothesis", "label": "Hipótesis" }
+    ]
+  },
+  "editor": {
+    "canvas": {
+      "zoom": 0.17,
+      "offsetX": 95,
+      "offsetY": 20,
+      "snap": false,
+      "gridSize": 20,
+      "autoLayout": false
+    },
+    "references": [],
+    "timeline": { "customStops": [] }
+  }
+}
